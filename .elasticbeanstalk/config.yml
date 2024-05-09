@@ -1,12 +1,12 @@
 branch-defaults:
   MOODLE_403_STABLE:
-    environment: Kava-academy-prod
+    environment: AdaptEdtech-env
 environment-defaults:
-  Kava-academy-prod:
+  AdaptEdtech-env:
     branch: null
     repository: null
 global:
-  application_name: Kava
+  application_name: AdaptEdtech
   default_ec2_keyname: aws-eb
   default_platform: PHP 8.2 running on 64bit Amazon Linux 2023
   default_region: us-east-1

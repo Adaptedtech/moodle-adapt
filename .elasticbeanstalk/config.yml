@@ -1,8 +1,8 @@
 branch-defaults:
   MOODLE_403_STABLE:
-    environment: AdaptEdtech-env
+    environment: AdaptEdtech-env-1
 environment-defaults:
-  AdaptEdtech-env:
+  AdaptEdtech-env-1:
     branch: null
     repository: null
 global:

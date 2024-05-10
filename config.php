@@ -178,7 +178,7 @@ $CFG->wwwroot   = $_SERVER['APP_WWWROOT'];
 //
 // - On Windows systems you might specify something like 'c:\moodledata'
 
-$CFG->dataroot  = '/var/app/current/moodledata';
+$CFG->dataroot  = '/var/app/data/moodledata';
 
 
 //=========================================================================

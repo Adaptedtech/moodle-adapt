@@ -1,14 +1,14 @@
 branch-defaults:
-  MOODLE_403_STABLE:
-    environment: AdaptEdtech-env
+  Kapazi:
+    environment: Kapazi-LMS
 environment-defaults:
-  AdaptEdtech-env-1:
+  Kapazi-LMS:
     branch: null
     repository: null
 global:
-  application_name: AdaptEdtech
+  application_name: AdaptLiviu - LMS
   default_ec2_keyname: aws-eb
-  default_platform: PHP 8.2 running on 64bit Amazon Linux 2023
+  default_platform: PHP 8.3 running on 64bit Amazon Linux 2023
   default_region: us-east-1
   include_git_submodules: true
   instance_profile: null

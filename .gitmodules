@@ -1,0 +1,6 @@
+[submodule "admin/tool/objectfs"]
+	path = admin/tool/objectfs
+	url = https://github.com/catalyst/moodle-tool_objectfs.git
+[submodule "local/aws"]
+	path = local/aws
+	url = https://github.com/catalyst/moodle-local_aws

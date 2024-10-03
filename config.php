@@ -1257,3 +1257,4 @@ require_once(__DIR__ . '/lib/setup.php'); // Do not edit
 
 // There is no php closing tag in this file,
 // it is intentional because it prevents trailing whitespace problems!
+$CFG->alternative_file_system_class = '\tool_objectfs\s3_file_system';

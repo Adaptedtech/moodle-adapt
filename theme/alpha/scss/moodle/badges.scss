@@ -66,7 +66,7 @@
 
             &.fa-eye {
                 background-color: $green-100;
-                color: $green-600;
+                color: $green-800;
             }
         }
 
@@ -134,7 +134,7 @@
 
     &.inactive {
         .activatebadge .btn {
-            color: $green-600;
+            color: $green-800;
             background-color: $green-100;
             &:hover {
                 background: $green-200;
@@ -241,7 +241,7 @@ span.status {
 
     &.ready {
         background-color: $green-100;
-        color: $green-600;
+        color: $green-800;
     }
 
 

@@ -37,7 +37,7 @@
 {{#noncontacts}}
     <a
         href="#"
-        class="p-1 text-decoration-none d-flex list-group-item list-group-item-action align-items-start"
+        class="p-2 text-decoration-none d-inline-flex list-group-item list-group-item-action align-items-start border rounded mb-1"
         data-route="view-conversation"
         {{#conversationid}}
             data-route-param-1="{{.}}"
@@ -60,11 +60,11 @@
             src="{{{profileimageurl}}}"
             alt="{{fullname}}"
             aria-hidden="true"
-            style="height: 20px"
+            style="height: 30px"
         >
         <h6 class="ml-2 mb-0 font-weight-bold align-self-center">{{#highlight}}{{{highlight}}}{{/highlight}}{{^highlight}}{{fullname}}{{/highlight}}</h6>
         {{#isblocked}}
-            <div class="ml-auto align-self-end">
+            <div class="ml-auto mr-1 my-0 align-self-center">
                 {{#pix}} t/block, core, {{#str}} contactblocked, message {{/str}} {{/pix}}
             </div>
         {{/isblocked}}

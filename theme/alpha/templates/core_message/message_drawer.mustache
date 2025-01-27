@@ -38,12 +38,16 @@
     <div id="message-drawer-{{uniqid}}" class="message-app" data-region="message-drawer" role="region">
         <div class="header-container" data-region="header-container">
             <div class="rui-message-header-container row no-gutters justify-content-between w-100">
-                <button class="message-drawer-toggle btn-msg-danger" title="{{#cleanstr}} closebuttontitle {{/cleanstr}}" aria-label="{{#cleanstr}} closebuttontitle {{/cleanstr}}">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.25 6.75L6.75 17.25"></path>
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6.75 6.75L17.25 17.25"></path>
-                    </svg>
-                </button>
+                <div class="closewidget">
+                    <a class="btn-msg-danger" data-action="closedrawer" href="#"
+                    title="{{#cleanstr}} closebuttontitle {{/cleanstr}}" role="button" aria-label="{{#cleanstr}} closebuttontitle {{/cleanstr}}"
+                    >
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.25 6.75L6.75 17.25"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6.75 6.75L17.25 17.25"></path>
+                        </svg>
+                    </a>
+                </div>
                 {{> core_message/message_drawer_view_overview_header }}
             </div>
 

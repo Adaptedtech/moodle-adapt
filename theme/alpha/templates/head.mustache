@@ -28,7 +28,7 @@
 
       Theme: alpha Moodle Theme
       Author: Marcin Czaja - Rosea Themes (rosea.io)
-      Version: 2.5.11
+      Version: 2.5.13
 
       Copyright © 2022 - 2024
 
@@ -59,16 +59,13 @@
     {{/googlefonturl}}
     {{/fontfiles}}
 
-    {{#fontawesome}}
-    <link href="{{siteurl}}/theme/alpha/addons/fontawesome/css/all.css" rel="stylesheet">
-    <!-- support v4 icon references/syntax for Web Fonts -->
-    <link href="{{siteurl}}/theme/alpha/addons/fontawesome/css/v4-shims.css" rel="stylesheet" />
-    {{/fontawesome}}
-
     {{#isfrontpage}}
     <!-- Swiper JS -->
     <script src="{{siteurl}}/theme/alpha/addons/swiper/swiper-bundle.min.js"></script>
     <script src="{{siteurl}}/theme/alpha/addons/tinyslider/tiny-slider.js"></script>
     <link rel="stylesheet" href="{{siteurl}}/theme/alpha/addons/tinyslider/tiny-slider.css">
     {{/isfrontpage}}
+
+    {{{additionalheadscripts}}}
+
 </head>

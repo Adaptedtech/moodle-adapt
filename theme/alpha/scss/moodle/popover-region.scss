@@ -576,6 +576,7 @@ $content-header-footer-height: 110px;
     font-weight: $font-weight-medium;
     background-color: darken($dropdown-bg, 10);
     color: $dropdown-link-color;
+    text-decoration: none;
 
     .theme-dark & {
         background-color: $dm-dropdown-link-hover-bg;

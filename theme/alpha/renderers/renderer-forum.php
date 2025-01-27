@@ -14,10 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ *
+ * @package   theme_alpha
+ * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
 defined('MOODLE_INTERNAL') || die();
 
-// Forum.
 require_once($CFG->dirroot . "/mod/forum/renderer.php");
+
+/**
+ * Forum.
+ *
+ */
 class theme_alpha_mod_forum_renderer extends plugin_renderer_base {
     /**
      * Returns the navigation to the previous and next discussion.
@@ -29,35 +40,58 @@ class theme_alpha_mod_forum_renderer extends plugin_renderer_base {
     public function neighbouring_discussion_navigation($prev, $next) {
         $html = '';
         if ($prev || $next) {
-            $html .= html_writer::start_tag('div', array('class' => 'discussion-nav clearfix border p-2 rounded'));
+            $html .= html_writer::start_tag('div', ['class' => 'discussion-nav clearfix border p-2 rounded']);
             $html .= html_writer::start_tag('ul');
             if ($prev) {
-                $url = new moodle_url('/mod/forum/discuss.php', array('d' => $prev->id));
-                $html .= html_writer::start_tag('li', array('class' => 'prev-discussion'));
+                $url = new moodle_url('/mod/forum/discuss.php', ['d' => $prev->id]);
+                $html .= html_writer::start_tag('li', ['class' => 'prev-discussion']);
                 $html .= html_writer::link(
                     $url,
-                    '<svg class="mr-2" width="16" height="16" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor">
-                    <path d="M18.5 12H6m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    '<svg class="mr-2"
+                        width="16"
+                        height="16"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        color="currentColor">
+                    <path d="M18.5 12H6m0 0l6-6m-6 6l6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
                     </svg>' . format_string($prev->name),
-                    array(
+                    [
                         'aria-label' => get_string('prevdiscussiona', 'mod_forum', format_string($prev->name)),
-                        'class' => 'btn btn-xs btn-secondary text-truncate'
-                    )
+                        'class' => 'btn btn-xs btn-secondary text-truncate',
+                    ]
                 );
                 $html .= html_writer::end_tag('li');
             }
             if ($next) {
-                $url = new moodle_url('/mod/forum/discuss.php', array('d' => $next->id));
-                $html .= html_writer::start_tag('li', array('class' => 'next-discussion'));
+                $url = new moodle_url('/mod/forum/discuss.php', ['d' => $next->id]);
+                $html .= html_writer::start_tag('li', ['class' => 'next-discussion']);
                 $html .= html_writer::link(
                     $url,
-                    format_string($next->name) . '<svg class="ml-2" width="16" height="16" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor">
-                            <path d="M6 12h12.5m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    format_string($next->name) .
+                        '<svg class="ml-2"
+                            width="16"
+                            height="16"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            color="currentColor">
+                            <path d="M6 12h12.5m0 0l-6-6m6 6l-6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
                         </svg>',
-                    array(
+                    [
                         'aria-label' => get_string('nextdiscussiona', 'mod_forum', format_string($next->name)),
-                        'class' => 'btn btn-xs btn-secondary text-truncate'
-                    )
+                        'class' => 'btn btn-xs btn-secondary text-truncate',
+                    ]
                 );
                 $html .= html_writer::end_tag('li');
             }
@@ -77,40 +111,44 @@ class theme_alpha_mod_forum_renderer extends plugin_renderer_base {
      */
     public function subscriber_selection_form(user_selector_base $existinguc, user_selector_base $potentialuc) {
         $output = '';
-        $formattributes = array();
+        $formattributes = [];
         $formattributes['id'] = 'subscriberform';
         $formattributes['action'] = '';
         $formattributes['method'] = 'post';
         $output .= html_writer::start_tag('form', $formattributes);
-        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey', 'value' => sesskey()));
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'sesskey', 'value' => sesskey()]);
 
         $existingcell = new html_table_cell();
         $existingcell->text = $existinguc->display(true);
         $existingcell->attributes['class'] = 'existing';
         $actioncell = new html_table_cell();
-        $actioncell->text = html_writer::start_tag('div', array());
+        $actioncell->text = html_writer::start_tag('div', []);
         $actioncell->text .= html_writer::empty_tag('input',
-            array('type' => 'submit',
-                  'name' => 'subscribe',
-                  'value' => get_string('add'),
-                  'class' => 'actionbutton btn btn-success')
+            [
+                'type' => 'submit',
+                'name' => 'subscribe',
+                'value' => get_string('add'),
+                'class' => 'actionbutton btn btn-success',
+            ]
         );
         $actioncell->text .= html_writer::empty_tag('input',
-            array('type' => 'submit',
-                  'name' => 'unsubscribe',
-                  'value' => get_string('remove'),
-                  'class' => 'actionbutton btn btn-danger')
+            [
+                'type' => 'submit',
+                'name' => 'unsubscribe',
+                'value' => get_string('remove'),
+                'class' => 'actionbutton btn btn-danger',
+            ],
         );
-        $actioncell->text .= html_writer::end_tag('div', array());
+        $actioncell->text .= html_writer::end_tag('div', []);
         $actioncell->attributes['class'] = 'actions px-3';
         $potentialcell = new html_table_cell();
         $potentialcell->text = $potentialuc->display(true);
         $potentialcell->attributes['class'] = 'potential';
 
-        $output .= html_writer::start_tag('fieldset', array('class' => 'w-100'));
+        $output .= html_writer::start_tag('fieldset', ['class' => 'w-100']);
         $table = new html_table();
         $table->attributes['class'] = 'subscribertable boxaligncenter mb-2 border-bottom';
-        $table->data = array(new html_table_row(array($existingcell, $actioncell, $potentialcell)));
+        $table->data = [new html_table_row([$existingcell, $actioncell, $potentialcell])];
         $output .= html_writer::table($table);
         $output .= html_writer::end_tag('fieldset');
 
@@ -150,9 +188,9 @@ class theme_alpha_mod_forum_renderer extends plugin_renderer_base {
             $table->cellpadding = 5;
             $table->cellspacing = 5;
             $table->tablealign = 'center';
-            $table->data = array();
+            $table->data = [];
             foreach ($users as $user) {
-                $info = array($this->output->user_picture($user, array('courseid' => $course->id)), fullname($user));
+                $info = [$this->output->user_picture($user, ['courseid' => $course->id]), fullname($user)];
                 if ($canviewemail) {
                     array_push($info, $user->email);
                 }
@@ -187,7 +225,7 @@ class theme_alpha_mod_forum_renderer extends plugin_renderer_base {
      * @return string
      */
     public function timed_discussion_tooltip($discussion, $visiblenow) {
-        $dates = array();
+        $dates = [];
         if ($discussion->timestart) {
             $dates[] = get_string('displaystart', 'mod_forum') . ': ' . userdate($discussion->timestart);
         }
@@ -199,7 +237,7 @@ class theme_alpha_mod_forum_renderer extends plugin_renderer_base {
         $dates[] = get_string($str, 'mod_forum');
 
         $tooltip = implode("\n", $dates);
-        return $this->pix_icon('i/calendar', $tooltip, 'moodle', array('class' => 'smallicon timedpost'));
+        return $this->pix_icon('i/calendar', $tooltip, 'moodle', ['class' => 'smallicon timedpost']);
     }
 
     /**

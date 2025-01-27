@@ -39,10 +39,10 @@
     }
   }
 
-  .icon {
+  img.icon {
     margin: 0 .35rem;
-    width: auto;
-    height: auto;
+    width: 16px;
+    height: 16px;
 
     font-size: $btn-font-size;
 
@@ -54,8 +54,12 @@
   flex-wrap: wrap;
 }
 
-a.btn:after {
-  display: none;
+a.btn {
+  text-decoration: none;
+
+  &:after {
+    display: none;
+  }
 }
 
 .btn,

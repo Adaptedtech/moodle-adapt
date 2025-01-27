@@ -469,6 +469,7 @@ $assign-margin: 60px;
     background-color: $orange-100;
 }
 
+.submissiongraded,
 .submissionstatussubmitted,
 .earlysubmission,
 .submissioneditable,
@@ -812,6 +813,7 @@ $assign-margin: 60px;
 .submissionstatussubmitted,
 .earlysubmission,
 .latesubmission,
+.submissiongraded,
 .submissionnoteditable,
 .path-mod-assign [data-region="grade-panel"] div.submissionnotgraded,
 .overdue,
@@ -864,5 +866,21 @@ $assign-margin: 60px;
 #page-mod-assign-grading {
     .generaltable {
         width: max-content;
+
+        thead {
+            position: sticky;
+            top: $navbar-height;
+            z-index: $zindex-fixed;
+            background-color: $container-bg;
+        }
+    }
+}
+
+
+.theme-dark#page-mod-assign-grading {
+    .generaltable {
+        thead {
+            background-color: $dm-container-bg;
+        }
     }
 }

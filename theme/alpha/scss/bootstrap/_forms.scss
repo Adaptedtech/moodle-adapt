@@ -16,6 +16,7 @@ textarea.quickgrade,
 #email_email {
   display: inline-block;
   width: 100%;
+  min-width: 100px;
 
   font-family: $input-font-family;
 
@@ -538,22 +539,43 @@ textarea.form-control {
   .form-control {
     width: 260px !important;
   }
+}
 
-  [data-passwordunmask="unmask"] {
-    background-color: $gray-100;
-    margin: 0 5px;
-    width: 30px;
-    height: 30px;
-    border-radius: $btn-border-radius-lg;
+[data-passwordunmask="wrapper"] {
+  display: inline-flex;
+  align-items: center;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+[data-passwordunmask="unmask"] {
+  background-color: $gray-100;
+  margin: 0 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: $btn-border-radius-lg;
+  font-size: 12px;
+  color: $body-color;
 
-    .theme-dark & {
-      background-color: $dm-gray-100;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $primary-color-100;
+    color: $primary-color-600;
   }
+
+  .theme-dark & {
+    background-color: $dm-gray-300;
+    color: $dm-body-color;
+  }
+}
+
+#id_quizpassword_instructions {
+  margin-top: 0;
+  font-size: $font-size-xs;
 }
 
 [data-fieldtype="passwordunmask"] img {

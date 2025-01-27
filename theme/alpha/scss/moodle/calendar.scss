@@ -68,6 +68,7 @@ $calendarCurrentDateBackground: $primary;
 [data-action=filter-event-type] {
   display: flex;
   align-items: center;
+  text-decoration: none;
 
   &:focus {
     border-radius: $btn-border-radius;
@@ -664,8 +665,7 @@ td.day {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-
+  gap: 5px;
   width: 100%;
 
   @include media-breakpoint-between(xs, sm) {
@@ -948,7 +948,7 @@ td.day {
 
   .controls {
     width: 100%;
-    margin: 10px auto;
+    margin: 30px auto 10px;
   }
 
   .calendar_event_category {
@@ -1484,10 +1484,7 @@ td.day {
     height: 36px;
     border-radius: $btn-border-radius-lg;
     margin-right: 10px;
-
-    .icon {
-      opacity: .6;
-    }
+    color: $body-color;
   }
 
   .event-icon {
@@ -1496,7 +1493,7 @@ td.day {
       align-items: center;
       margin-right: .5rem;
 
-      .icon {
+      img.icon {
         .theme-dark & {
           filter: invert(1);
         }
@@ -1977,6 +1974,7 @@ table.calendartable caption {
 
     .rui-calendar-list-content {
       padding: 5px 0;
+      text-decoration: none;
 
       .block.block_calendar_month & {
         padding: 8px;
@@ -2034,6 +2032,7 @@ table.calendartable caption {
     font-size: $font-size-xs;
     color: $gray-900 !important;
     text-align: center;
+    text-decoration: none;
     vertical-align: baseline;
     @include border-radius();
 

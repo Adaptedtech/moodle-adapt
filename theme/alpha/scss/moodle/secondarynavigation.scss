@@ -28,8 +28,10 @@
         position: sticky;
         z-index: $zindex-fixed - 1;
 
+        #page-question-edit &,
         .format-tiles-tile-open & {
             position: relative;
+            top: 0;
         }
 
         .sticky-header & {

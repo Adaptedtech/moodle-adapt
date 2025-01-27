@@ -151,7 +151,7 @@
 */
 
 $rb-left-sidebar-width: 250px;
-$rb-right-sidebar-width: 350px;
+$rb-right-sidebar-width: 320px;
 
 .reportbuilder-report-container {
     min-width: 0;
@@ -171,12 +171,12 @@ $rb-right-sidebar-width: 350px;
             width: 18px;
             height: 18px;
             vertical-align: text-top;
-            color: $body-color;
+            margin: 0;
         }
     }
 
     button[data-action="report-remove-column"] .icon {
-        margin-right: 0;
+        margin: 0;
     }
 }
 
@@ -189,7 +189,7 @@ $rb-right-sidebar-width: 350px;
 
     .card-body .list-group-item-action {
         border: 1px solid $border-color;
-        border-radius: $btn-border-radius;
+        border-radius: $border-radius;
 
         width: calc(100% - 4px);
         margin: 1px 2px;
@@ -205,9 +205,15 @@ $rb-right-sidebar-width: 350px;
         }
 
         .icon {
+            margin: 0!important;
             width: 18px;
             height: 18px;
         }
+
+    }
+
+    a.list-group-item-action:hover {
+        box-shadow: $box-shadow-sm;
     }
 }
 
@@ -222,6 +228,14 @@ $rb-right-sidebar-width: 350px;
 
 /* Settings sidebar */
 .reportbuilder-sidebar-settings {
+
+    .condition-header {
+        background-color: $gray-100;
+        .theme-dark & {
+            background-color: $dm-gray-200;
+        }
+    }
+
     overflow-y: auto;
     @include thin-scrolls($scroll-bg-track);
 
@@ -235,13 +249,20 @@ $rb-right-sidebar-width: 350px;
     }
 
     .list-group-item {
-        padding: .3rem .75rem;
+        padding: 7px;
+        margin: 2px 0;
+        width: 100%;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+
+        .theme-dark & {
+            border-color: $dm-border-color;
+        }
 
         .icon {
+            margin: 0;
             width: 18px;
             height: 18px;
-
-            color: $body-color;
         }
 
         button[data-action="report-remove-filter"],
@@ -278,16 +299,6 @@ $rb-right-sidebar-width: 350px;
         width: 100%;
     }
 }
-
-/* Add button styles when a toggle button is active. */
-// .reportbuilder-wrapper {
-//     button.btn-outline-secondary[data-toggle="collapse"]:not(.collapsed),
-//     .dropdown.show button.btn-outline-secondary[data-toggle="dropdown"] {
-//         color: color-yiq($gray-600);
-//         background-color: $gray-600;
-//         border-color: $gray-600;
-//     }
-// }
 
 /* Drag&drop styles. */
 .reportbuilder-sortable-list li,
@@ -331,13 +342,13 @@ $rb-right-sidebar-width: 350px;
             z-index: $zindex-fixed;
             max-width: calc(100% - 40px);
             width: max-content;
-            border-radius: $btn-border-radius;
+            border-radius: $border-radius;
             padding-top: 0;
             margin-bottom: 0 !important;
         }
 
         .dynamictabs .tab-content {
-            padding-top: $tabs-height + 20px;
+            padding-top: 100px;
         }
 
         .reportbuilder-sidebar-menu {
@@ -350,12 +361,13 @@ $rb-right-sidebar-width: 350px;
 
         .reportbuilder-sidebar-settings {
             position: absolute;
-            right: 30px;
+            right: 0;
             max-height: calc(100vh - #{$sidebar-margin-top});
         }
 
         .reportbuilder-report[data-editing] .reportbuilder-report-container {
-            max-height: calc(100vh - #{$sidebar-margin-top});
+            width: 100%;
+            max-height: calc(100vh - 160px);
             overflow-y: auto;
             @include thin-scrolls($scroll-bg-track);
 
@@ -378,9 +390,21 @@ $rb-right-sidebar-width: 350px;
 }
 
 /* Toggle cards. */
+.path-admin-reportbuilder .card-header {
+    .inplaceeditable .quickeditlink {
+        margin-left: 0!important;
+    }
+}
+
 .reportbuilder-toggle-card {
     .card-header {
-        border-bottom: none;
+        .card-header {
+            border-bottom: none;
+        
+            .inplaceeditable .quickeditlink {
+                margin-left: 0!important;
+            }
+        }
     }
 
     .card-body {
@@ -393,8 +417,7 @@ $rb-right-sidebar-width: 350px;
 
     .toggle-card-button {
         i.toggle-card-icon {
-            color: $gray-600;
-            font-size: 1.5em;
+            font-size: 14px;
             font-weight: 700;
         }
 
@@ -524,7 +547,7 @@ $rb-right-sidebar-width: 350px;
 
                 button {
                     padding: 0 .5rem;
-                    color: $gray-600;
+                    color: $gray-800;
 
                     i {
                         font-size: 1.5em;
@@ -540,5 +563,14 @@ $rb-right-sidebar-width: 350px;
 .reportbuilder-report[data-report-type="0"]:not([data-editing]) {
     @include media-breakpoint-down(xs) {
         @include table-cards;
+    }
+}
+
+#page-admin-reportbuilder-edit {
+    #darkModeBtn {
+        position: fixed;
+        top: 55px;
+        right: 0;
+        z-index: $zindex-fixed;
     }
 }

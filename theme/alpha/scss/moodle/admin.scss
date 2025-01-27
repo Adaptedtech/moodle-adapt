@@ -11,6 +11,14 @@
             color: $dm-body-color;
         }
 
+        &:before {
+            background-color: $body-color;
+
+            .theme-dark & {
+                background-color: $dm-body-color;
+            }
+        }
+
         &:hover {
             color: $link-hover-color;
 
@@ -25,6 +33,14 @@
 
         .theme-dark & {
             color: $dm-body-color-light;
+        }
+
+        &:before {
+            background-color: $body-color-light;
+
+            .theme-dark & {
+                background-color: $dm-body-color-light;
+            }
         }
     }
 }
@@ -85,6 +101,8 @@
 
 .environmenttable {
 
+    width: 100%;
+
     .warn,
     .error,
     .ok {
@@ -122,15 +140,17 @@
         vertical-align: baseline;
         border-radius: $btn-border-radius;
 
-        background-color: $gray-100;
         color: $gray-800;
 
         &:before {
             display: none;
         }
 
+        &:hover .icon,
         .icon {
-            margin-left: 5px;
+            background-color: transparent!important;
+            padding: 5px!important;
+            margin: 0 5px;
             width: 16px;
             height: 16px;
         }
@@ -544,6 +564,7 @@
             font-family: $font-family-base;
             font-weight: $font-weight-medium;
             font-size: .9rem;
+            text-decoration: none;
 
             &::before {
                 display: none;
@@ -974,7 +995,7 @@
     .pluginupdateinfo {
         margin: .5rem 0;
 
-        padding: 20px;
+        padding: 14px;
         border: none;
         background-color: #fff;
         box-shadow: $box-shadow-lg;
@@ -1023,11 +1044,18 @@
         .btn {
             padding: 7px 16px;
             font-size: $font-size-sm;
+            width: 100%;
         }
 
         .singlebutton {
             margin: 1rem 0 0;
             padding: 0;
+            width: 100%;
+
+            form {
+                width: 100%;
+                margin-bottom: 0;
+            }
 
             div,
             input {
@@ -1173,7 +1201,7 @@
 #page-admin-tasklogs {
     .task-class {
         font-size: $font-size-sm;
-        color: $gray-600;
+        color: $gray-800;
 
         .theme-dark & {
             background-color: $dm-gray-600;
@@ -1310,12 +1338,9 @@
     margin: 30px 0;
 
     .actions {
-        a {
-            font-weight: $font-weight-medium;
-        }
-
         .badge {
             margin-left: 10px;
+            padding: 3px 10px;
         }
     }
 }
@@ -1466,7 +1491,7 @@
     border-radius: $btn-border-radius-sm;
 
     font-size: $font-size-xs;
-    color: $gray-600;
+    color: $gray-800;
 
     .theme-dark & {
         background-color: $dm-gray-100;
@@ -1474,7 +1499,7 @@
     }
 
     @include media-breakpoint-down(sm) {
-        display: none!important;
+        display: none !important;
     }
 }
 
@@ -1525,7 +1550,8 @@
 }
 
 @include media-breakpoint-up(lg) {
-    [data-settings-name="theme_alpha_scb"] {
+    [data-settings-name="theme_alpha_scb"],
+    [data-settings-name="theme_alphachild_scb"] {
         margin-top: 35px;
         position: relative;
 
@@ -1701,31 +1727,31 @@ textarea[id$="id_s_theme_alpha_urlcustomitem"] {
 #admin-customitem4,
 #admin-customitem5,
 #admin-customalertid,
-#stringshowonlyinprogress
-{
+#stringshowonlyinprogress {
     @include media-breakpoint-up(lmd) {
         padding-left: 110px !important;
         position: relative;
-    
+
         &:before {
             content: '';
             position: absolute;
             top: 8px;
             left: 60px;
-    
+
             width: 40px;
             height: 40px;
             background-image: url("data:image/svg+xml,%3Csvg height='34' viewBox='0 0 16 34' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.5 30v-30m0 31h13' fill='none' stroke='#{url-friendly-colour($body-color-light)}' stroke-linecap='round' stroke-width='2' transform='translate(1 1.5)'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: 10px -17px;
             background-size: 20px;
-    
+
             .theme-dark & {
                 background-image: url("data:image/svg+xml,%3Csvg height='34' viewBox='0 0 16 34' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.5 30v-30m0 31h13' fill='none' stroke='#{url-friendly-colour($dm-body-color-light)}' stroke-linecap='round' stroke-width='2' transform='translate(1 1.5)'/%3E%3C/svg%3E");
             }
-        }    
+        }
     }
 }
+
 
 [id^="admin-displayblock"] {
     display: inline-flex;
@@ -1742,6 +1768,7 @@ textarea[id$="id_s_theme_alpha_urlcustomitem"] {
     }
 }
 
+[id^="theme_alphachild_block1"],
 [id^="theme_alpha_block1"] {
     a {
         padding-top: 10px;
@@ -1992,6 +2019,7 @@ textarea[id$="id_s_theme_alpha_urlcustomitem"] {
         left: -4px;
         right: -4px;
         bottom: -4px;
+        border-radius: 8px;
     }
 
     &.bg--desc {
@@ -2146,7 +2174,9 @@ textarea[id$="id_s_theme_alpha_urlcustomitem"] {
 }
 
 [id^="#id_s_theme_alpha_labelcustomitem"],
-[id^="#id_s_theme_alpha_urlcustomitem"] {
+[id^="#id_s_theme_alpha_urlcustomitem"],
+[id^="#id_s_theme_alphachild_labelcustomitem"],
+[id^="#id_s_theme_alphachild_urlcustomitem"] {
     height: 65px;
 }
 
@@ -2208,4 +2238,8 @@ textarea[id$="id_s_theme_alpha_urlcustomitem"] {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.badge.bg-light.text-dark {
+    background-color: $gray-200!important;
 }

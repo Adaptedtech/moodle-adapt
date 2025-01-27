@@ -27,7 +27,7 @@
     }
 }}
 {{^disabled}}
-    <a href="{{url}}" class="dropdown-item {{$actionmenulinkclasses}}aabtn {{classes}}{{/actionmenulinkclasses}}" {{#attributes}}{{name}}="{{value}}" {{/attributes}}{{#showtext}}aria-labelledby="actionmenuaction-{{instance}}"{{/showtext}}>
+    <a href="{{url}}" role="none" class="dropdown-item {{$actionmenulinkclasses}}aabtn {{classes}}{{/actionmenulinkclasses}}" {{#attributes}}{{name}}="{{value}}" {{/attributes}}{{#showtext}}aria-labelledby="actionmenuaction-{{instance}}"{{/showtext}}>
         {{#icon}}
             {{#pix}}{{key}}, {{component}}, {{title}}{{/pix}}
         {{/icon}}
@@ -37,5 +37,5 @@
     </a>
 {{/disabled}}
 {{#disabled}}
-    <span class="dropdown-item currentlink" role="menuitem">{{#icon}}{{#pix}}{{key}},{{component}},{{title}}{{/pix}}{{/icon}}{{{text}}}</span>
+    <span class="dropdown-item currentlink" role="none">{{#icon}}{{#pix}}{{key}},{{component}},{{title}}{{/pix}}{{/icon}}{{{text}}}</span>
 {{/disabled}}

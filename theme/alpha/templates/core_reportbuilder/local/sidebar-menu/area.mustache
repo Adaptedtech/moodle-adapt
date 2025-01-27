@@ -40,24 +40,17 @@
                 <span class="sr-only">{{#str}} search, core_search {{/str}}</span>
             </label>
             <span class="search-input-icon">
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"></path>
                 </svg>
             </span>        
             <input type="text"
-            id="searchinput-{{uniqid}}"
+            id="reportbuilder-sidebar-search"
             type="text"
             class="search-input"
             placeholder="{{#str}} search, core_search {{/str}}"
             aria-label="{{#str}} search, core_search {{/str}}"
-            data-action="sidebar-search">
-            <button type="submit" class="search-input-btn">
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H4.75"></path>
-                </svg>
-                <span class="sr-only">{{ searchstring }}</span>
-            </button>            
+            data-action="sidebar-search">          
         </div>
 
     </div>

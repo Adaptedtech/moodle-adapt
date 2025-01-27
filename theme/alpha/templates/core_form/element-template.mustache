@@ -56,10 +56,7 @@
         </label>
         {{/element.staticlabel}}
         {{/ label }}{{/ label}}
-        <sup class="sup">
-            {{#required}}<span title="{{#str}}required{{/str}}" class="rui-req-icon">{{#pix}}req, core, {{#str}}required{{/str}}{{/pix}}</span>{{/required}}
-            {{{helpbutton}}}
-        </sup>
+        <sup class="sup">{{#required}}<span title="{{#str}}required{{/str}}" class="rui-req-icon">{{#pix}}req, core, {{#str}}required{{/str}}{{/pix}}</span>{{/required}}{{{helpbutton}}}</sup>
     </div>
     <div class="col-md-9 form-inline felement px-0" data-fieldtype="{{element.type}}">
         {{$ element }}

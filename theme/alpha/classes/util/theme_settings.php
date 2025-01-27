@@ -54,7 +54,7 @@ class theme_settings {
         'seoappletouchicon',
         'footerbgimg',
         'loginbg',
-        'fontfiles'
+        'fontfiles',
     ];
 
     /**
@@ -83,6 +83,9 @@ class theme_settings {
         return $this->theme->settings->$name;
     }
 
+    /**
+     * Global Settings.
+     */
     public function global_settings() {
         $templatecontext = [];
         $elements = [
@@ -113,12 +116,13 @@ class theme_settings {
             'customsidebarlogo',
             'customsidebardmlogo',
             'seomanifestjson',
-            'seoappletouchicon' ,
+            'seoappletouchicon',
             'favicon16',
             'favicon32',
             'faviconsafaritab',
             'footerbgimg',
-            'loginbg'
+            'loginbg',
+            'additionalheadscripts',
         ];
 
         foreach ($elements as $setting) {
@@ -168,7 +172,7 @@ class theme_settings {
             'instagram',
             'cwebsiteurl',
             'mobile',
-            'mail'
+            'mail',
         ];
 
         foreach ($elements as $setting) {
@@ -183,11 +187,11 @@ class theme_settings {
             'block5slidesperrow',
             'customalertcontent',
             'customsocialicon',
-            'website'
+            'website',
         ];
 
         foreach ($elementshtml as $setting) {
-            $templatecontext[$setting] = format_text(($this->$setting), FORMAT_HTML, array('noclean' => true));
+            $templatecontext[$setting] = format_text(($this->$setting), FORMAT_HTML, ['noclean' => true]);
         }
 
         return $templatecontext;

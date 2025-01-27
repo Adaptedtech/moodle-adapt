@@ -5,6 +5,16 @@
         width: auto;
     }
 
+    #page {
+        overflow: visible !important;
+        height: auto;
+        margin: 0 !important;
+    }
+
+    body {
+        margin: 0 !important
+    }
+
     #page.drawers {
         overflow-y: initial;
         height: 100%;
@@ -27,5 +37,9 @@
     body.drawer-open-index--open {
         margin-left: 0 !important;
         margin-right: 0 !important;
+    }
+
+    #page.drawers {
+        height: max-content;
     }
 }

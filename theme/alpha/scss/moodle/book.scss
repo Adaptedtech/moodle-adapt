@@ -2,12 +2,11 @@
 //---- Module Activity
 
 .path-mod-book .navtop,
-.path-mod-book .navbottom
-{
-    border: 0!important;
+.path-mod-book .navbottom {
+    border: 0 !important;
 
 
-    @include media-breakpoint-between(xs,md) {
+    @include media-breakpoint-between(xs, md) {
         width: 100%;
     }
 
@@ -21,7 +20,7 @@
         line-height: 1.2;
 
         &:only-of-type {
-            margin-left: 0!important;
+            margin-left: 0 !important;
         }
 
         &:hover {
@@ -55,29 +54,29 @@
     }
 }
 
-        .path-mod-book .navtop {
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
+.path-mod-book .navtop {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 
-            position: sticky;
-            top: 60px;
-        }
+    position: sticky;
+    top: 60px;
+}
 
-        .path-mod-book .navbottom {
-            //TODO: Temporrary disabled
-            /*margin: 1rem 0 0;
+.path-mod-book .navbottom {
+    //TODO: Temporrary disabled
+    /*margin: 1rem 0 0;
             width: 100%;
             display: inline-flex;
             justify-content: flex-end;*/
-            display: none;
-        }
+    display: none;
+}
 
 
-        .theme-dark.path-mod-book .navtop a,
-        .theme-dark.path-mod-book .navbottom a {
-            filter: invert(1);
-        }
+.theme-dark.path-mod-book .navtop a,
+.theme-dark.path-mod-book .navbottom a {
+    filter: invert(1);
+}
 
 
 .bookprev {
@@ -99,7 +98,7 @@
 
 .block_book_toc {
     h5 {
-        display: block!important;
+        display: block !important;
         margin-bottom: 0.5rem;
     }
 }
@@ -111,39 +110,34 @@
 }
 
 .path-mod-book .book_toc li {
-    margin: 0 0 15px;
+    margin-bottom: 0.25rem;
 
-    strong {
-        background-color: transparent;
+    a, strong {
+        padding: 5px;
+        margin: .1rem 0;
         display: block;
+        border-radius: $border-radius;
     }
 
     a {
-        background-color: transparent;
+        text-decoration: none;
         color: $body-color;
 
-        &:hover {
-            color: $link-hover-color;
+        &::after {
+            display: none;
         }
+
+        &:hover {
+            background-color: $blue-100;
+            text-decoration: none;
+            color: $blue-600;
+        }
+
     }
 
     strong {
-        //active item
-        color: $primary-color-600;
-    }
-
-    div {
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    ul li {
-        font-size: $font-size-xs;
-        margin-bottom: 2px;
-
-        a,strong {
-            color: $body-color-light;
-        }
+        background-color: $gray-200;
+        color: $gray-600;
     }
 
 }
@@ -153,13 +147,14 @@
         color: $dm-body-color;
 
         &:hover {
+            background-color: $dm-gray-100;
             color: $dm-link-hover-color;
         }
 
     }
 
     strong {
-        background-color: $dm-gray-200;
+        background-color: $dm-gray-400;
         color: $dm-body-color-light;
     }
 }
@@ -167,22 +162,30 @@
 .editing {
     .book_toc {
         .text-truncate {
-            padding: 0px 10px 5px;
-            margin: 0 -5px;
+            padding: 5px 10px;
+            margin: -5px -5px 0;
             width: calc(100% + 10px);
             border-bottom: 1px solid $border-color;
-    
-            .theme-dark & {
-                border-color: $dm-border-color;
-            }
         }
-    }    
+    }
+}
+
+.theme-dark .editing {
+    .book_toc {
+        .text-truncate {
+            border-color: $dm-border-color;
+        }
+    }
 }
 
 .editing.path-mod-book .book_toc li {
     border: 1px solid $border-color;
     padding: 5px;
     border-radius: 5px;
+
+    div.d-flex {
+        flex-wrap: wrap;
+    }
 }
 
 .theme-dark.editing.path-mod-book .book_toc li {
@@ -194,8 +197,8 @@
 .modal-in-page,
 .book_content {
     background-color: $container-bg;
-    padding: 30px!important;
-    margin: 0!important;
+    padding: 30px !important;
+    margin: 0 !important;
 
     position: relative;
 
@@ -204,12 +207,13 @@
     border-color: $gray-300 $gray-200 $gray-300 $gray-300;
     border-radius: $btn-border-radius;
 
-    @include media-breakpoint-between(xs,sm) {
-    padding: 10px!important;
-    margin: 0 20px!important;
+    @include media-breakpoint-between(xs, sm) {
+        padding: 10px !important;
+        margin: 0 20px !important;
     }
 
-    &:before, &:after {
+    &:before,
+    &:after {
         content: '';
 
         width: 10px;
@@ -235,32 +239,32 @@
     }
 }
 
-        .theme-dark#page-enrol-index .main-content,
-        .theme-dark#page-grade-report-overview-index .main-content,
-        .theme-dark .rui-book-wrapper,
-        .theme-dark .modal-in-page,
-        .theme-dark .book_content {
-            background-color: $dm-container-bg;
-            border-color: $dm-gray-300 $dm-gray-300 $dm-gray-300 $dm-gray-300;
+.theme-dark#page-enrol-index .main-content,
+.theme-dark#page-grade-report-overview-index .main-content,
+.theme-dark .rui-book-wrapper,
+.theme-dark .modal-in-page,
+.theme-dark .book_content {
+    background-color: $dm-container-bg;
+    border-color: $dm-gray-300 $dm-gray-300 $dm-gray-300 $dm-gray-300;
 
-            &:before {
-                border-color: $dm-gray-300;
-            }
+    &:before {
+        border-color: $dm-gray-300;
+    }
 
-            &:after {
-                border-color: $dm-gray-300;
-            }
-        }
+    &:after {
+        border-color: $dm-gray-300;
+    }
+}
 
-        #page-grade-report-overview-index .main-content {
-            .grade-navigation {
-                width: auto;
-            }
-        }
+#page-grade-report-overview-index .main-content {
+    .grade-navigation {
+        width: auto;
+    }
+}
 
 
 .book_content {
-    margin-bottom: 20px;
+    margin-bottom: 20px!important;
 
     .rui-title-container {
         margin-top: 0;
@@ -282,7 +286,7 @@
 .book-tags {
     margin-top: $page-padding-global;
     margin-bottom: $page-padding-global;
-    
+
     a {
         padding-left: 24px;
 
@@ -302,8 +306,8 @@
 
 
 // Block
-.block_book_toc {
-    border: 0!important;
+.path-mod-book .block_book_toc {
+    border: 0 !important;
     padding: 0;
 
     .card-body {
@@ -311,20 +315,33 @@
     }
 
     .action-list {
-        margin-top: 5px;
+        gap: 5px;
+        margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
         justify-content: flex-end;
-        
+
         a {
+            margin: 0 !important;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 30px;
             width: 30px;
+
+            background-color: $gray-100;
+            border-radius: 30px;
+            font-size: 14px !important;
+            color: $body-color;
+            text-decoration: none;
+
+            &:hover {
+                background-color: $primary-color-100;
+                color: $primary-color-600;
+            }
         }
 
-        .icon {
+        img.icon {
             font-size: 12px;
             display: inline-flex;
             align-items: center;
@@ -335,6 +352,11 @@
             }
         }
     }
+}
+
+.theme-dark.path-mod-book .block_book_toc .action-list a {
+    background-color: $dm-gray-100;
+    color: $dm-body-color;
 }
 
 .path-mod-book {
@@ -366,8 +388,8 @@
 
 .path-mod-book .btn-previous,
 .path-mod-book .btn-next {
-    width: 40px!important;
-    height: 40px!important;
+    width: 40px !important;
+    height: 40px !important;
     border-radius: 40px;
 
     display: flex;

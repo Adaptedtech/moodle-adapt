@@ -9,22 +9,24 @@ $icon-big-width: 60px;
 $icon-big-height: 60px;
 
 // stylelint-disable
-$iconsizes: () !default;
-$iconsizes: map-merge((
-  0: 0,
-  1: ($icon-width * .25),
-  2: ($icon-width * .5),
-  3: $icon-width,
-  4: ($icon-width * 1.5),
-  5: ($icon-width * 2),
-  6: ($icon-width * 2.5),
-  7: ($icon-width * 3)
-), $iconsizes);
+$iconsizes: (
+    ) !default;
+$iconsizes: map-merge((0: 0,
+            1: ($icon-width * .25),
+            2: ($icon-width * .5),
+            3: $icon-width,
+            4: ($icon-width * 1.5),
+            5: ($icon-width * 2),
+            6: ($icon-width * 2.5),
+            7: ($icon-width * 3)), $iconsizes
+);
 // stylelint-enable
 
 .icon {
     width: $icon-width;
     height: $icon-height;
+    font-size: 14px;
+    line-height: 20px;
     // vertical-align: middle;
     margin: 0;
     padding: 0;
@@ -33,6 +35,8 @@ $iconsizes: map-merge((
     .sup & {
         width: 16px;
         height: 16px;
+        font-size: 16px;
+        line-height: 12px;
     }
 
     &.itemicon {
@@ -47,19 +51,20 @@ $iconsizes: map-merge((
         width: $icon-big-width;
         height: $icon-big-height;
         font-size: $icon-big-height;
+        line-height: $icon-big-height;
     }
 }
 
-        // Mainly for icons in page title
-        .iconlarge {
-            font-size: 40px;
-            width: 40px;
-            height: 40px;
-        }
+// Mainly for icons in page title
+.iconlarge {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+}
 
-        h2 .icon.iconlarge {
-            margin-right: .5rem;
-        }
+h2 .icon.iconlarge {
+    margin-right: .5rem;
+}
 
 
 .action-menu-item a:hover {
@@ -72,7 +77,8 @@ $iconsizes: map-merge((
 
 // YUI 2 Tree View icons must not have a margin left.
 .ygtvcell .icon {
-    margin: 3px 6px !important; /* stylelint-disable-line declaration-no-important */
+    margin: 3px 6px !important;
+    /* stylelint-disable-line declaration-no-important */
 }
 
 // In the navigation, tree icons should not have margins.
@@ -88,7 +94,7 @@ $iconsizes: map-merge((
 }
 
 // Apply in special cases where the default icons styles does not work properly. Eg file picker buttons.
-.icon-no-spacing a > .icon {
+.icon-no-spacing a>.icon {
     margin: 0;
 }
 
@@ -113,7 +119,7 @@ $iconsizes: map-merge((
 }
 
 
-.icon-large > .icon {
+.icon-large>.icon {
     width: ($icon-width * 2);
     height: ($icon-height * 2);
 }
@@ -121,9 +127,13 @@ $iconsizes: map-merge((
 @each $size, $length in $iconsizes {
     .icon-size-#{$size} {
         .icon {
-            height: $length !important; /* stylelint-disable-line declaration-no-important */
-            width: $length !important; /* stylelint-disable-line declaration-no-important */
-            font-size: $length !important; /* stylelint-disable-line declaration-no-important */
+            height: $length !important;
+            /* stylelint-disable-line declaration-no-important */
+            width: $length !important;
+            /* stylelint-disable-line declaration-no-important */
+            font-size: $length !important;
+            /* stylelint-disable-line declaration-no-important */
+            line-height: $length;
         }
     }
 }
@@ -132,7 +142,7 @@ $iconsizes: map-merge((
     margin-right: 0.5rem;
 }
 
-.action-icon + a {
+.action-icon+a {
     margin-left: 0.5rem;
 }
 
@@ -151,7 +161,7 @@ $iconsizes: map-merge((
     border-radius: $btn-border-radius;
 
     font-size: 8px;
-    color: $red-700!important;
+    color: $red-700 !important;
 
     .fdescription & {
         background-color: transparent;
@@ -174,10 +184,15 @@ $iconsizes: map-merge((
         }
     }
 
+    .collapsed-icon,
     .expanded-icon {
         display: flex;
         align-items: center;
-        padding: 0!important;
+        padding: 0 !important;
+    }
+
+    .icon {
+        margin: 0;
     }
 
     .collapsed-icon {
@@ -190,7 +205,7 @@ $iconsizes: map-merge((
         }
 
         .collapsed-icon {
-            line-height: 1;
+            line-height: 16px;
             display: flex;
             align-items: center;
         }
@@ -203,7 +218,7 @@ $iconsizes: map-merge((
     align-items: center;
 
     background-color: $gray-100;
-    color: $gray-600;
+    color: $gray-800;
 
     font-size: 10px;
     font-weight: $font-weight-bold;
@@ -232,7 +247,7 @@ $iconsizes: map-merge((
         &:hover {
             box-shadow: $box-shadow;
         }
-    
+
         .theme-dark & {
             filter: invert(1);
             box-shadow: none;
@@ -254,7 +269,7 @@ $iconsizes: map-merge((
         &:hover {
             box-shadow: $box-shadow-md;
         }
-    
+
         .theme-dark & {
             filter: invert(1);
             box-shadow: none;

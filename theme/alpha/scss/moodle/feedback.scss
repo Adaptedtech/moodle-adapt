@@ -71,6 +71,10 @@
             padding-left: 40px!important;
         }
 
+        .theme-dark & {
+            border-color: $dm-border-color;
+        }
+
     }
 
     .form-description, .form-control-static {
@@ -202,7 +206,7 @@
     background-color: $green-100;
 
     font-size: $font-size-xs;
-    color: $green-600;
+    color: $green-800;
 }
 
 #page-mod-feedback-complete [align="center"] {
@@ -275,10 +279,12 @@
     }
 }
 
-.rui-form-element-group {
-    gap: 10px;
-
-    br {
-        display: none;
+.cm-type-feedback {
+    .rui-form-element-group {
+        gap: 10px;
+    
+        br {
+            display: none;
+        }
     }
 }

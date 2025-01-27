@@ -1,6 +1,17 @@
 CHANGELOG
 alpha Moodle Theme
-- - - -
+- - - 
+## [2.5.13] - August 16, 2024
+# Fixed:
+  - Minor Bug Fixes
+
+## [2.5.12] - July 5, 2024
+# Improvements:
+ - WCAG Improvements
+
+# Fixed:
+  - Minor Bug Fixes
+
 ## [2.5.11] - April 5, 2024
 # Fixed:
   - Minor Bug Fixes
@@ -10,7 +21,7 @@ alpha Moodle Theme
  - More SEO Favicon options
  
 # Improvements:
- - UI improvements for Quiz, Lesson, Feedback
+ - UI improvements for Quizzes, Lesson, Feedback
  
 # Fixed:
   - Minor Bug Fixes

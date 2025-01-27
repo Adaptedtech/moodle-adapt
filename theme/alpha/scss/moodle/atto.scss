@@ -61,7 +61,6 @@ div.editor_atto_toolbar button {
     border: 0;
     margin: 0;
     border-radius: $btn-border-radius;
-    line-height: 1;
     cursor: pointer;
 
     &:hover {
@@ -114,7 +113,7 @@ div.editor_atto_toolbar button::-moz-focus-inner {
     padding: 0;
 }
 
-div.editor_atto_toolbar button .icon {
+div.editor_atto_toolbar button img.icon {
     padding: 0;
     margin: 2px 0;
 
@@ -184,6 +183,10 @@ div.editor_atto_toolbar div.atto_group {
 .atto_form textarea.fullwidth,
 .atto_form input.fullwidth {
     width: 100%;
+}
+
+.atto_form input.input-mini {
+    width: auto;
 }
 
 .atto_form {
@@ -370,11 +373,6 @@ div.editor_atto_content:hover .atto_control {
 .atto_image_button_text-bottom.img-fluid {
     max-width: 100%;
     margin: 0;
-    border-radius: $btn-border-radius;
-}
-
-.atto_toolbar_row {
-    display: inline;
 }
 
 .atto_form {
@@ -425,4 +423,50 @@ div.editor_atto_content:hover .atto_control {
 
 .editor_atto_content_wrap {
     word-break: break-word;
+}
+
+// Moodle 4.4
+.tiny_image_filename {
+    font-size: $font-size-xs;
+}
+
+.tiny_image_footer_template {
+    .col-md-6 {
+        flex-wrap: wrap;
+    }
+
+    .tiny_image_url_label {
+        margin-bottom: 0;
+        margin-right: 16px!important;
+        font-size: $font-size-xs;
+    }
+
+    .mt-2 {
+        margin: 0!important;
+    }
+}
+
+.tiny_image_form {
+    .tiny_image_dropzone_container {
+
+        .dropzone {
+            border-radius: $btn-border-radius;
+            border: 2px dashed $gray-400;
+            background-color: $gray-100;
+    
+            .theme-dark & {
+                background-color: $dm-gray-100;
+                border-color: $dm-gray-400;
+            }
+        }
+
+        .dropzone-icon {
+            margin-top: 40px;
+            font-size: 40px;
+        }
+
+        .dropzone-label {
+            font-size: $font-size-sm;
+        }
+    }
 }

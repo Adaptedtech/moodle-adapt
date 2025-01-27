@@ -74,13 +74,6 @@ $default = 1;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $page->add($setting);
 
-$name = 'theme_alpha/fontawesome';
-$title = get_string('fontawesome', 'theme_alpha');
-$description = get_string('fontawesome_desc', 'theme_alpha');
-$default = 1;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-$page->add($setting);
-
 // Video Size
 $name = 'theme_alpha/forcefwvideo';
 $title = get_string('forcefwvideo', 'theme_alpha');

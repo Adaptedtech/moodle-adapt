@@ -193,7 +193,8 @@ a:not([class]),
 .aabtn,
 .btn-link,
 .nav-link,
-.atto_link_button,
+.editor_atto_toolbar button,
+.editor_atto_toolbar .atto_toolbar_row,
 [role="button"],
 .list-group-item-action,
 input[type="checkbox"],
@@ -202,13 +203,68 @@ input[type="file"],
 input[type="image"],
 .sr-only-focusable,
 a.dropdown-toggle,
-.modal-dialog[tabindex="0"],
 .moodle-dialogue-base .closebutton,
 button.close,
-.form-autocomplete-selection {
+.form-autocomplete-selection,
+[role="treeitem"]:not([aria-expanded="true"]) {
+    @if variable-exists(accessiblebtnfocus) {
+        @if $accessiblebtnfocus==1 {
+
+            &.focus,
+            &:focus {
+                outline: 0;
+                box-shadow: $input-btn-focus-box-shadow;
+            }
+        }
+    }
+
     &:focus:hover {
         text-decoration: none;
     }
+}
+
+// Modal dialogs border should be rounded too.
+.modal-dialog[tabindex="0"] {
+
+    &.focus,
+    &:focus {
+        outline: 0;
+
+        @if variable-exists(accessiblebtnfocus) {
+            @if $accessiblebtnfocus==1 {
+                .modal-content {
+                    outline: 0;
+                    box-shadow: $input-btn-focus-box-shadow;
+
+                    // Modal dialogs border should be rounded too.
+                    @include border-radius($modal-content-border-radius);
+                }
+            }
+        }
+    }
+}
+
+// We don't want to highlight the whole li when it's expanded. Only the first child is highlighted.
+[role="treeitem"][aria-expanded="true"] {
+    outline: 0;
+
+    &.focus,
+    &:focus {
+        >*:first-child {
+            outline: 0;
+            box-shadow: $input-btn-focus-box-shadow;
+        }
+    }
+
+    &:focus:hover {
+        text-decoration: none;
+    }
+}
+
+// Accessible focus styling for autocomplete elements.
+.form-autocomplete-suggestions li[aria-selected=true] {
+    outline: 0;
+    box-shadow: $input-btn-focus-box-shadow;
 }
 
 // Safari does not allow custom styling of checkboxes.
@@ -1173,10 +1229,13 @@ table {
         align-items: center;
         justify-content: center;
 
-        background-color: $white;
+        background-color: $red-100;
         width: 30px;
         height: 30px;
+        color: $red-800;
         border-radius: $btn-border-radius-lg;
+
+        text-decoration: none;
 
         .rui-icon {
             margin: 0;
@@ -1187,7 +1246,7 @@ table {
 
         &:hover {
             text-decoration: none;
-            background-color: $gray-300;
+            background-color: $red-200;
         }
     }
 
@@ -1199,6 +1258,7 @@ table {
 
 .comment-link {
     display: none;
+    text-decoration: none;
 }
 
 .jsenabled .comment-link {
@@ -1207,7 +1267,6 @@ table {
 
     font-weight: $font-weight-medium;
     color: $body-color;
-    margin-bottom: 1rem;
 
     &:hover {
         text-decoration: none;
@@ -1780,10 +1839,12 @@ tr.flagged-tag a {
 .resourcecontent audio.mediaplugin_html5audio {
     width: 600px;
 }
+
 /** Large resource images should avoid hidden overflow **/
 .resourceimage {
     max-width: 100%;
 }
+
 /* Audio player size in 'inline' mode (can only change width, as above) */
 .mediaplugin_mp3 object {
     height: 15px;
@@ -2424,7 +2485,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
         .optionactions {
             .optionaction {
                 cursor: pointer;
-                color: $gray-600;
+                color: $gray-800;
 
                 .theme-dark & {
                     color: $dm-gray-800;
@@ -3047,13 +3108,14 @@ dd:after {
     }
 
     .quickeditlink {
+        display: block;
         width: max-content;
         max-width: 300px;
         color: inherit;
         text-decoration: inherit;
         z-index: 2;
 
-        .icon {
+        img.icon {
             .theme-dark & {
                 filter: invert(1);
             }
@@ -3081,6 +3143,10 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions {
             margin: auto;
             height: 48vh;
             width: 46vw;
+
+            .path-mod-assign:not(:has(.rui-review-panel.collapsed)) .form-group & {
+                width: inherit;
+            }
         }
     }
 
@@ -3448,6 +3514,7 @@ body.h5p-embed {
 }
 
 #page.drawers {
+
     form#h5peditor,
     form#coolh5peditor,
     .core_contentbank_viewcontent {
@@ -3545,7 +3612,7 @@ input[disabled] {
 }
 
 .matchtext {
-    background-color: lighten($primary, 40%);
+    background-color: $primary-color-200;
     color: $body-color;
     height: 1.5rem;
 }
@@ -3674,7 +3741,7 @@ $picker-emojis-per-row: 7 !default;
     max-width: $toast-max-width;
     max-height: 0;
     // Place these above any modals and other elements.
-    z-index: 9999;
+    z-index: 10010;
 
     > :first-child {
         margin-top: $spacer;
@@ -4077,7 +4144,7 @@ body#page-user-preferences {
 
             color: $body-color-secondary;
             font-weight: $font-weight-medium;
-
+            text-decoration: none;
             transition: $transition-base;
 
             &:hover {
@@ -5049,6 +5116,7 @@ div[data-flexitour="step-background"] {
 
 body.mce-content-body {
     background-color: $body-bg;
+    height: calc(100% - 16px);
 }
 
 body.mce-content-body.theme-dark {
@@ -5067,11 +5135,15 @@ body.mce-content-body.theme-dark {
 .jsenabled .tox-shadowhost.tox-fullscreen,
 .jsenabled .tox.tox-tinymce.tox-fullscreen,
 .jsenabled .tox-tinymce-aux {
-    z-index: 9999 !important;
+    z-index: 10009 !important;
+}
+
+.tox-tinymce-aux {
+    z-index: 10000 !important;
 }
 
 .tox-tinymce {
-    min-height: 170px;
+    min-height: 400px;
 }
 
 /* Notifications settings */

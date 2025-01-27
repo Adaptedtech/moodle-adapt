@@ -21,10 +21,6 @@
             border: 1px solid $border-color;
             border-radius: $btn-border-radius;
 
-            .theme-dark & {
-                border-color: $dm-border-color;
-            }
-
             .content {
                 margin: 1rem 0;
 
@@ -72,10 +68,6 @@
 
                 font-size: $font-size-sm;
                 font-weight: $font-weight-bold;
-
-                .theme-dark & {
-                    background-color: $dm-gray-100;
-                }
             }
 
             h4 {
@@ -87,10 +79,6 @@
                 padding-right: 1rem;
 
                 border-top: 2px solid $border-color;
-
-                .theme-dark & {
-                    border-color: $dm-border-color;
-                }
             }
 
             .rui-icon {
@@ -102,6 +90,22 @@
                 font-size: $font-size-sm;
             }
 
+        }
+    }
+}
+
+.theme-dark#page-report-outline-user  {
+    .main-content {
+        .section {
+            border-color: $dm-border-color;
+
+            h2 {
+                background-color: $dm-gray-100;
+            }
+
+            h4 {
+                border-color: $dm-border-color;
+            }
         }
     }
 }

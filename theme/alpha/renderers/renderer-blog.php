@@ -32,11 +32,16 @@ class theme_alpha_core_blog_renderer extends core_blog_renderer {
 
         $syscontext = context_system::instance();
 
-        $stredit = get_string('edit');
-        $strdelete = get_string('delete');
+        // $stredit = get_string('edit');
+        // $strdelete = get_string('delete');
+
+        $permalinkclass = '';
+        if (strpos($this->page->url, 'entryid') == true) {
+            $permalinkclass = 'wrapper-fw ';
+        }
 
         // Header.
-        $mainclass = 'wrapper-fw blog blog-entry ';
+        $mainclass = 'blog blog-entry ' . $permalinkclass;
         if ($entry->renderable->unassociatedentry) {
             $mainclass .= 'draft';
         } else {
@@ -56,7 +61,7 @@ class theme_alpha_core_blog_renderer extends core_blog_renderer {
 
         $postcreated = userdate($entry->created);
 
-        $o .= $this->output->container_start('blog-entry-date-box d-inline-flex align-items-center justify-content-between');
+        $o .= $this->output->container_start('blog-entry-date-box d-inline-flex flex-wrap align-items-center justify-content-between');
 
         $o .= html_writer::start_div('blog-entry-date');
         $o .= $postcreated;
@@ -68,7 +73,7 @@ class theme_alpha_core_blog_renderer extends core_blog_renderer {
                     get_string('modified') .
                     ': ' .
                     userdate($entry->lastmodified),
-                    'blog-entry-date--mod badge badge-light ml-2'
+                    'blog-entry-date--mod badge badge-light'
                 );
         }
         $o .= $this->output->container_end(); // Blog-entry-date-box end.
@@ -86,7 +91,7 @@ class theme_alpha_core_blog_renderer extends core_blog_renderer {
             format_string($entry->subject)
         );
         $o .= $this->output->container_start('blog-entry-topic');
-        $o .= $this->output->container($titlelink, 'subject wrapper-fw m2-4');
+        $o .= $this->output->container($titlelink, 'subject wrapper-fw');
 
         // Attachments.
         $attachmentsoutputs = array();
@@ -244,27 +249,28 @@ class theme_alpha_core_blog_renderer extends core_blog_renderer {
             );
         }
 
-        $entryurl = new moodle_url('/blog/index.php', array('entryid' => $entry->id));
-        $icon = '
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M13.75 6.75L19.25 12L13.75 17.25"
-            >
-            </path>
-            <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M19 12H4.75"
-            >
-            </path>
-        </svg>';
-        $o .= html_writer::link($entryurl, $icon, array('class' => 'btn btn-icon btn-secondary'));
-
+        if (strpos($this->page->url, 'entryid') == false) {
+            $entryurl = new moodle_url('/blog/index.php', array('entryid' => $entry->id));
+            $icon = '
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M13.75 6.75L19.25 12L13.75 17.25"
+                >
+                </path>
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M19 12H4.75"
+                >
+                </path>
+            </svg>';
+            $o .= html_writer::link($entryurl, $icon, array('class' => 'btn btn-icon btn-secondary'));
+        }
         $o .= $this->output->container_end();
 
         // Adding external blog link.

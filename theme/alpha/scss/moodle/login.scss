@@ -142,7 +142,7 @@ body.path-login.pagelayout-base {
         }
     }
 
-    h2 {
+    h1 {
         font-size: 30px;
         margin-bottom: 0;
     }
@@ -217,6 +217,7 @@ body.path-login.pagelayout-base {
     }
 }
 
+#page-admin-tool-mfa-auth .login-container .main-content,
 #page-login-forgot_password .login-container .main-content {
     max-width: 500px;
 
@@ -258,6 +259,10 @@ body.path-login.pagelayout-base {
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
     color: $body-color-light;
+
+    &::before {
+        background-color: $body-color-light;
+    }
 }
 
 
@@ -287,7 +292,7 @@ body.path-login.pagelayout-base {
         flex-direction: row;
 
         @include media-breakpoint-up(md) {
-            border-radius: $btn-border-radius;
+            border-radius: $btn-border-radius-lg;
         }
 
         @include media-breakpoint-between(xs, sm) {
@@ -299,7 +304,7 @@ body.path-login.pagelayout-base {
         flex-direction: row-reverse;
 
         @include media-breakpoint-up(md) {
-            border-radius: $btn-border-radius;
+            border-radius: $btn-border-radius-lg;
         }
 
         @include media-breakpoint-between(xs, sm) {
@@ -324,11 +329,11 @@ body.path-login.pagelayout-base {
     }
 
     .rui-login-layout--2 & {
-        border-radius: 0 $btn-border-radius $btn-border-radius 0;
+        border-radius: 0 $border-radius-lg $border-radius-lg 0;
     }
 
     .rui-login-layout--3 & {
-        border-radius: $btn-border-radius 0 0 $btn-border-radius;
+        border-radius: $btn-border-radius-lg 0 0 $border-radius-lg;
     }
 
     h1,
@@ -530,7 +535,7 @@ body.path-login.pagelayout-base {
     height: 40px;
 
     border: 1px solid $border-color;
-    border-radius: $btn-border-radius;
+    border-radius: $btn-border-radius-lg;
 
     color: $gray-900;
 
@@ -574,7 +579,7 @@ body.path-login.pagelayout-base {
 
     border: none;
     background-color: $gray-900;
-    border-radius: $btn-border-radius;
+    border-radius: $btn-border-radius-lg;
     font-size: $font-size-xs;
     color: $gray-100;
 
@@ -789,7 +794,7 @@ body.path-login.pagelayout-base {
         left: 30px;
     }
 
-    h2 {
+    h1 {
         font-size: 16px;
     }
 

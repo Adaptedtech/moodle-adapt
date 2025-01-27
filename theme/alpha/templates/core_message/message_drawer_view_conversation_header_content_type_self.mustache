@@ -43,9 +43,9 @@
 <div class="rui-message-header-margin">
     <div class="d-flex align-items-start">
         <div class="align-self-stretch" >
-            <button class="ml-3 d-flex align-items-center btn-msg mr-3" data-route-back>
+            <a href="#" class="ml-3 d-flex align-items-center btn-msg mr-3" data-route-back>
                 {{> core_message/message_drawer_icon_back }}
-            </button>
+            </a>
         </div>
         <div class="d-inline-flex">
             <a class="rui-message-header-info d-inline-flex text-decoration-none" href="#" data-action="view-group-info">
@@ -67,7 +67,15 @@
                 {{/imageurl}}
                  <div>
                     <div class="d-block">
-                        <h4 class="rui-message-name mb-0 pr-2">{{name}}</h4>
+                        <h4 class="rui-message-name mb-0 pr-2">
+                        {{name}}
+                            <span
+                                class="{{^ismuted}}hidden{{/ismuted}} ml-1 text-primary"
+                                data-region="muted-icon-container"
+                            >
+                                {{#pix}} i/muted, core, {{#str}} mutedconversation, core_message {{/str}} {{/pix}}
+                            </span>
+                        </h4>
                     </div>
                     {{#subname}}
                     <div class="rui-message-user-status">

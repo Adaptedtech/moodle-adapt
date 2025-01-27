@@ -124,7 +124,12 @@ $THEME->layouts = [
     // Moodle 4.x. - My courses page.
     'mycourses' => array(
         'file' => 'tmpl-columns2.php',
-        'regions' => array(),
+        'regions' => array(
+            'side-pre',
+            'sidebartb',
+            'sidebarbb',
+            'sidecourseblocks'
+        ),
         'options' => array('nonavbar' => true),
     ),
     // My dashboard page.
@@ -241,6 +246,7 @@ $THEME->precompiledcsscallback = 'theme_alpha_get_precompiled_css';
 $THEME->yuicssmodules = [];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
+$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->haseditswitch = true;
 // By default, all Alpha theme do not need their titles displayed.

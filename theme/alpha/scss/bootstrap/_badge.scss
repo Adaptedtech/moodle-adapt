@@ -70,8 +70,17 @@
   .icon {
     width: 14px;
     height: 14px;
+    line-height: 14px;
     font-size: $badge-font-size;
   }
+}
+
+.badge.bg-secondary {
+  background-color: $gray-200!important;
+}
+
+a.badge {
+  text-decoration: none;
 }
 
 .badge-sq {
@@ -136,6 +145,10 @@
   border-radius: $btn-border-radius;
   font-size: 11px;
   font-weight: $badge-font-weight;
+
+  .fa {
+    line-height: 20px;
+  }
 }
 
 // Quick fix for badges in buttons

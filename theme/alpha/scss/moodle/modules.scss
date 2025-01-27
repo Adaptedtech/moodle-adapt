@@ -667,7 +667,7 @@ div#dock {
     }
 
     .qnbutton.correct {
-        color: $green-600;
+        color: $green-800;
 
         .thispageholder {
             border-color: $green-300;
@@ -676,7 +676,7 @@ div#dock {
 
     .qnbutton.correct .trafficlight {
         background-color: rgba($green-200, .5);
-        color: $green-600;
+        color: $green-800;
     }
 
     .qnbutton.blocked .trafficlight {
@@ -760,7 +760,7 @@ div#dock {
 
         font-size: $font-size-md;
         font-weight: $font-weight-medium;
-        color: $green-600;
+        color: $green-800;
     }
 }
 

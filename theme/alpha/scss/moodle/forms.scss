@@ -263,6 +263,10 @@ fieldset.coursesearchbox label {
   border-radius: $btn-border-radius;
   padding: 5px 20px;
 
+  .theme-dark & {
+    background-color: $dm-gray-100;
+  }
+
   .availability-eye {
     margin-right: 0.35rem;
   }
@@ -294,12 +298,20 @@ fieldset.coursesearchbox label {
   margin-top: 0;
   margin-right: 0;
 
+  .theme-dark & {
+    border-color: $dm-border-color;
+  }
+
   .availability-none {
-    background-color: $yellow-200;
     padding: 0.25rem;
     border-radius: $btn-border-radius;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
+    color: $body-color;
+
+    .theme-dark & {
+      color: $dm-body-color;
+    }
 
     .badge {
       margin: 0 !important;
@@ -308,13 +320,31 @@ fieldset.coursesearchbox label {
 
   .label {
     display: inline-block;
-    margin: 0.25rem 0;
+    margin: 10px;
     padding: 0.25rem 0.5rem;
-    background-color: $yellow-200;
+    background-color: $gray-200;
     border-radius: $btn-border-radius;
 
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
+    color: $body-color;
+
+    .theme-dark & {
+      background-color: $dm-gray-200;
+      color: $dm-body-color;
+    }
+  }
+
+  .availability-eye {
+    padding: 3px;
+    border-radius: 100%;
+    background-color: $container-bg;
+    box-shadow: rgba(60, 64, 67, 0.2) 0px 1px 0px 0px, rgba(60, 64, 67, 0.15) 0px 2px 4px 1px;
+
+    .theme-dark & {
+      background-color: #aeaeae;
+      box-shadow: none;
+    }
   }
 }
 
@@ -440,10 +470,7 @@ fieldset.coursesearchbox label {
   justify-content: flex-start;
 
   .badge-label {
-    width: max-content;
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    width: auto;
   }
 }
 
@@ -481,7 +508,7 @@ fieldset.coursesearchbox label {
   margin: 0 0 0.25rem;
   cursor: pointer;
 
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   font-weight: $font-weight-medium;
   color: $dropdown-color;
 
@@ -498,9 +525,24 @@ fieldset.coursesearchbox label {
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &[aria-selected="true"] {
     background-color: $dropdown-link-hover-bg;
     color: $dropdown-link-hover-color;
+  }
+
+  &[aria-disabled="true"] {
+      pointer-events: none;
+      color: $custom-select-disabled-color;
+      background-color: $custom-select-disabled-bg;
+  }
+  &.suggestions-heading {
+      pointer-events: none;
+      font-size: $font-size-md;
+      font-weight: $font-weight-bold;
+      color: $dropdown-color;
+      background-color: transparent;
+      padding-left: 11px;
   }
 
   &::before {
@@ -582,6 +624,7 @@ fieldset.coursesearchbox label {
   }
 }
 
+
 /** Undo some bootstrap things */
 .form-autocomplete-selection+input.form-control {
   width: auto;
@@ -591,6 +634,17 @@ fieldset.coursesearchbox label {
 
 .form-autocomplete-selection {
   max-width: 300px;
+
+  margin: 0 0 5px;
+  padding: 3px;
+  min-height: 45px;
+
+  border: 2px dashed $border-color;
+  border-radius: $border-radius-sm;
+
+  .theme-dark & {
+    border-color: $dm-border-color;
+  }
 }
 
 .form-autocomplete-selection [data-active-selection="true"] {
@@ -701,7 +755,6 @@ textarea[data-auto-rows] {
 
 // Styles for the JS file types browser provided by the "filetypes" element.
 [data-filetypesbrowserbody] {
-
   [aria-expanded="false"]>[role="group"],
   [aria-expanded="false"] [data-filetypesbrowserfeature="hideifcollapsed"],
   [aria-expanded="true"] [data-filetypesbrowserfeature="hideifexpanded"] {
@@ -721,7 +774,6 @@ textarea[data-auto-rows] {
 }
 
 
-//TODO: this UI part needs to be improved
 @include media-breakpoint-up(sm) {
 
   .modal .mform fieldset.collapsible legend a.fheader,
@@ -1151,33 +1203,33 @@ textarea[data-auto-rows] {
 
 
 //TODO: Calendar fields
-/*#id_filterstartdate_calendar,
-      #id_filterenddate_calendar,
-      #id_datefrom_calendar,
-      #id_datetill_calendar,
-      #id_locktime_calendar,
-      #id_completionexpected_calendar,
-      a[id*="id_bydate_"]*/
 a[id*="_calendar"] {
   margin: 0 5px;
   padding: 5px;
   background-color: $gray-100;
+  color: $body-color;
   border-radius: $btn-border-radius;
   line-height: 1;
+
+  .theme-dark & {
+    background-color: $dm-gray-300;
+  color: $dm-body-color;  
+  }
 
   &:hover {
     color: $primary-color-600;
     background-color: $primary-color-100;
   }
 
-  .theme-dark & {
-    filter: invert(1);
-    background-color: $gray-100;
+  &:before {
+    display: none;
   }
 
   .icon {
     width: 24px;
     height: 24px;
+    font-size: 16px;
+    line-height: 24px;
     margin: 0;
   }
 }
@@ -1374,7 +1426,7 @@ a[id*="_calendar"] {
 
   &.rui-show-password-btn--hidden {
     background-color: $gray-100;
-    color: $gray-600;
+    color: $gray-800;
 
     .showpassword-icon--on {
       display: none;
@@ -1438,6 +1490,14 @@ label+.btn[data-toggle="popover"] {
   font-size: $font-size-sm;
 }
 
-form.bg-light {
-  background-color: transparent!important;
+.col-form-label {
+  .sup {
+    min-width: max-content;
+    display: inline-flex;
+    line-height: 1.4;
+
+    &:empty {
+      display: none;
+    }
+  }
 }

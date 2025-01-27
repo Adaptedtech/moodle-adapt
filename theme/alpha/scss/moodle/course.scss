@@ -1001,10 +1001,6 @@ body:not(.editing) .sitetopic ul.section {
     @include media-breakpoint-between(xs, sm) {
     margin: 0 10px 0 0;
     }
-
-    .theme-dark & {
-        mix-blend-mode: hard-light;
-    }
 }
 
 .section .activity .activityinstance,
@@ -3816,6 +3812,7 @@ body.editing .course-content ul.collapsibleweeks li.section .left.side {
     .sectionname {
         font-family: $font-family-base;
         font-weight: $font-weight-medium;
+        width: -webkit-fill-available;
 
         @include media-breakpoint-up(md) {
             font-size: .9rem;
@@ -3838,11 +3835,10 @@ body.editing .course-content ul.collapsibleweeks li.section .left.side {
     }
 
     .rui-course-header-btn-icon {
-        width: 100%;
         padding: 12px 16px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start!important;
         flex-grow: inherit;
         color: $body-color-light;
 

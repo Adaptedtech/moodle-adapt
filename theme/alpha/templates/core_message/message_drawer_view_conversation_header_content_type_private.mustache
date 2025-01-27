@@ -37,11 +37,13 @@
 
 <div class="rui-message-header-margin">
     <div class="d-flex align-items-start">
+    {{#showrouteback}}
         <div class="align-self-stretch" >
-            <button class="ml-3 d-flex align-items-center btn-msg mr-3" data-route-back>
+            <a class="ml-3 d-flex align-items-center btn-msg mr-3" href="#" data-route-back role="button">
             {{> core_message/message_drawer_icon_back }}
-            </button>
-    </div>
+            </a>
+        </div>
+    {{/showrouteback}}
     <div class="d-inline-flex">
         <a class="rui-message-header-info d-inline-flex text-decoration-none" href="#" data-action="view-contact" role="button">
             {{#imageurl}}
@@ -62,7 +64,15 @@
             {{/imageurl}}
             <div class="w-100">
                 <div class="d-block">
-                    <h4 class="rui-message-name mb-0 pr-2">{{name}}</h4>
+                    <h4 class="rui-message-name mb-0 pr-2">
+                    {{name}}
+                        <span
+                            class="{{^ismuted}}hidden{{/ismuted}} ml-1 text-primary"
+                            data-region="muted-icon-container"
+                        >
+                            {{#pix}} i/muted, core, {{#str}} mutedconversation, core_message {{/str}} {{/pix}}
+                        </span>
+                    </h4>
                 </div>
                 {{#showonlinestatus}}
                     <div class="rui-message-user-status">
@@ -99,6 +109,12 @@
             </a>
             <a class="dropdown-item {{^isblocked}}hidden{{/isblocked}}" href="#" data-action="request-unblock" role="menuitem">
                 {{#str}} unblockuser, core_message {{/str}}
+            </a>
+            <a class="dropdown-item {{#ismuted}}hidden{{/ismuted}}" href="#" data-action="confirm-mute" role="menuitem">
+                {{#str}} muteconversation, core_message {{/str}}
+            </a>
+            <a class="dropdown-item {{^ismuted}}hidden{{/ismuted}}" href="#" data-action="confirm-unmute" role="menuitem">
+                {{#str}} unmuteconversation, core_message {{/str}}
             </a>
             <a class="dropdown-item" href="#" data-action="request-delete-conversation" role="menuitem">
                 {{#str}} deleteconversation, core_message {{/str}}

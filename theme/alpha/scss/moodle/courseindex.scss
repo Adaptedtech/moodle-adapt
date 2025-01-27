@@ -99,6 +99,7 @@ $dm-courseindex-item-dragging-border: theme-color-level('info', -9) !default;
             font-weight: $font-weight-bold;
             font-size: $font-size-sm;
             color: $drawer-nav-btn-text;
+            text-decoration: none;
 
             .theme-dark & {
                 color: $dm-headings-color;
@@ -113,7 +114,9 @@ $dm-courseindex-item-dragging-border: theme-color-level('info', -9) !default;
         .courseindex-link {
             align-self: center;
             color: $drawer-nav-btn-text;
+            word-break: break-word;
             font-size: .8rem;
+            text-decoration: none;
             display: block;
             width: calc(100% - 60px);
 
@@ -270,9 +273,9 @@ $dm-courseindex-item-dragging-border: theme-color-level('info', -9) !default;
             line-height: $line-height-base;
             display: none;
             opacity: .6;
-            position: absolute;
-            top: 2px;
-            right: 2px;
+            position: relative;
+            margin-top: 5px;
+            margin-left: 24px;
         }
 
         &.current {

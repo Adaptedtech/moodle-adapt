@@ -15,7 +15,7 @@
   }
 
   .section-number {
-    margin-right: .35rem;
+    margin-right: 0.35rem;
   }
 
   .section-item {
@@ -55,7 +55,7 @@
 
 .block_course_contents {
   .list-group-item {
-    padding: .25rem;
+    padding: 0.25rem;
     border-radius: $btn-border-radius;
     border-bottom: 0;
   }
@@ -77,7 +77,6 @@
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }
-
 }
 
 @keyframes rotate {
@@ -199,7 +198,6 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
   }
 }
 
-
 #page-admin-enrol-programs-management-program {
   dl.row {
     margin-top: $page-padding-global;
@@ -214,10 +212,6 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
       .dir-rtl & {
         margin-right: 0;
         margin-left: 10px;
-      }
-
-      .theme-dark & {
-        filter: invert(1);
       }
     }
   }
@@ -246,10 +240,6 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
 
 .theme-dark .block_timetable .footer {
   border-color: $dm-border-color;
-
-  .icon {
-    filter: invert(1);
-  }
 }
 
 .block_timetable .timetable-event {
@@ -325,10 +315,6 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
 .block_timetable .event-item {
   border-radius: $btn-border-radius;
   box-shadow: none;
-
-  .theme-dark & {
-    filter: invert(1);
-  }
 }
 
 .block_timetable .footer {
@@ -458,27 +444,24 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
     .nav-tabs {
       .nav-link {
         border: 1px solid $white !important;
-
-        // Adding border to all tabs - Dark Mode
-        .theme-dark & {
-          border: 1px solid $dm-body-bg !important;
-        }
-
-        // Changing the background of the active tab - Dark Mode
-        &.active {
-          .theme-dark & {
-            background: $dm-gray-300 !important;
-            color: $white !important;
-          }
-        }
       }
     }
   }
+}
 
-  // nverting the colour of the add section button - Dark Mode
-  .theme-dark & {
-    .tabs-wrapper .icon {
-      filter: invert(1)
+.theme-dark.format-onetopic {
+
+  .tabs-wrapper,
+  .onetopic-tab-body {
+    .nav-tabs {
+      .nav-link {
+        border: 1px solid $dm-body-bg !important;
+
+        &.active {
+          background: $dm-gray-300 !important;
+          color: $white !important;
+        }
+      }
     }
   }
 }
@@ -486,6 +469,7 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
 /* Inverting the colour of add section button - Dark Mode */
 .onetopic {
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
@@ -493,6 +477,11 @@ body#page-course-view-remuiformat .remui-format-card .automatic-completion-condi
   .format_onetopic-tabs {
     background-color: $gray-100;
     border-radius: $btn-border-radius;
+
+    .nav-link {
+      padding: 10px 24px;
+      display: inline-block;
+    }
 
     .theme-dark & {
       background-color: $dm-gray-100;
@@ -539,17 +528,23 @@ body.format-multitopic #course-header {
   border: 0;
 }
 
-.format-multitopic .course-section {
-  &[data-sectionid="0"] {
-    .icon {
-      display: none;
-    }
-  }
-}
-
 .format-multitopic .course-section-header {
   div {
     margin: 0 !important;
+  }
+
+  .expanded-icon,
+  .collapsed-icon {
+    width: 30px;
+    height: 30px;
+    background-color: $gray-100;
+    color: $gray-900;
+    border-radius: 30px;
+    font-size: 12px;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -618,7 +613,7 @@ body.format-multitopic #course-header {
 }
 
 .format-designer ul.designer .badge.badge-completion {
-  padding: .35rem .85rem;
+  padding: 0.35rem 0.85rem;
 }
 
 .format-designer .designer .section .content .section.link-layout li.activity .mod-content {
@@ -653,11 +648,14 @@ body.format-multitopic #course-header {
   }
 }
 
-
 // Mod Attendence
 .path-mod-attendance .attbtn {
   border: 0;
   padding: 0;
+}
+
+.path-mod-attendance .remarkholder {
+  position: relative;
 }
 
 .path-mod-attendance .takecontrols {
@@ -682,11 +680,33 @@ body.format-multitopic #course-header {
     color: $gray-800;
 
     transition: $transition-base;
-
-    .theme-dark & {
-      filter: invert(1);
-    }
   }
+}
+
+.path-mod-attendance table.userinfobox {
+  padding: 10px;
+
+  #currentdate {
+    margin: 0 10px;
+  }
+
+  h2 {
+    margin: 12px;
+  }
+
+  td.left {
+    background-color: transparent;
+  }
+}
+
+.curdatecontrols {
+  a {
+    text-decoration: none;
+  }
+}
+
+.theme-dark.path-mod-attendance table.allsessions tr.grouper td {
+  background-color: $dm-gray-300;
 }
 
 // Mod Certificate Template
@@ -704,8 +724,8 @@ body.format-multitopic #course-header {
 
 // Point of View Feedback Block
 .btn b {
-  margin-left: .35rem;
-  margin-right: .35rem;
+  margin-left: 0.35rem;
+  margin-right: 0.35rem;
 }
 
 // Plugin Ratings
@@ -725,6 +745,7 @@ body.format-multitopic #course-header {
 }
 
 .customfield_tool_courserating {
+
   .customfieldname,
   .customfieldseparator {
     display: none;
@@ -852,14 +873,9 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
 //Mail Plugin
 
 .popover-region-mail {
-
   .popover-region-header-container {
     align-items: center;
     height: 40px !important;
-
-    .icon {
-      filter: invert(1);
-    }
   }
 
   .popover-region-header-text {
@@ -893,7 +909,7 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
     }
 
     .os-scrollbar-handle {
-      background-color: rgba($white, .85);
+      background-color: rgba($white, 0.85);
     }
   }
 
@@ -945,7 +961,7 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
     }
 
     .icon {
-      margin-right: .35rem;
+      margin-right: 0.35rem;
       opacity: 0.5;
       font-size: $font-size-xs;
     }
@@ -956,10 +972,6 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
   background-color: $primary-color-600;
   border: 2px solid $primary-color-600;
   border-radius: $btn-border-radius;
-}
-
-.theme-dark .popover-region-mail .icon {
-  filter: invert(1);
 }
 
 // Block Mass Action
@@ -982,16 +994,16 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
 
 .block-massaction .block-massaction-action {
   position: relative;
-  margin-left: .2em;
+  margin-left: 0.2em;
 }
 
 .block-massaction-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
 
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -13px;
+  right: -13px;
   z-index: 5;
 }
 
@@ -1053,19 +1065,27 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
   border: 1px solid $gray-100;
   border-radius: $btn-border-radius;
   appearance: none;
-  padding: .25rem 2.25rem .25rem 1.25rem;
+  padding: 0.25rem 2.25rem 0.25rem 1.25rem;
   margin: 4px 0;
   display: inline-block;
   width: 100%;
-  background: #F5F5F5 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23434343' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 10px center / 8px 10px no-repeat
+  background: #f5f5f5 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23434343' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 10px center / 8px 10px no-repeat;
 }
 
 .theme-dark #block-massaction-control-section-list-select,
 .theme-dark #block-massaction-control-section-list-moveto,
 .theme-dark #block-massaction-control-section-list-duplicateto {
-  color: #BDC1C6;
+  color: #bdc1c6;
   background: #191a1e url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23BDC1C6' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 10px center / 8px 10px no-repeat;
-  border-color: #282A2D
+  border-color: #282a2d;
+}
+
+.theme-dark .block-massaction option {
+  color: $dm-dropdown-link-active-color !important;
+
+  &:disabled {
+    color: $dm-dropdown-link-disabled-color !important;
+  }
 }
 
 /* Tool - BFPLUS */
@@ -1073,20 +1093,17 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
   font-size: $font-size-sm;
 }
 
-.block_bfmanager {
+.card-text:has(.block_bfmanager_table),
+.block_bfmanager_view {
   .icon {
     margin-right: 10px;
     width: 16px;
     height: 16px;
-
-    .theme-dark & {
-      filter: invert(1);
-    }
   }
+}
 
-  .block_bfmanager_links {
-    margin-bottom: 10px;
-  }
+.editing .section li.activity.block_bfmanager {
+  padding: 16px 16px 4px 4px !important;
 }
 
 /* Block Completion Progress */
@@ -1105,7 +1122,7 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
 
 .block_completion_progress .overviewButton {
   width: 100%;
-  margin: 5px;
+  margin: 0;
 }
 
 /* QuickMails */
@@ -1167,7 +1184,6 @@ li.activity.modtype_hsuforum .activityiconcontainer img.activityicon,
   h2 {
     font-size: 1.25rem;
   }
-
 }
 
 .realtimequiz_editicons {
@@ -1269,7 +1285,7 @@ table.dataTable td {
   }
 
   .alert-info {
-    padding: .55rem 1.25rem !important;
+    padding: 0.55rem 1.25rem !important;
     border-radius: $btn-border-radius;
     font-size: $font-size-sm;
   }
@@ -1331,7 +1347,9 @@ table.dataTable td {
 .local-mail .dropdown-menu {
   color: $dropdown-color !important;
   background-color: $dropdown-bg !important;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px !important;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px !important;
 
   .btn {
     font-size: $font-size-xs;
@@ -1364,10 +1382,6 @@ table.dataTable td {
     .theme-dark & {
       color: $dm-dropdown-link-hover-color !important;
       background-color: $dm-dropdown-link-hover-bg !important;
-    }
-
-    .icon {
-      filter: invert(1);
     }
   }
 }
@@ -1478,10 +1492,6 @@ table.dataTable td {
     color: $dm-dropdown-link-hover-color !important;
     background-color: $dm-dropdown-link-hover-bg !important;
   }
-
-  .icon {
-    filter: invert(1);
-  }
 }
 
 // Report Roster
@@ -1546,6 +1556,10 @@ table.dataTable td {
 }
 
 //---- Format Tiles
+.format-tiles-tile-open.path-course-view {
+  overflow-y: auto !important;
+}
+
 body.format-tiles #back-to-top {
   display: none;
 }
@@ -1564,14 +1578,21 @@ body.format-tiles #back-to-top {
 .format-tiles.course-3.jsenabled ul.tiles,
 .format-tiles.course-5.jsenabled ul.tiles {
   max-width: 100% !important;
+  position: relative;
+  z-index: 5;
+}
+
+#format_tiles_overlay {
+  z-index: 4;
 }
 
 .format-tiles .course-content li.section ul.format-tiles-cm-list {
-  margin: 0;
-  padding: 10px;
+  @include media-breakpoint-up(md) {
+    margin: -10px;
+  }
 
-  li.activity {
-    padding: 16px 0;
+  @include media-breakpoint-between(xs, sm) {
+    margin: 0;
   }
 }
 
@@ -1615,7 +1636,7 @@ body.format-tiles.limitedwidth:not(.path-mod) #page.drawers .main-inner,
 }
 
 .format-tiles .drawer-toggler {
-  z-index: 1;
+  z-index: 2;
 }
 
 .format-tiles ul.tiles .tile-top {
@@ -1641,7 +1662,6 @@ body.format-tiles.limitedwidth:not(.path-mod) #page.drawers .main-inner,
 .format-tiles .course-content li.activity.subtile,
 .format-tiles .course-content li.section ul.format-tiles-cm-list li.activity {
   padding: 16px 20px;
-  border: 0;
 }
 
 .format-tiles .subtile .completioncheckbox {
@@ -1654,8 +1674,7 @@ body.format-tiles.limitedwidth:not(.path-mod) #page.drawers .main-inner,
 }
 
 li.activity .tileiconcontainer,
-li.activity .tileiconcontainer .tile-icon .icon
-{
+li.activity .tileiconcontainer .tile-icon .icon {
   margin: 0;
   padding: 0;
   width: 45px;
@@ -1663,9 +1682,19 @@ li.activity .tileiconcontainer .tile-icon .icon
 }
 
 .format-tiles #section-0 {
+  h3 {
+    margin: 0;
+    padding: 0 20px;
+    font-size: 1.125rem; // 18px.
+  }
+
   .summary {
     padding: 16px 20px;
   }
+}
+
+.format-tiles .course-content .current::before {
+  border: 0;
 }
 
 // Line: 35
@@ -1681,7 +1710,7 @@ li.activity .tileiconcontainer .tile-icon .icon
 }
 
 .theme-dark.format-tiles .course-content ul li.section.main {
-  background-color: $dm-container-bg;
+  background-color: $dm-container-bg !important;
 }
 
 // Line: 216
@@ -1703,7 +1732,11 @@ li.activity .tileiconcontainer .tile-icon .icon
   justify-content: center;
   box-shadow: none;
 
-  font-size: 12px;
+  font-size: 18px;
+}
+
+.format-tiles .sectionbutton {
+  text-decoration: none;
 }
 
 .format-tiles .buttonhidesec0.open .sec-zero-open-icon {
@@ -1719,10 +1752,6 @@ li.activity .tileiconcontainer .tile-icon .icon
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  .theme-dark & {
-    filter: invert(1);
-  }
 
   .icon {
     width: 14px;
@@ -1757,10 +1786,20 @@ li.activity .tileiconcontainer .tile-icon .icon
   box-shadow: none !important;
 }
 
-
 // Line: 454
 .format-tiles .sectionbuttons {
   top: 10px;
+  right: 10px;
+}
+
+.format-tiles .sectiontitle::after,
+.format-tiles .sectiontitle::after {
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 // Line: 676
@@ -1792,7 +1831,6 @@ li.activity .tileiconcontainer .tile-icon .icon
   left: 20px;
   justify-content: flex-start;
 }
-
 
 // Line: 1088
 .format-tiles .subtiles {
@@ -1859,6 +1897,7 @@ body.jsenabled.format-tiles .above-tiles-buttons {
 
 // Line: 1929
 .format-tiles .sectiontitle h2 {
+  margin-bottom: 0;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   color: $headings-color;
@@ -1870,9 +1909,20 @@ body.jsenabled.format-tiles .above-tiles-buttons {
 
 // Line: 1985
 .format-tiles ul.tiles .tile h3 {
-  font-size: 1rem;
-  font-weight: $font-weight-bold;
   margin-bottom: 0;
+  font-size: 1.125rem; // 18px.
+  font-weight: $font-weight-bold;
+}
+
+.format-tiles ul.tiles .tile .tile-textinner.longtitle h3 {
+  font-size: 14px;
+}
+
+.format-tiles .course-content ul.tiles .tile.phototile.tilestyle-1 .photo-tile-text.longtitle h3 {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
 }
 
 .format-tiles li.activity.subtile .activityname h5 {
@@ -1883,7 +1933,106 @@ body.jsenabled.format-tiles .above-tiles-buttons {
   background-color: transparent !important;
 }
 
+.format-tiles-tile-open {
+
+  #nav-drawer,
+  .drawer.drawer-right,
+  .drawer-course-index,
+  .drawer-toggler {
+    z-index: 1 !important;
+  }
+
+  #topBar,
+  .secondary-navigation {
+    z-index: 1 !important;
+    display: none;
+  }
+}
+
+.format-tiles .loginfo {
+  color: $body-color;
+}
+
+.format-tiles .pagesechead {
+  display: inline-flex;
+  align-items: center;
+}
+
+.format-tiles #abovetiles.sec-zero-closed {
+  width: 100%;
+}
+
+.theme-dark.format-tiles #page .course-content ul li.section.main {
+  background-color: $dm-gray-100 !important;
+}
+
+.format-tiles .course-content .section {
+  background: $container-bg;
+}
+
+.theme-dark.format-tiles .course-content .section {
+  background: $dm-container-bg;
+}
+
+.theme-dark.format-tiles .course-content .section .activity:hover {
+  background-color: transparent;
+}
+
+.format-tiles ul.tiles .tile.selected,
+.format-tiles ul.tiles .section.state-visible {
+  box-shadow: rgba(0, 0, 0, 0.36) 0 9px 16px, rgba(0, 0, 0, 0.2) 0 2px 3px !important;
+}
+
+.theme-dark.format-tiles .course-content ul.tiles .tile.tilestyle-1,
+.theme-dark.format-tiles .course-content ul.tiles .tile.tilestyle-2,
+.theme-dark.format-tiles .modal-header:focus,
+.theme-dark.format-tiles .resourcecontent:focus,
+.theme-dark.format-tiles li.activity.subtile {
+  background-color: $dm-gray-100;
+  box-shadow: rgba(255, 255, 255, 0.12) 0 1px 3px,
+    rgba(255, 255, 255, 0.24) 0 1px 2px;
+}
+
+.theme-dark.format-tiles ul.tiles .tile h3 {
+  color: $dm-body-color;
+}
+
+.theme-dark #format_tiles_overlay {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.format-tiles .course-content ul.tiles .tile.phototile {
+  background-color: #f3f8fc !important;
+}
+
+.theme-dark.format-tiles.format-tiles-tile-open .tile.phototile:not(.selected):not(:hover) {
+  filter: brightness(30%) contrast(100%);
+}
+
+.format-tiles .tileiconcontainer .icon.fa {
+  font-size: 45px;
+}
+
+@media screen and (max-width: 600px) {
+  .format-tiles ul.tiles .tile .tile-text {
+    height: 105px;
+    padding-top: 0px;
+  }
+
+  .format-tiles .tile a {
+    padding: 5px !important;
+  }
+}
+
 //---- InteliCard
+.dashboard-products-box .nav-tabs {
+  width: 100%;
+}
+
+.intellicart-menu .nav-tabs .nav-link:hover {
+  color: #fff !important;
+}
+
 .popover-region-intellicart {
 
   .rui-tooltip--bottom:hover:after,
@@ -1893,27 +2042,21 @@ body.jsenabled.format-tiles .above-tiles-buttons {
 }
 
 // Brickfield
-.local-bfaltformat-course-page-icon {
-  padding-top: 0px !important;
+.local_bfaltformat-button_span button {
+  top: 0px !important;
 }
 
 // OpenForum
-#page .hsuforum-tools a {
-  @extend .btn-outline-secondary;
-  @extend .btn;
-  @extend .btn-sm;
-}
-
 @media (min-width: 768px) {
 
   li.hsuforum-post,
   .hsuforum-thread {
     border: 1px solid $gray-300 !important;
-    Border-radius: $btn-border-radius;
+    border-radius: $btn-border-radius;
     margin-bottom: 5px;
 
     .theme-dark & {
-      border-color: $dm-gray-500 !important
+      border-color: $dm-gray-500 !important;
     }
   }
 }
@@ -1928,13 +2071,13 @@ body.jsenabled.format-tiles .above-tiles-buttons {
 }
 
 .hsuforum-thread {
-
   .attachments {
     flex-direction: row !important;
     display: flex;
+    gap: 5px;
 
     a .icon {
-      margin: 0;
+      margin: 0 5px;
       border: none;
       padding: 0 !important;
     }
@@ -1952,7 +2095,7 @@ body.jsenabled.format-tiles .above-tiles-buttons {
   }
 
   .forum-post-rating a {
-    border: none !important
+    border: none !important;
   }
 
   .hsuforum-post:before {
@@ -1976,12 +2119,20 @@ body.jsenabled.format-tiles .above-tiles-buttons {
     vertical-align: middle;
     display: inline-flex;
     border-radius: 50%;
-    margin-right: .25rem;
+    margin-right: 0.25rem;
   }
 
   .forum-post-rating.processed {
-    padding-top: 5px
+    padding-top: 5px;
   }
+}
+
+#page .hsuforum-tools a:before {
+  display: none;
+}
+
+.invisiblefieldset #search {
+  width: auto
 }
 
 // Rapid Grader UI
@@ -2032,6 +2183,25 @@ body.jsenabled.format-tiles .above-tiles-buttons {
       overflow-x: auto;
     }
   }
+
+  li.breadcrumb-item {
+    a {
+      color: $gray-600 !important;
+    }
+
+    &:before {
+      color: $gray-600 !important;
+    }
+  }
+
+  .edg-grader-course-title {
+    color: $headings-color !important;
+  }
+
+  .edg-grader-page-header {
+    background-color: $primary-color-100 !important;
+    border-bottom: 1px solid $gray-300;
+  }
 }
 
 // Module Section navigation https://moodle.org/plugins/block_course_modulenavigation
@@ -2040,7 +2210,7 @@ body.jsenabled.format-tiles .above-tiles-buttons {
 }
 
 .block.block_course_modulenavigation .section {
-  border: none
+  border: none;
 }
 
 .block.block_course_modulenavigation .module-navigation-section-heading {
@@ -2062,7 +2232,6 @@ body.jsenabled.format-tiles .above-tiles-buttons {
   a {
     color: $body-color;
   }
-
 }
 
 .block.block_course_modulenavigation .section-default>.module-navigation-section-heading {
@@ -2103,8 +2272,6 @@ body.jsenabled.format-tiles .above-tiles-buttons {
 .block.block_course_modulenavigation .section-group .section {
   border-radius: $btn-border-radius;
 }
-
-
 
 // Edwiser Plugin
 body#page-course-view-remuiformat .container-fluid #region-main {
@@ -2213,7 +2380,7 @@ body#page-course-view-remuiformat .remui-format-card.all-section-format .section
 
 body#page-course-view-remuiformat .remui-format-card.all-section-format .section .section-activities-summary {
   font-size: $font-size-xs;
-  color: $gray-600;
+  color: $gray-800;
 
   li {
     font-size: $font-size-xs;
@@ -2362,7 +2529,6 @@ body#page-course-view-remuiformat .remui-format-card.single-section-format .acti
     }
   }
 }
-
 
 body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title.nosummary img {
   margin: 0 0 0.5rem 0;
@@ -2528,7 +2694,7 @@ body#page-course-view-remuiformat .remui-format-list #section-0 .general-section
   flex-wrap: wrap;
 
   .rui-instancename {
-    margin-top: .35rem;
+    margin-top: 0.35rem;
   }
 }
 
@@ -2558,7 +2724,7 @@ body#page-course-view-remuiformat .section-summary-activities {
   font-size: $font-size-xs;
   font-weight: $font-weight-normal;
   line-height: 1.5;
-  color: $gray-600;
+  color: $gray-800;
 
   &:empty {
     display: none;
@@ -2623,7 +2789,7 @@ body#page-course-view-remuiformat .section-modchooser .section-modchooser-link a
 
 body#page-course-view-remuiformat .course-content .sections .wdm-add-new-section {
   width: 100%;
-  padding: .35rem 1.7rem .35rem .75rem !important;
+  padding: 0.35rem 1.7rem 0.35rem 0.75rem !important;
   font-size: $font-size-xs;
 }
 
@@ -2656,7 +2822,7 @@ body#page-course-view-remuiformat .progress-bar-warpper .progress-text {
 }
 
 .theme-dark#page-course-view-remuiformat .remui-format-list .sections .section .content .course-section-summary-wrapper .no-overflow {
-  color: $dm-body-color-secondary
+  color: $dm-body-color-secondary;
 }
 
 .theme-dark#page-course-view-remuiformat .remui-format-list .sections .section .course-section-header .sectionheading,
@@ -2713,4 +2879,119 @@ body#page-course-view-remuiformat #changenumsections .card-block a {
 body#page-course-view-remuiformat .remui-format-list .activities-list ul.section .activity .activity-basis>div.flex-column,
 body#page-course-view-remuiformat .remui-format-list .card-footer ul.section .activity .activity-basis>div.flex-column {
   flex-direction: inherit !important;
+}
+
+// Static Pages
+#page-admin-local-staticpage-settings_pagelist {
+  .main-content {
+    ul li {
+      list-style: decimal;
+      padding: 30px;
+      border-radius: $btn-border-radius;
+      margin-bottom: 30px;
+      border: 1px solid $border-color;
+
+      p {
+        margin: 10px 0;
+      }
+
+      &::marker {
+        font-size: 2rem;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+.theme-dark#page-admin-local-staticpage-settings_pagelist .main-content ul li {
+  border-color: $dm-border-color;
+}
+
+#page-filter-embedquestion-showquestion #page {
+  height: unset !important;
+}
+
+// Turnitintool.
+#page-mod-turnitintooltwo-view .table-responsive {
+  overflow: inherit;
+}
+
+.mod_turnitintooltwo_part_details a.editable-click:hover:before {
+  width: 0 !important;
+  left: 100% !important;
+}
+
+.mod_turnitintooltwo .ui-tabs-anchor:before,
+.mod_turnitintooltwo .paginate_button:before {
+    display: none
+}
+
+// Equella Module.
+#page-mod-equella-mod:has(#equellacontainer) .rui-topbar-wrapper {
+  z-index: 4030 !important;
+}
+
+body#page-filter-embedquestion-showquestion .que .filter_embedquestion-fill-link button {
+  padding: $btn-padding-y $btn-padding-x !important;
+  font-size: $btn-font-size !important;
+  text-decoration: none;
+}
+
+.local_codechecker_results .fail a {
+  color: $red-600;
+}
+
+// OU blog.
+.oublog-post.oublog-odd,.oublog-post-commented {
+  background-color: $gray-100;
+  border: 1px solid $border-color;
+
+  .theme-dark & {
+    background-color: $dm-gray-100;
+    border: 1px solid $dm-border-color;
+  }
+}
+
+#oublog_info_block {
+  display:none
+}
+[class*="oublog"] a:hover {
+  text-decoration: unset !important;
+}
+.oublog-sideblock {
+  .oublog-accordion {
+      padding-left: 0;
+  }
+  .form-group {
+      align-items: center
+  }
+  .oublog_statsview_content form .fitem .felement {
+      margin-left: 0;
+  }
+  .col-form-label {
+      padding-right: 0px;
+      text-align: left !important;
+  }
+  h3{
+      font-size: $font-size-md !important;
+      padding-left:.5rem
+  }
+}
+
+// OU blog.
+.oublog-post-links a,
+.ouwiki_nav_index a,
+.ouw_byheading a,
+#ouwiki_indexlinks a {
+  background-color: $gray-300;
+
+  &:before {
+    display: none;
+  }
+}
+
+#page-mod-zoom-view a .btn-primary .icon,
+#page-mod-zoom-view a:hover .btn-primary .icon {
+  background-color: transparent!important;
+  color: inherit!important;
 }

@@ -14,11 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ *
+ * @package   theme_alpha
+ * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
 defined('MOODLE_INTERNAL') || die();
 
-
-// Quiz.
 require_once($CFG->dirroot . "/mod/quiz/renderer.php");
+
+/**
+ * Quiz.
+ *
+ */
 class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
     /**
      * Outputs a box.
@@ -29,8 +39,8 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
      * @param array $attributes An array of other attributes to give the box.
      * @return string the HTML to output.
      */
-    public function alpha_box($contents, $classes = 'generalbox', $id = null, $attributes = array()) {
-        return $this->alpha_box_start($classes, $id, $attributes) . $contents . $this->alpha_box_end();
+    public function space_box($contents, $classes = 'generalbox', $id = null, $attributes = []) {
+        return $this->space_box_start($classes, $id, $attributes) . $contents . $this->space_box_end();
     }
 
     /**
@@ -41,7 +51,7 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
      * @param array $attributes An array of other attributes to give the box.
      * @return string the HTML to output.
      */
-    public function alpha_box_start($classes = 'generalbox', $id = null, $attributes = array()) {
+    public function space_box_start($classes = 'generalbox', $id = null, $attributes = []) {
         $this->opencontainers->push('box', html_writer::end_tag('div'));
         $attributes['id'] = $id;
         $attributes['class'] = 'box ' . renderer_base::prepare_classes($classes);
@@ -53,7 +63,7 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
      *
      * @return string the HTML to output.
      */
-    public function alpha_box_end() {
+    public function space_box_end() {
         return $this->opencontainers->pop('box');
     }
 
@@ -87,7 +97,7 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
                 $output .= html_writer::tag(
                     'div',
                     $strattemptnum,
-                    array('class' => 'rui-quizattemptcounts quizattemptcounts my-4')
+                    ['class' => 'rui-quizattemptcounts quizattemptcounts my-4']
                 );
             }
         }
@@ -102,216 +112,6 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
     }
 
     /**
-     * Generates the table of data
-     *
-     * @param array $quiz Array contining quiz data
-     * @param int $context The page context ID
-     * @param mod_quiz_view_object $viewobj
-     */
-    public function view_table($quiz, $context, $viewobj) {
-        if (!$viewobj->attempts) {
-            return '';
-        }
-
-        // Prepare table header.
-        $table = new html_table();
-        $table->attributes['class'] = 'generaltable rui-quizattemptsummary mt-2 mb-0';
-        $table->head = array();
-        $table->align = array();
-        $table->size = array();
-        if ($viewobj->attemptcolumn) {
-            $table->head[] = get_string('attemptnumber', 'quiz');
-            $table->size[] = '';
-        }
-        $table->head[] = get_string('attemptstate', 'quiz');
-        $table->align[] = 'left';
-        $table->size[] = '';
-        if ($viewobj->markcolumn) {
-            $table->head[] = get_string('marks', 'quiz') . ' / ' .
-                quiz_format_grade($quiz, $quiz->sumgrades);
-            $table->size[] = '';
-        }
-        if ($viewobj->gradecolumn) {
-            $table->head[] = get_string('grade', 'quiz') . ' / ' .
-                quiz_format_grade($quiz, $quiz->grade);
-            $table->size[] = '';
-        }
-        if ($viewobj->canreviewmine) {
-            $table->head[] = get_string('review', 'quiz');
-            $table->size[] = '';
-        }
-        if ($viewobj->feedbackcolumn) {
-            $table->head[] = get_string('feedback', 'quiz');
-            $table->align[] = 'left';
-            $table->size[] = '';
-        }
-
-        // One row for each attempt.
-        foreach ($viewobj->attemptobjs as $attemptobj) {
-            $attemptoptions = $attemptobj->get_display_options(true);
-            $row = array();
-
-            // Add the attempt number.
-            if ($viewobj->attemptcolumn) {
-                if ($attemptobj->is_preview()) {
-                    $row[] = get_string('preview', 'quiz');
-                } else {
-                    $row[] = $attemptobj->get_attempt_number();
-                }
-            }
-
-            $row[] = $this->attempt_state($attemptobj);
-
-            if ($viewobj->markcolumn) {
-                if (
-                    $attemptoptions->marks >= question_display_options::MARK_AND_MAX &&
-                    $attemptobj->is_finished()
-                ) {
-                    $row[] = quiz_format_grade($quiz, $attemptobj->get_sum_marks());
-                } else {
-                    $row[] = '';
-                }
-            }
-
-            // Ouside the if because we may be showing feedback but not grades.
-            $attemptgrade = quiz_rescale_grade($attemptobj->get_sum_marks(), $quiz, false);
-
-            if ($viewobj->gradecolumn) {
-                if (
-                    $attemptoptions->marks >= question_display_options::MARK_AND_MAX &&
-                    $attemptobj->is_finished()
-                ) {
-
-                    // Highlight the highest grade if appropriate.
-                    if (
-                        $viewobj->overallstats && !$attemptobj->is_preview()
-                        && $viewobj->numattempts > 1 && !is_null($viewobj->mygrade)
-                        && $attemptobj->get_state() == quiz_attempt::FINISHED
-                        && $attemptgrade == $viewobj->mygrade
-                        && $quiz->grademethod == QUIZ_GRADEHIGHEST
-                    ) {
-                        $table->rowclasses[$attemptobj->get_attempt_number()] = 'bestrow';
-                    }
-
-                    $row[] = quiz_format_grade($quiz, $attemptgrade);
-                } else {
-                    $row[] = '';
-                }
-            }
-
-            if ($viewobj->canreviewmine) {
-                $row[] = $viewobj->accessmanager->make_review_link(
-                    $attemptobj->get_attempt(),
-                    $attemptoptions,
-                    $this
-                );
-            }
-
-            if ($viewobj->feedbackcolumn && $attemptobj->is_finished()) {
-                if ($attemptoptions->overallfeedback) {
-                    $row[] = quiz_feedback_for_grade($attemptgrade, $quiz, $context);
-                } else {
-                    $row[] = '';
-                }
-            }
-
-            if ($attemptobj->is_preview()) {
-                $table->data['preview'] = $row;
-            } else {
-                $table->data[$attemptobj->get_attempt_number()] = $row;
-            }
-        } // End. of loop over attempts.
-
-        $output = '';
-        $output .= $this->view_table_heading();
-        $output .= html_writer::start_tag('div', array('class' => 'table-overflow mb-4'));
-        $output .= html_writer::table($table);
-        $output .= html_writer::end_tag('div');
-        return $output;
-    }
-
-    /*
-     * View Page
-     */
-    /**
-     * Generates the view page
-     *
-     * @param stdClass $course the course settings row from the database.
-     * @param stdClass $quiz the quiz settings row from the database.
-     * @param stdClass $cm the course_module settings row from the database.
-     * @param context_module $context the quiz context.
-     * @param mod_quiz_view_object $viewobj
-     * @return string HTML to display
-     */
-    public function view_page($course, $quiz, $cm, $context, $viewobj) {
-        $output = '';
-
-        $output .= $this->view_page_tertiary_nav($viewobj);
-        $output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
-        $output .= $this->view_table($quiz, $context, $viewobj);
-        $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
-        $output .= $this->box($this->view_page_buttons($viewobj), 'rui-quizattempt');
-        return $output;
-    }
-
-    /**
-     * Outputs the table containing data from summary data array
-     *
-     * @param array $summarydata contains row data for table
-     * @param int $page contains the current page number
-     */
-    public function review_summary_table($summarydata, $page) {
-        $summarydata = $this->filter_review_summary_table($summarydata, $page);
-        if (empty($summarydata)) {
-            return '';
-        }
-
-        $output = '';
-
-        $output .= html_writer::start_tag('div', array('class' => 'rui-summary-table'));
-
-        $output .= html_writer::start_tag('div', array('class' => 'rui-info-container rui-quizreviewsummary'));
-
-        foreach ($summarydata as $rowdata => $val) {
-
-            $csstitle = $rowdata;
-
-            if ($val['title'] instanceof renderable) {
-                $title = $this->render($val['title']);
-            } else {
-                $title = $val['title'];
-            }
-
-            if ($val['content'] instanceof renderable) {
-                $content = $this->render($val['content']);
-            } else {
-                $content = $val['content'];
-            }
-
-            if ($val['title'] instanceof renderable) {
-                $output .= html_writer::tag(
-                    'div',
-                    html_writer::tag('h5', $title, array('class' => 'rui-infobox-title')) .
-                        html_writer::tag('div', $content, array('class' => 'rui-infobox-content--small')),
-                    array('class' => 'rui-infobox rui-infobox--avatar')
-                );
-            } else {
-                $output .= html_writer::tag(
-                    'div',
-                    html_writer::tag('h5', $title, array('class' => 'rui-infobox-title')) .
-                        html_writer::tag('div', $content, array('class' => 'rui-infobox-content--small')),
-                    array('class' => 'rui-infobox rui-infobox--' . strtolower(str_replace(' ', '', $csstitle)))
-                );
-            }
-        }
-
-        $output .= html_writer::end_tag('div');
-        $output .= html_writer::end_tag('div');
-
-        return $output;
-    }
-
-    /**
      * Generates the table of summarydata
      *
      * @param quiz_attempt $attemptobj
@@ -321,9 +121,9 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
         // Prepare the summary table header.
         $table = new html_table();
         $table->attributes['class'] = 'generaltable quizsummaryofattempt';
-        $table->head = array(get_string('question', 'quiz'), get_string('status', 'quiz'));
-        $table->align = array('left', 'left');
-        $table->size = array('', '');
+        $table->head = [get_string('question', 'quiz'), get_string('status', 'quiz')];
+        $table->align = ['left', 'left'];
+        $table->size = ['', ''];
         $markscolumn = $displayoptions->marks >= question_display_options::MARK_AND_MAX;
         if ($markscolumn) {
             $table->head[] = get_string('marks', 'quiz');
@@ -331,7 +131,7 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
             $table->size[] = '';
         }
         $tablewidth = count($table->align);
-        $table->data = array();
+        $table->data = [];
 
         // Get the summary info for each question.
         $slots = $attemptobj->get_slots();
@@ -353,7 +153,7 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
                 $cell = new html_table_cell(format_string($heading));
                 $cell->header = true;
                 $cell->colspan = $tablewidth;
-                $table->data[] = array($cell);
+                $table->data[] = [$cell];
                 $table->rowclasses[] = $rowclasses;
             }
 
@@ -390,18 +190,18 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
                 </svg>';
             }
             if ($attemptobj->can_navigate_to($slot)) {
-                $row = array(
+                $row = [
                     html_writer::link(
                         $attemptobj->attempt_url($slot),
                         $attemptobj->get_question_number($slot) . $flag
                     ),
-                    $attemptobj->get_question_status($slot, $displayoptions->correctness)
-                );
+                    $attemptobj->get_question_status($slot, $displayoptions->correctness),
+                ];
             } else {
-                $row = array(
+                $row = [
                     $attemptobj->get_question_number($slot) . $flag,
-                    $attemptobj->get_question_status($slot, $displayoptions->correctness)
-                );
+                    $attemptobj->get_question_status($slot, $displayoptions->correctness),
+                ];
             }
             if ($markscolumn) {
                 $row[] = $attemptobj->get_question_mark($slot);
@@ -421,6 +221,10 @@ class theme_alpha_mod_quiz_renderer extends mod_quiz\output\renderer {
 }
 
 require_once($CFG->dirroot . "/question/engine/renderer.php");
+
+/**
+ * theme_alpha_core_question_renderer
+ */
 class theme_alpha_core_question_renderer extends core_question_renderer {
     /**
      * Generate the information bit of the question display that contains the
@@ -473,10 +277,10 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
             $numbertext = get_string(
                 'questionx',
                 'question',
-                html_writer::tag('span', $number, array('class' => 'rui-qno'))
+                html_writer::tag('span', $number, ['class' => 'rui-qno'])
             );
         }
-        return html_writer::tag('h4', $numbertext, array('class' => 'h3 w-100 mb-2'));
+        return html_writer::tag('h4', $numbertext, ['class' => 'h3 w-100 mb-2']);
     }
 
 
@@ -497,7 +301,7 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
         return html_writer::tag(
             'div',
             $qa->get_state_string($options->correctness),
-            array('class' => 'state mr-2 my-2')
+            ['class' => 'state mr-2 my-2']
         );
     }
 
@@ -510,7 +314,7 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
     protected function question_flag(question_attempt $qa, $flagsoption) {
         global $CFG;
 
-        $divattributes = array('class' => 'questionflag mx-1 d-none');
+        $divattributes = ['class' => 'questionflag mx-1 d-none'];
 
         switch ($flagsoption) {
             case question_display_options::VISIBLE:
@@ -519,12 +323,12 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
 
             case question_display_options::EDITABLE:
                 $id = $qa->get_flag_field_name();
-                $checkboxattributes = array(
+                $checkboxattributes = [
                     'type' => 'checkbox',
                     'id' => $id . 'checkbox',
                     'name' => $id,
                     'value' => 1,
-                );
+                ];
                 if ($qa->is_flagged()) {
                     $checkboxattributes['checked'] = 'checked';
                 }
@@ -532,25 +336,25 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
 
                 $flagcontent = html_writer::empty_tag(
                     'input',
-                    array('type' => 'hidden', 'name' => $id, 'value' => 0)
+                    ['type' => 'hidden', 'name' => $id, 'value' => 0]
                 ) .
                     html_writer::empty_tag('input', $checkboxattributes) .
                     html_writer::empty_tag(
                         'input',
-                        array('type' => 'hidden', 'value' => $postdata, 'class' => 'questionflagpostdata')
+                        ['type' => 'hidden', 'value' => $postdata, 'class' => 'questionflagpostdata']
                     ) .
                     html_writer::tag(
                         'label',
                         $this->get_flag_html($qa->is_flagged(), $id . 'img'),
-                        array('id' => $id . 'label', 'for' => $id . 'checkbox')
+                        ['id' => $id . 'label', 'for' => $id . 'checkbox']
                     ) . "\n";
 
-                $divattributes = array(
+                $divattributes = [
                     'class' => 'questionflag mb-sm-2 mb-md-0 mx-md-2 editable d-inline-flex',
                     'aria-atomic' => 'true',
                     'aria-relevant' => 'text',
                     'aria-live' => 'assertive',
-                );
+                ];
 
                 break;
 
@@ -561,10 +365,14 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
         return html_writer::nonempty_tag('div', $flagcontent, $divattributes);
     }
 
-
+    /**
+     * Generate the display of the edit question link.
+     *
+     * @param question_attempt $qa The question attempt to display.
+     * @param question_display_options $options controls what should and should not be displayed.
+     * @return string
+     */
     protected function edit_question_link(question_attempt $qa, question_display_options $options) {
-        global $CFG;
-
         if (empty($options->editquestionparams)) {
             return '';
         }
@@ -576,25 +384,11 @@ class theme_alpha_core_question_renderer extends core_question_renderer {
         $params['id'] = $qa->get_question_id();
         $editurl = new moodle_url('/question/bank/editquestion/question.php', $params);
 
-        $icon = '<svg width="19" height="19" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4.75 19.25L9 18.25L18.2929 8.95711C18.6834 8.56658 18.6834
-            7.93342 18.2929 7.54289L16.4571 5.70711C16.0666 5.31658 15.4334
-            5.31658 15.0429 5.70711L5.75 15L4.75 19.25Z">
-        </path>
-        <path stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19.25 19.25H13.75">
-        </path>
-        </svg>';
-
-        return html_writer::link($editurl, $icon,
-        array('class' => 'btn btn-icon btn-secondary editquestion line-height-1 ml-sm-2'));
+        return html_writer::tag('div', html_writer::link(
+            $editurl, $this->pix_icon('t/edit', get_string('edit'), '', ['class' => 'iconsmall']) .
+            get_string('editquestion', 'question'),
+                ['class' => 'btn btn-sm btn-secondary ml-2']),
+            ['class' => 'editquestion']);
     }
 }
 

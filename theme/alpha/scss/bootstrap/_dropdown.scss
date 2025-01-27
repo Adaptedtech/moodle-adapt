@@ -194,6 +194,7 @@ input.dropdown-item {
   border: 0; // For `<button>`s
   border-radius: $dropdown-border-radius - 2px;
 
+  background-color: transparent;
   background-blend-mode:hard-light;
 
   &:after {
@@ -225,7 +226,16 @@ input.dropdown-item {
     display: flex;
   }
 
-  .icon {
+  .fa {
+    margin-right: 7px;
+    width: 16px;
+    height: 16px;
+    line-height: 15px;
+
+    color: inherit;
+  }
+
+  img.icon {
     margin-right: 7px;
     width: 16px;
     height: 16px;
@@ -236,6 +246,8 @@ input.dropdown-item {
   }
 
   .rui-icon {
+    width: 14px!important;
+    height: 14px!important;
     line-height: 1;
   }
 
@@ -266,7 +278,7 @@ input.dropdown-item {
       background-color: $dm-dropdown-link-hover-bg;
     }
     
-    .icon {
+    img.icon {
       filter: invert(1);
     }
   }
@@ -279,7 +291,7 @@ input.dropdown-item {
       @include gradient-bg($dropdown-link-active-bg);
     }
 
-    .icon {
+    img.icon {
       filter: invert(1);
     }
   }
@@ -324,6 +336,17 @@ input.dropdown-item {
     }
   }
 
+}
+
+.dropdown-menu a {
+  &:hover.text-danger {
+    background-color: $red-700;
+    color: $red-200!important;
+  }
+  &.text-danger {
+    background-color: $red-900;
+    color: $red-200!important;
+  }
 }
 
 //Atto Editor mod
@@ -455,6 +478,8 @@ input.dropdown-item {
     margin: 0;
     width: 24px;
     height: 24px;
+    font-size: 16px;
+    line-height: 24px;
 
     #course-category-listings & {
       display: inline-flex;
@@ -497,7 +522,7 @@ input.dropdown-item {
 
     font-size: $font-size-xs;
     line-height: 1.3;
-    color: $green-800;
+    color: $green-900;
     text-align: center;
   }
 }
@@ -600,7 +625,7 @@ input.dropdown-item {
 .choicelist {
   flex-wrap: wrap;
   
-  .icon {
+  img.icon {
     filter: invert(1);
   }
 }
@@ -614,6 +639,7 @@ input.dropdown-item {
 }
 
 .option-description {
+  line-height: 1.3;
   color: rgba($dropdown-text, .8);
 
   .theme-dark & {
@@ -623,6 +649,8 @@ input.dropdown-item {
 
 .dropdown-item.editing_delete {
   background-color: #4c2623;
+
+  .fa,
   span { 
     color: #ff8077!important;
   }

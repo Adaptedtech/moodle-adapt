@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['bootswatch'] = 'Bootswatch';
 $string['bootswatch_desc'] = 'A bootswatch is a set of Bootstrap variables and css to style Bootstrap';
-$string['choosereadme'] = '<h2 class="mt-3 mb-1 h1">Alpha 2.5.11</h2><p class="mb-5">Premium Moodle Theme designed by RoseaThemes.</p><div class="rui-block-testimonials-item mt-2 mb-4"><div class="rui-block-testimonials--quote w-100 mb-0">"Good design is as little design as possible"</div><p class="rui-block-testimonials--author ml-2">Dieter Rams</p></div>
+$string['choosereadme'] = '<h2 class="mt-3 mb-1 h1">Alpha 2.5.13</h2><p class="mb-5">Premium Moodle Theme designed by RoseaThemes.</p><div class="rui-block-testimonials-item mt-2 mb-4"><div class="rui-block-testimonials--quote w-100 mb-0">"Good design is as little design as possible"</div><p class="rui-block-testimonials--author ml-2">Dieter Rams</p></div>
 <p class="small">Premium Moodle Theme designed by RoseaThemes.</p>
 <div class="mt-4"><h4>Support</h4><p>Need help with theme customization?<br />or you want to report a bug?</p></div><a href="https://rosea.gitbook.io/alpha-moodle-theme/" target="_blank" class="btn btn-sm btn-primary ml-0 mt-2 mb-2 mr-2">Online Documentation</a><a href="https://roseathemes.ticksy.com" target="_blank" class="btn btn-sm btn-secondary m-2">Dedicated ticket system</a>';
 $string['currentinparentheses'] = '(current)';
@@ -36,7 +36,7 @@ $string['hgeneralnav_desc'] = 'Here you can turn off elements of the main naviga
 $string['generalsettings'] = 'General settings';
 
 $string['nobootswatch'] = 'None';
-$string['pluginname'] = 'alpha (2.5.11)';
+$string['pluginname'] = 'alpha (2.5.13)';
 $string['privacy:metadata'] = 'The alpha theme does not store any personal data about any user.';
 $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
@@ -94,7 +94,7 @@ $string['customsfcontent_desc'] = 'Custom content under "My Courses" section. <b
         &#x3C;/p&#x3E;
     &#x3C;/span&#x3E;
     &#x3C;div class=&#x22;ml-5&#x22;&#x3E;
-        &#x3C;p class=&#x22;rui-block-text--light rui-block-text--3&#x22;&#x3E;Alpha (2.5.11) is fully compatible with moodle 4.0 and later. Theme is not compatible with Alpha 1.x.&#x3C;/p&#x3E;&#x3C;a href=&#x22;#&#x22; class=&#x22;mt-2 rui-block-text--3&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme for just $99&#x3C;/a&#x3E;
+        &#x3C;p class=&#x22;rui-block-text--light rui-block-text--3&#x22;&#x3E;Alpha (2.5.13) is fully compatible with moodle 4.0 and later. Theme is not compatible with Alpha 1.x.&#x3C;/p&#x3E;&#x3C;a href=&#x22;#&#x22; class=&#x22;mt-2 rui-block-text--3&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme for just $99&#x3C;/a&#x3E;
     &#x3C;/div&#x3E;
 &#x3C;/div&#x3E;</pre>';
 $string['turnoffsidebarfp'] = 'Turn off the sidebar (Front Page)';
@@ -267,6 +267,7 @@ $string['loginidprovtop_desc'] = '';
 
 // Settings - Advanced.
 $string['advancedsettings'] = 'Advanced settings';
+$string['additionalheadscripts'] = 'Additional Head Scripts';
 $string['googleanalytics'] = 'Google Analytics V4 Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics V4 code to enable analytics on your website. The code format shold be like [G-XXXXXXXXXX]';
 $string['favicon'] = 'Custom favicon';
@@ -416,7 +417,7 @@ $string['topbarcustomhtml_desc'] = '
 &#x3C;path d=&#x22;M6.75 11.5V16.25C6.75 16.25 8 18.25 12 18.25C16 18.25 17.25 16.25 17.25 16.25V11.5&#x22; stroke=&#x22;currentColor&#x22; stroke-width=&#x22;1.5&#x22; stroke-linecap=&#x22;round&#x22; stroke-linejoin=&#x22;round&#x22;&#x3E;&#x3C;/path&#x3E;
 &#x3C;/svg&#x3E;
 &#x3C;/span&#x3E;
-&#x3C;p&#x3E;Alpha (2.5.11) is here!&#x3C;br&#x3E;&#x3C;a href=&#x22;#&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme today!&#x3C;/a&#x3E;
+&#x3C;p&#x3E;Alpha (2.5.13) is here!&#x3C;br&#x3E;&#x3C;a href=&#x22;#&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme today!&#x3C;/a&#x3E;
 &#x3C;/p&#x3E;
 &#x3C;/span&#x3E;</pre>';
 
@@ -1208,7 +1209,7 @@ $string['additionalclass_desc'] = '<strong class="badge badge-warning mr-2">Only
 $string['hintro'] = '<img src="{$a->siteurl}/theme/alpha/doc/alpha-icon.png" class="img-fluid rounded my-3" width="80" height="80" alt="Alpha Moodle Theme" /><div class="lead-3">Alpha for Moodle 4.3</div>';
 $string['hintro_desc'] = '
 <div class="mt-1 small">by <a href="https://rosea.io">RoseaThemes</a></div><hr class="mt-3" />
-<div class="mt-3"><span class="badge badge-light">Version: 2.5.11</span></div>
+<div class="mt-3"><span class="badge badge-light">Version: 2.5.13</span></div>
 <div class="mt-4"><h3 class="lead-4 mb-2">Need help with theme customization?<br />Or you want to report a bug?</h3>Just let me know. Open <a href="https://roseathemes.ticksy.com" target="_blank">a ticket</a> or contact me via support form on the ThemeForest item page.</div>
 <a href="https://rosea.gitbook.io/alpha-moodle-theme/" target="_blank" class="btn btn-sm btn-dark mt-3">Online documentation</a>
 ';

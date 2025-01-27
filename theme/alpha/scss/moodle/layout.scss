@@ -265,6 +265,14 @@
     }
 }
 
+.pagelayout-secure {
+    #logo {
+        img {
+            height: 60px;
+        }
+    }
+}
+
 //---- Footer
 #s-page-footer {
     flex-shrink: 0;
@@ -1672,6 +1680,10 @@ $fixed-header-y: $navbar-height;
     overflow-y: auto;
     padding: 0;
 
+    .drawer-right & {
+        padding-right: 20px;
+    }
+
     .dropdown-menu .dropdown-item {
         width: 220px;
         white-space: normal;
@@ -2013,9 +2025,18 @@ $fixed-header-y: $navbar-height;
         right: 0;
 
         .pagelayout-secure & {
+            padding-top: 14px;
+            padding-left: 80px;
+            padding-right: 80px;
             top: 0;
             height: 100vh;
         }
+    }
+}
+
+.pagelayout-secure #page.drawers {
+    @include media-breakpoint-only(md) {
+        padding: 10px 70px;
     }
 }
 

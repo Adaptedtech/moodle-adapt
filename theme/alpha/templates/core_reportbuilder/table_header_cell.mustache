@@ -32,7 +32,7 @@
     <div class="w-100">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex">
-                <small class="text-muted text-uppercase px-2">{{entityname}} &bull; {{name}}</small>
+                <small class="text-muted px-2">{{entityname}} &bull; {{name}}</small>
             </div>
             <span class="text-nowrap">
                 <button class="btn btn-link p-0"
@@ -41,10 +41,7 @@
                         title="{{#str}}deletecolumn, core_reportbuilder, {{{name}}}{{/str}}"
                         aria-label="{{#str}}deletecolumn, core_reportbuilder, {{{name}}}{{/str}}">
                         <span class="btn btn-danger p-1">
-                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L6.75 17.25"></path>
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 6.75L17.25 17.25"></path>
-                            </svg>
+                             {{#pix}}e/cancel, core{{/pix}}
                         </span>
                 </button>
             </span>

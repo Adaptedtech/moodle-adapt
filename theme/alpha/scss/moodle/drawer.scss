@@ -101,6 +101,7 @@
 
 #nav-drawer {
     .nav-drawer-container {
+        grid-template-columns: repeat(1, 1fr);
         overflow-y: auto;
         overflow-x: hidden;
         padding: 0 7px;

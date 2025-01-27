@@ -64,9 +64,10 @@
                         aria-selected="false"
                     >
                         {{#str}} requests {{/str}}
-                        <sup class="badge-msg {{^contactrequestcount}}hidden{{/contactrequestcount}}"
-                        data-region="contact-request-count"
-                        aria-label="{{#str}} pendingcontactrequests, core_message, {{contactrequestcount}} {{/str}}">
+                        <sup class="pl-2 {{^contactrequestcount}}hidden{{/contactrequestcount}}"
+                        data-region="contact-request-count">
+                            <span aria-hidden="true">0</span>
+                            <span class="sr-only">{{#str}} pendingcontactrequests, core_message, {{contactrequestcount}} {{/str}}</span>
                             {{contactrequestcount}}
                         </sup>
                     </a>

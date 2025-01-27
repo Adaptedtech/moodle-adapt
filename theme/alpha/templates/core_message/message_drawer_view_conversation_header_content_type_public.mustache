@@ -39,9 +39,9 @@
     <div class="d-flex align-items-start">
         {{#showrouteback}}
         <div class="align-self-stretch" >
-            <button class="ml-3 d-flex align-items-center btn-msg mr-3" data-route-back role="button">
+            <a href="#" class="ml-3 d-flex align-items-center btn-msg mr-3" data-route-back role="button">
                 {{> core_message/message_drawer_icon_back }}
-            </button>
+            </a>
         </div>
         {{/showrouteback}}
         <div class="d-inline-flex">
@@ -65,7 +65,15 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4.75L13.75 10.25H19.25L14.75 13.75L16.25 19.25L12 15.75L7.75 19.25L9.25 13.75L4.75 10.25H10.25L12 4.75Z"></path>
                             </svg>
                         </span>
-                        <h4 class="rui-message-name mb-0 pr-2">{{name}}</h4>
+                        <h4 class="rui-message-name mb-0 pr-2">
+                        {{name}}
+                            <span
+                                class="{{^ismuted}}hidden{{/ismuted}} ml-1 text-primary"
+                                data-region="muted-icon-container"
+                            >
+                                {{#pix}} i/muted, core, {{#str}} mutedconversation, core_message {{/str}} {{/pix}}
+                            </span>
+                        </h4>
                     </div>
                     {{#subname}}
                     <div class="rui-message-user-status">

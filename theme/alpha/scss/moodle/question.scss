@@ -162,6 +162,17 @@
 #categoryquestions {
     margin: 0;
 
+    // thead {
+    //     position: sticky;
+    //     z-index: $zindex-tooltip;
+    //     top: $navbar-height;
+    //     background-color: $gray-100;
+
+    //     .theme-dark & {
+    //         background-color: $dm-gray-100;
+    //     }
+    // }
+
     td,
     th {
         padding: 0 0.2em;
@@ -270,9 +281,8 @@ body.path-question-type {
 }
 
 .que {
-
-    .r0,
-    .r1 {
+    div.r0,
+    div.r1 {
         border-radius: $btn-border-radius;
         display: flex;
         align-items: center;
@@ -473,19 +483,44 @@ body.jsenabled .questionflag input[type=checkbox] {
     margin: 1rem 0;
     height: auto;
 
+    .editing_delete,
     .editing_section {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         width: 40px;
         height: 40px;
+        text-decoration: none;
+
+        &:before {
+            display: none;
+        }
 
         .icon {
+            font-size: 16px;
             padding: 10px;
-            background-color: $gray-100;
             border-radius: $btn-border-radius-lg;
         }
     }
+
+    .editing_delete {
+        .icon {
+            color: $red-800;
+            background-color: $red-100;
+        }
+    }
+
+    .editing_section {
+        .icon {
+            color: $primary-color-600;
+            background-color: $gray-100;
+        }
+    }
+}
+
+.theme-dark#page-mod-quiz-edit .section-heading .editing_section .icon {
+    color: $dm-body-color;
+    background-color: $dm-gray-300;  
 }
 
 .editing_section {
@@ -498,6 +533,10 @@ body.jsenabled .questionflag input[type=checkbox] {
             filter: invert(1);
         }
     }
+}
+
+#page-mod-quiz-edit .section-heading .instancesection {
+    max-width: 100%;
 }
 
 #page-mod-quiz-edit .section-heading .instancesectioncontainer {
@@ -663,7 +702,7 @@ body.jsenabled .questionflag input[type=checkbox] {
 
 #page-mod-quiz-edit ul.slots li.activity div.activityinstance .questiontext {
     display: block;
-    padding-left: 50px;
+    padding-left: 44px;
     margin-top: 0;
     margin-bottom: 0;
 
@@ -1076,10 +1115,15 @@ body.jsenabled .questionflag input[type=checkbox] {
 #page-mod-quiz-edit ul.slots .activityinstance>a {
     display: inline-flex;
     align-items: flex-start;
+    text-decoration: none;
 
     &:hover {
         text-decoration: none;
     }
+}
+
+#page-mod-quiz-edit ul.slots li.section li.activity .editing_maxmark {
+    text-decoration: none;
 }
 
 #page-mod-quiz-edit.select-multiple input.select-multiple-checkbox[type="checkbox"] {
@@ -1293,7 +1337,7 @@ body.path-question-type .mform fieldset.hidden {
     }
 
     #displayoptions {
-        padding: 1rem 2rem;
+        padding: 10px 18px;
 
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -1321,19 +1365,19 @@ body.path-question-type .mform fieldset.hidden {
     }
 }
 
-@include media-breakpoint-up(md) {
-    #categoryquestions td.editmenu .action-menu {
-        position: absolute;
-        margin: -13px 0 0;
-    }
-}
-
-.question_table {
-    overflow: auto;
-}
-
 table#categoryquestions {
-    width: max-content;
+
+    thead {
+        background-color: $container-bg;
+
+        position: sticky;
+        top: 0;
+        z-index: 3;
+
+        .theme-dark & {
+            background-color: $dm-container-bg;
+        }
+    }
 
     td.modifiername,
     td.creatorname {
@@ -1549,7 +1593,7 @@ table#categoryquestions {
     border-radius: $btn-border-radius;
     font-size: $font-size-sm;
 
-    background-color: $gray-100;
+    background-color: $primary-color-100;
 
     .btn {
         padding: 0.6rem 1rem;
@@ -1690,7 +1734,7 @@ table#categoryquestions {
 
 .que .grade {
     background-color: $gray-100;
-    color: $gray-600;
+    color: $gray-800;
 
     .theme-dark & {
         background-color: $dm-gray-300;
@@ -1766,7 +1810,7 @@ table#categoryquestions {
 
     .correct & {
         background-color: $green-100;
-        color: $green-600;
+        color: $green-800;
 
         .theme-dark & {
             background-color: #0a6457;
@@ -1888,7 +1932,7 @@ table#categoryquestions {
 
     .correct {
         background-color: $green-100;
-        color: $green-600;
+        color: $green-800;
         border-color: $green-300;
 
         .theme-dark & {
@@ -2208,12 +2252,67 @@ table#categoryquestions {
             margin-bottom: 20px;
         }
     }
+
+    #page {
+        z-index: 2;
+    }
+
+    .sticky-column {
+        position: sticky;
+        left: 0;
+        background-color: $container-bg;
+        z-index: 1029;
+    }
+
+    &.drawer-open-left {
+        .sticky-column {
+            left: $drawer-width;
+        }
+    }
+}
+
+.theme-dark#page-mod-quiz-report .sticky-column {
+    background-color: $dm-container-bg;
 }
 
 #page-mod-quiz-report .main-content {
     #tablecontainer {
         margin: $page-padding-global 0;
+
+        .no-overflow {
+            overflow: initial;
+
+            #attempts {
+                min-width: 100%;
+                width: max-content;
+
+                thead {
+                    position: sticky;
+                    top: $navbar-height;
+                    z-index: $zindex-fixed;
+                    background-color: $container-bg;
+                }
+            } 
+        }
     }
+}
+
+.theme-dark#page-mod-quiz-report .main-content {
+    #tablecontainer {
+        .no-overflow {
+            #attempts {
+                thead {
+                    background-color: $dm-container-bg;
+                }
+            }
+        }
+    }
+}
+
+body.path-mod-quiz .gradedattempt,
+body.path-mod-quiz table tbody tr.gradedattempt>td,
+body.path-mod-quiz table tbody tr.gradedattempt>td.sticky-column {
+    background-color: $primary-color-300;
 }
 
 .quizattemptcounts {
@@ -2259,7 +2358,7 @@ table#categoryquestions {
     }
 
     .correct {
-        color: $green-600;
+        color: $green-800;
     }
 
     .partiallycorrect {
@@ -2578,15 +2677,15 @@ div[id^=fitem_id_][id*=subanswers_] {
     #commentcollapse+form {
         margin-top: 1rem;
     }
+}
 
-    #responseform {
-        padding: 20px;
-        border: 1px solid $border-color;
-        border-radius: $btn-border-radius;
+#responseform {
+    padding: 20px;
+    border: 1px solid $border-color;
+    border-radius: $btn-border-radius;
 
-        .theme-dark & {
-            border-color: $dm-body-color;
-        }
+    .theme-dark & {
+        border-color: $dm-border-color;
     }
 }
 
@@ -2643,7 +2742,7 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
 
 #page-mod-quiz-attempt.pagelayout-secure .submitbtns,
 #page-mod-quiz-review.pagelayout-secure .submitbtns {
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 #page-mod-quiz-edit span.editinstructions {
@@ -2676,18 +2775,6 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
     text-align: left;
 }
 
-.modal {
-    table#categoryquestions {
-        width: 100%;
-    }
-
-    table#categoryquestions th,
-    table#categoryquestions td {
-        padding: 5px 0 !important;
-    }
-}
-
-
 #page-mod-quiz-edit #categoryquestions span.questionname,
 #page-mod-quiz-edit ul.slots li.activity div.activityinstance span.questionname {
     font-size: 13px;
@@ -2699,8 +2786,27 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
     color: $dm-body-color;
 }
 
-#page-mod-quiz-edit .question-bank-table .iconcol {
-    max-width: 20px;
+#page-mod-quiz-edit .modal {
+    table.question-bank-table {
+        table-layout: auto;
+        
+        td, th {
+            width: 50px!important;
+            text-align: left;
+        }
+
+        .questionname {
+            display: inline-block;
+            width: 300px;
+        }
+    }
+
+    .question-bank-table {
+        .questionnametext {
+            width: auto;
+        }
+    }
+
 }
 
 #categoryquestions th div {
@@ -2714,6 +2820,15 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
     }
 }
 
+#categoryquestions th div.header-container {
+    display: inline-flex;
+    width: max-content;
+
+    .modal & {
+        display: block;
+    }
+}
+
 #categoryquestions .checkbox input[type="checkbox"] {
     width: 20px;
     height: 20px;
@@ -2721,9 +2836,6 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
 
 #page-mod-quiz-edit .question-bank-table .header.checkbox {
     .header-container {
-        display: flex;
-        justify-content: center;
-
         .header-text .mr-1 {
             margin: 0 !important;
         }
@@ -2757,10 +2869,15 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
 }
 
 #page-mod-quiz-edit .question-bank-table .qtype {
-    width: 24px!important;
-    padding: 5px !important;
+    width: 30px;
+    padding: 5px;
     text-align: left;
-    vertical-align: middle !important;
+    vertical-align: middle;
+
+    img {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .qbank-column-list {
@@ -2812,4 +2929,9 @@ body.path-mod-quiz.theme-dark table tbody tr.gradedattempt>td {
             font-size: $font-size-xs !important;
         }
     }
+}
+
+body:has(.question_table) #page,
+body:has(.gradereport-grader-table) #page {
+    overflow:auto
 }

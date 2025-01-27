@@ -28,34 +28,26 @@
         "body": "This is the toggle card content"
     }
 }}
-<div class="card reportbuilder-toggle-card rounded border mb-2">
+<div class="card reportbuilder-toggle-card mb-2">
     <div class="card-header p-0">
         <div class="d-flex align-items-center mb-0 p-1">
             <div class="ml-2">
-                <strong class="mr-1 text-size-sm">{{$header}}{{/header}}</strong> {{$helpicon}}{{/helpicon}}
+                <span class="mr-1 font-weight-bold">{{$header}}{{/header}}</span> {{$helpicon}}{{/helpicon}}
             </div>
-            <button class="btn btn-xs btn-secondary toggle-card-button ml-auto p-1 {{$collapsed}}{{/collapsed}}"
+            <button class="px-2 btn btn-xs btn-secondary toggle-card-button ml-auto {{$collapsed}}{{/collapsed}}"
                     data-toggle="collapse"
                     data-target="#{{$id}}{{uniqid}}{{/id}}"
                     aria-expanded="true"
                     aria-controls="{{$id}}{{uniqid}}{{/id}}"
                     title="{{#str}}showhide, core_reportbuilder, {{$header}}{{/header}}{{/str}}"
             >
-                <span class="collapsed-icon-container">
-                    <svg class="toggle-card-icon" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.25 10.75L12 14.25L8.75 10.75"></path>
-                    </svg>
-                </span>
-                <span class="expanded-icon-container">
-                    <svg class="toggle-card-icon" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.25 14.25L12 10.75L8.75 14.25"></path>
-                    </svg>
-                </span>
+                <span class="collapsed-icon-container"><i class="toggle-card-icon fa fa-lg fa-angle-down"></i></span>
+                <span class="expanded-icon-container"><i class="toggle-card-icon fa fa-lg fa-angle-up"></i></span>
             </button>
         </div>
     </div>
     <div id="{{$id}}{{uniqid}}{{/id}}" class="collapse {{$collapsed}}show{{/collapsed}}">
-        <div class="card-body p-0">
+        <div class="card-body p-2">
             {{$body}}{{/body}}
         </div>
     </div>

@@ -26,7 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $extraclasses = [];
 
-// Dark mode.
 if (isloggedin()) {
     $navdraweropen = get_user_preferences('drawer-open-nav', true);
     $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
@@ -36,24 +35,11 @@ if (isloggedin()) {
         if ($darkmodeon) {
             $extraclasses[] = 'theme-dark';
         }
+        $darkmodetheme = true;
     } else {
         $darkmodeon = false;
     }
-
-    $mycourseson = get_user_preferences('mycourses-on');
-    if ($mycourseson) {
-        $extraclasses[] = 'mycourses-on';
-    }
-
-    $mycourseshiddenon = get_user_preferences('mycourses-hidden-on');
-    if ($mycourseshiddenon) {
-        $extraclasses[] = 'mycourses-hidden-on';
-    }
-
-    $mycoursesinprogresson = get_user_preferences('mycourses-inprogress-on');
-    if ($mycoursesinprogresson) {
-        $extraclasses[] = 'mycourses-inprogress-on';
-    }
+    
 } else {
     $navdraweropen = false;
 }
@@ -76,9 +62,6 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'draweropenright' => $draweropenright,
     'darkmodeon' => !empty($darkmodeon),
-    'mycourseson' => !empty($mycourseson),
-    'mycourseshiddenon' => !empty($mycourseshiddenon),
-    'mycoursesinprogresson' => !empty($mycoursesinprogresson),
     'darkmodetheme' => !empty($darkmodetheme),
     'navdraweropen' => $navdraweropen,
     'siteurl' => $siteurl

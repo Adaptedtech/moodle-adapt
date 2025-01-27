@@ -14,6 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ *
+ * @package   theme_alpha
+ * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . '/renderers/renderer-lesson.php');

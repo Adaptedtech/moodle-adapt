@@ -28,6 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 // Advanced settings.
 $page = new admin_settingpage('theme_alpha_advanced', get_string('advancedsettings', 'theme_alpha'));
 
+$setting = new admin_setting_configtextarea('theme_alpha/additionalheadscripts',
+    get_string('additionalheadscripts', 'theme_alpha'), get_string('empty_desc', 'theme_alpha'), '');
+$page->add($setting);
+
 // H5P custom CSS.
 $setting = new admin_setting_configtextarea('theme_alpha/hvpcss',
     get_string('hvpcss', 'theme_alpha'), get_string('hvpcss_desc', 'theme_alpha'), '');

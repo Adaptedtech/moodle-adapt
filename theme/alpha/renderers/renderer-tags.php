@@ -14,11 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ *
+ * @package   theme_alpha
+ * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
 defined('MOODLE_INTERNAL') || die();
 
-
-// Tags.
 require_once($CFG->dirroot . "/tag/classes/renderer.php");
+
+/**
+ * Tags.
+ *
+ */
 class theme_alpha_core_tag_renderer extends plugin_renderer_base {
 
     /**
@@ -32,7 +42,7 @@ class theme_alpha_core_tag_renderer extends plugin_renderer_base {
         $rv = $this->output->heading(get_string('searchtags', 'tag'), 2);
 
         $searchbox = $this->search_form($query, $tagcollid);
-        $rv .= html_writer::div($searchbox, '', array('id' => 'tag-search-box'));
+        $rv .= html_writer::div($searchbox, '', ['id' => 'tag-search-box']);
 
         $tagcloud = core_tag_collection::get_tag_cloud($tagcollid, false, 150, 'name', $query);
         $searchresults = '';
@@ -41,7 +51,7 @@ class theme_alpha_core_tag_renderer extends plugin_renderer_base {
                 'core_tag/tagcloud',
                 $tagcloud->export_for_template($this->output)
             );
-            $rv .= html_writer::div($searchresults, '', array('id' => 'tag-search-results'));
+            $rv .= html_writer::div($searchresults, '', ['id' => 'tag-search-results']);
         } else if (strval($query) !== '') {
             $rv .= '<div class="tag-search-empty">' .
             get_string('notagsfound', 'tag', s($query)) .
@@ -101,7 +111,7 @@ class theme_alpha_core_tag_renderer extends plugin_renderer_base {
         );
 
         // Display quick menu of the item types (if more than one item type found).
-        $entitylinks = array();
+        $entitylinks = [];
         foreach ($entities as $entity) {
             if (!empty($entity->hascontent)) {
                 $entitylinks[] = '<li class="nav-item"><a href="#' . $entity->anchor . '">' .
@@ -188,7 +198,7 @@ class theme_alpha_core_tag_renderer extends plugin_renderer_base {
         $tagcolls = core_tag_collection::get_collections_menu(false, true, get_string('inalltagcoll', 'tag'));
         if (count($tagcolls) > 1) {
             $output .= '<label class="accesshide" for="searchform_tc">' . get_string('selectcoll', 'tag') . '</label>';
-            $output .= html_writer::select($tagcolls, 'tc', $tagcollid, null, array('id' => 'searchform_tc'));
+            $output .= html_writer::select($tagcolls, 'tc', $tagcollid, null, ['id' => 'searchform_tc']);
         }
         $output .= '<button name="go" type="submit" class="search-input-btn">
         <svg width="22" height="22" fill="none" viewBox="0 0 24 24">

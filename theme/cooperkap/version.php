@@ -15,7 +15,6 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * cooperkap.
  *
  * @package   theme_cooperkap
  * @copyright 2022 - 2023 Marcin Czaja (https://rosea.io)
@@ -24,8 +23,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 20240408003.01; // Y M D V.
+$plugin->version = 20241204001.01; // Y M D V.
 $plugin->maturity = MATURITY_STABLE;
 $plugin->requires = 2023100400; // Moodle 4.3.
 $plugin->component = 'theme_cooperkap';
-$plugin->release = '2.5.11 (Build: 20240408003.01)';
+$plugin->dependencies = [                                                                                                           
+    'theme_alpha' => '20240815003.02'                                                                                                   
+];
+$plugin->release = 'Cooperkap';

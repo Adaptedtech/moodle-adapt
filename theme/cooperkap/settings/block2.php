@@ -120,14 +120,14 @@ $name = 'theme_cooperkap/block2herocaption';
 $title = get_string('block2herocaption', 'theme_cooperkap');
 $description = get_string('block2herocaption_desc', 'theme_cooperkap');
 $default = '<div class="rui-hero-desc">
-<p>The cooperkap 2 is dedicated only to Moodle 4.0 and later. For Moodle 3.9 - 3.11 there is cooperkap 1.15</p>
+<p>The Alpha 2 is dedicated only to Moodle 4.0 and later. For Moodle 3.9 - 3.11 there is Alpha 1.15</p>
 <p class="mt-3 small">Need help with theme customization?<br>Or do you want to report a bug?</p>
 </div>
 <div class="rui-hero-btns mt-3 2-100">
 <a href="https://1.envato.market/3PgWgB" target="_blank" class="btn btn-lg btn-primary my-1">Get this theme!</a>
 </div>
 <div class="rui-hero-btns mt-3 w-100">
-<a href="https://rosea.io/cooperkap-theme/" target="_blank" class="btn btn-sm btn-light my-1 mx-0">cooperkap 1.15 for Moodle 3.9 - 3.11</a>
+<a href="https://rosea.io/alpha-theme/" target="_blank" class="btn btn-sm btn-light my-1 mx-0">Alpha 1.15 for Moodle 3.9 - 3.11</a>
 </div>';
 $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
@@ -136,7 +136,7 @@ $name = 'theme_cooperkap/block2htmlcontent';
 $title = get_string('blockhtmlcontent', 'theme_cooperkap');
 $description = get_string('blockhtmlcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block2footercontent';

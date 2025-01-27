@@ -66,7 +66,7 @@ $name = 'theme_cooperkap/block15htmlcontent';
 $title = get_string('blockhtmlcontent', 'theme_cooperkap');
 $description = get_string('blockhtmlcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block15footercontent';

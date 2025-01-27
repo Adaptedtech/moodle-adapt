@@ -112,7 +112,7 @@ $default = '<!-- Start - Block - Grid Content #9 -->
 </div>
 <!-- End item -->
 <!-- End - Block - Grid Content #9 -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block21footercontent';

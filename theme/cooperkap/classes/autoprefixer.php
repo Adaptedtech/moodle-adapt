@@ -18,7 +18,7 @@
  * Autoprefixer.
  *
  * This autoprefixer has been developed to satisfy the basic needs of the
- * theme space when working with Bootstrap 4 cooperkap. We do not recommend
+ * theme space when working with Bootstrap 4 alpha. We do not recommend
  * that this tool is shared, nor used outside of this theme.
  *
  * @package    theme_cooperkap
@@ -105,7 +105,7 @@ class autoprefixer {
      */
     public function __construct(Document $tree) {
         debugging('theme_cooperkap\autoprefixer() is deprecated. Required prefixes for Bootstrap ' .
-            'are now in theme/space/scss/moodle/prefixes.scss', DEBUG_DEVELOPER);
+            'are now in theme/alpha/scss/moodle/prefixes.scss', DEBUG_DEVELOPER);
         $this->tree = $tree;
 
         $pseudos = array_map(function ($pseudo) {

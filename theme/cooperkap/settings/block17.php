@@ -98,7 +98,7 @@ $default = '<!-- Start - Block - Stats #2 -->
     <!-- End item -->
 </div>
 <!-- End - Block - Stats #2 -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 

@@ -188,7 +188,7 @@ if (theme_cooperkap_get_setting("displayhrblock2") == '1') {
 }
 echo '<!-- End Block #2 -->';
 
-echo '<script src="theme/cooperkap/addons/vidbg/vidbg.js"></script>';
+echo '<script src="theme/alpha/addons/vidbg/vidbg.js"></script>';
 echo "<script>var instance = new vidbg('.rui-hero-video',
 {mp4: '" . $block2heromp4 . "',webm: '" . $block2herowebm . "',poster: '" . $block2heroimg . "',})</script>";
 echo '<script>function reportWindowSize(){for(var e=document.getElementsByClassName("rui-hero-content--video"),

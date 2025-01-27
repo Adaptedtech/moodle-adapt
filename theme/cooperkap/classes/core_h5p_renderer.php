@@ -15,7 +15,6 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * space theme.
  *
  * @package theme_cooperkap
  * @copyright 2022 - 2023 Marcin Czaja (https://rosea.io)
@@ -41,7 +40,7 @@ class theme_cooperkap_core_h5p_renderer extends \core_h5p\output\renderer {
      * @param string $embedtype How the H5P is displayed.
      */
     public function h5p_alter_styles(&$styles, array $libraries, string $embedtype) {
-        $theme = theme_config::load('cooperkap');
+        $theme = theme_config::load('alpha');
 
         $content = $theme->settings->hvpcss;
 

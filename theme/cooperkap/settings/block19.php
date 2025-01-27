@@ -108,7 +108,7 @@ $default = '<div class="mt-4">
 <div class="mt-2">
 <a href="https://space.rosea.io/doc" class="btn btn-sm btn-secondary">Documentation</a>
 </div>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 

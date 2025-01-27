@@ -137,7 +137,7 @@ class core_renderer extends \core_renderer {
         if (file_exists($candidate1)) {
             $candidate = $candidate1;
         } else {
-            $candidate = $CFG->dirroot . theme_cooperkap_theme_dir() . '/cooperkap/layout/parts/' . $element;
+            $candidate = $CFG->dirroot . theme_cooperkap_theme_dir() . '/alpha/layout/parts/' . $element;
         }
 
         if (!is_readable($candidate)) {
@@ -215,7 +215,7 @@ class core_renderer extends \core_renderer {
             $context->currentlangname = array_search($currentlang, $langs);
 
             if (isset($context)) {
-                return $this->render_from_template('theme_cooperkap/lang_menu', $context);
+                return $this->render_from_template('theme_alpha/lang_menu', $context);
             }
         }
     }
@@ -244,7 +244,7 @@ class core_renderer extends \core_renderer {
             $context->currentlangname = array_search($currentlang, $langs);
 
             if (isset($context)) {
-                return $this->render_from_template('theme_cooperkap/lang_menu_login', $context);
+                return $this->render_from_template('theme_alpha/lang_menu_login', $context);
             }
         }
     }
@@ -343,7 +343,7 @@ class core_renderer extends \core_renderer {
                 }
                 if (get_config('theme_cooperkap', 'courseprogressbar') == 1) {
                     $progressbar = '<div class="rui-course-progresschart">' .
-                        $this->render_from_template('theme_cooperkap/progress-chart', $templatedata) .
+                        $this->render_from_template('theme_alpha/progress-chart', $templatedata) .
                         '</div>';
                     if (has_capability('report/progress:view',  \context_course::instance($course->id))) {
                         $courseprogress = new \moodle_url('/report/progress/index.php');
@@ -427,7 +427,7 @@ class core_renderer extends \core_renderer {
     public function get_pix_image_url_base() {
         global $CFG;
 
-        return $CFG->wwwroot . "'theme/cooperkap'/pix";
+        return $CFG->wwwroot . "/theme/alpha/pix";
     }
 
     /**
@@ -466,7 +466,7 @@ class core_renderer extends \core_renderer {
         $header->hasnavbar = empty($this->page->layout_options['nonavbar']);
         $header->navbar = $this->navbar();
         $header->courseheader = $this->course_header();
-        $html = $this->render_from_template('theme_cooperkap/breadcrumbs', $header);
+        $html = $this->render_from_template('theme_alpha/breadcrumbs', $header);
 
         return $html;
     }
@@ -522,7 +522,7 @@ class core_renderer extends \core_renderer {
         if ($this->page->theme->settings->cccteachers == 1) {
             $html .= $this->course_contacts();
         }
-        $html .= $this->render_from_template('theme_cooperkap/header', $header);
+        $html .= $this->render_from_template('theme_alpha/header', $header);
         if ($this->page->theme->settings->ipcoursesummary == 1) {
             $html .= $this->course_summary();
         }
@@ -565,10 +565,10 @@ class core_renderer extends \core_renderer {
         $header->headeractions = $this->page->get_header_actions();
 
         if ($this->page->pagelayout != 'admin') {
-            $html .= $this->render_from_template('theme_cooperkap/header', $header);
+            $html .= $this->render_from_template('theme_alpha/header', $header);
         }
         if ($this->page->pagelayout == 'admin') {
-            $html .= $this->render_from_template('theme_cooperkap/header_admin', $header);
+            $html .= $this->render_from_template('theme_alpha/header_admin', $header);
         }
 
         return $html;
@@ -1418,7 +1418,7 @@ class core_renderer extends \core_renderer {
                 'adminurl' => $adminlinkurl
             ];
 
-            return $this->render_from_template('theme_cooperkap/btn-admin', $adminlinkheaderlinktmpl);
+            return $this->render_from_template('theme_alpha/btn-admin', $adminlinkheaderlinktmpl);
         }
     }
 
@@ -1437,12 +1437,12 @@ class core_renderer extends \core_renderer {
                 'adminurl' => $adminlinkurl
             ];
 
-            return $this->render_from_template('theme_cooperkap/btn-admin-hs', $adminlinkheaderlinktmpl);
+            return $this->render_from_template('theme_alpha/btn-admin-hs', $adminlinkheaderlinktmpl);
         }
     }
 
     // My Course Menu - Inspred by Fordson Theme.
-    public function cooperkap_allcourseslink() {
+    public function alpha_allcourseslink() {
         global $CFG;
         $allcourseicon = '';
         $allcourses = '';
@@ -1465,7 +1465,7 @@ class core_renderer extends \core_renderer {
         return $allcourses;
     }
 
-    public function cooperkap_mycourses_heading() {
+    public function alpha_mycourses_heading() {
         global $CFG;
         $html = null;
         $url = new moodle_url('/my/courses.php');
@@ -1519,7 +1519,7 @@ class core_renderer extends \core_renderer {
     }
 
 
-    public function cooperkap_mycourses_heading_text() {
+    public function alpha_mycourses_heading_text() {
         global $CFG, $USER, $COURSE;
         $html = null;
         $count = null;
@@ -1559,7 +1559,7 @@ class core_renderer extends \core_renderer {
         return $html;
     }
 
-    public function cooperkap_mycourses() {
+    public function alpha_mycourses() {
         global $DB, $USER, $COURSE;
 
         $courses = enrol_get_my_courses(['enddate'], 'fullname ASC');
@@ -2677,7 +2677,7 @@ class core_renderer extends \core_renderer {
                 }
                 // End.
 
-                $html .= $this->render_from_template('theme_cooperkap/custom_sec_nav_item', $secnav);
+                $html .= $this->render_from_template('theme_alpha/custom_sec_nav_item', $secnav);
             }
         }
         return $html;

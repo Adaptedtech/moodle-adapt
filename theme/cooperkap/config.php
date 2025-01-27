@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * cooperkap config.
+ * Alpha config.
  *
  * @package   theme_cooperkap
  * @copyright 2022 - 2023 Marcin Czaja (https://rosea.io)
@@ -124,7 +124,12 @@ $THEME->layouts = [
     // Moodle 4.x. - My courses page.
     'mycourses' => array(
         'file' => 'tmpl-columns2.php',
-        'regions' => array(),
+        'regions' => array(
+            'side-pre',
+            'sidebartb',
+            'sidebarbb',
+            'sidecourseblocks'
+        ),
         'options' => array('nonavbar' => true),
     ),
     // My dashboard page.
@@ -233,7 +238,7 @@ $THEME->layouts = [
     )
 ];
 
-$THEME->parents = [];
+$THEME->parents = ['alpha'];
 $THEME->enable_dock = false;
 $THEME->extrascsscallback = 'theme_cooperkap_get_extra_scss';
 $THEME->prescsscallback = 'theme_cooperkap_get_pre_scss';
@@ -241,9 +246,10 @@ $THEME->precompiledcsscallback = 'theme_cooperkap_get_precompiled_css';
 $THEME->yuicssmodules = [];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
+$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->haseditswitch = true;
-// By default, all cooperkap theme do not need their titles displayed.
+// By default, all Alpha theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
     'notitle' => true
 ];

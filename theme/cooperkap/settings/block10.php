@@ -76,23 +76,23 @@ $default = '<!-- Start - Block - Logotypes #1 -->
 <!-- End Heading -->
 <div class="row justify-content-center align-items-center">
 <div class="col-6 col-md py-3">
-<img src="https://assets.rosea.io/demofiles/cooperkap/block10/logo-1.svg" alt="Logo" width="200" height="67" class="img-fluid">
+<img src="https://assets.rosea.io/demofiles/alpha/block10/logo-1.svg" alt="Logo" width="200" height="67" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3">
-<img src="https://assets.rosea.io/demofiles/cooperkap/block10/logo-5.svg" alt="Logo" width="140" height="47" class="img-fluid">
+<img src="https://assets.rosea.io/demofiles/alpha/block10/logo-5.svg" alt="Logo" width="140" height="47" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3">
-<img src="https://assets.rosea.io/demofiles/cooperkap/block10/logo-2.svg" alt="Logo" width="110" height="28" class="img-fluid">
+<img src="https://assets.rosea.io/demofiles/alpha/block10/logo-2.svg" alt="Logo" width="110" height="28" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3">
-<img src="https://assets.rosea.io/demofiles/cooperkap/block10/logo-4.svg" alt="Logo" width="140" height="47" class="img-fluid">
+<img src="https://assets.rosea.io/demofiles/alpha/block10/logo-4.svg" alt="Logo" width="140" height="47" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3">
-<img src="https://assets.rosea.io/demofiles/cooperkap/block10/logo-3.svg" alt="Logo" width="140" height="47" class="img-fluid">
+<img src="https://assets.rosea.io/demofiles/alpha/block10/logo-3.svg" alt="Logo" width="140" height="47" class="img-fluid">
 </div>
 <!-- End Col -->
 </div>
@@ -100,7 +100,7 @@ $default = '<!-- Start - Block - Logotypes #1 -->
 </div>
 </div>
 <!-- End - Block - Logotypes #1 -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block10footercontent';

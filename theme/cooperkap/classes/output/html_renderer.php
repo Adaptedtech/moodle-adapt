@@ -115,7 +115,7 @@ class html_renderer extends \plugin_renderer_base {
             $template->fixednavbar = true;
         }
 
-        return $this->render_from_template('theme_cooperkap/imageheading', $template);
+        return $this->render_from_template('theme_alpha/imageheading', $template);
     }
 
     /**
@@ -125,13 +125,13 @@ class html_renderer extends \plugin_renderer_base {
         $template = new \stdClass();
         $template->output = $this->output;
         $template->navpositionfixed = $fixednavbar;
-        return $this->render_from_template('theme_cooperkap/navigation', $template);
+        return $this->render_from_template('theme_alpha/navigation', $template);
     }
 
     /**
      * Render the social icons shown in the page footer.
      */
-    public function cooperkap_socialicons() {
+    public function alpha_socialicons() {
         global $CFG;
         $content = '';
 
@@ -158,7 +158,7 @@ class html_renderer extends \plugin_renderer_base {
                 $template->icons[] = $icon;
             }
         }
-        return $this->render_from_template('theme_cooperkap/socialicons', $template);
+        return $this->render_from_template('theme_alpha/socialicons', $template);
     }
 
     /**
@@ -189,7 +189,7 @@ class html_renderer extends \plugin_renderer_base {
                 $thislang->langurl = new moodle_url($this->page->url, array('lang' => $type));
                 $langmenu->languages[] = $thislang;
             }
-            return $this->render_from_template('theme_cooperkap/language', $langmenu);
+            return $this->render_from_template('theme_alpha/language', $langmenu);
         }
     }
 
@@ -218,7 +218,7 @@ class html_renderer extends \plugin_renderer_base {
             }
         }
 
-        $template->socialicons = $this->cooperkap_socialicons();
+        $template->socialicons = $this->alpha_socialicons();
 
         if (!empty($this->theme->settings->footnote)) {
             $template->footnote = $this->theme->settings->footnote;
@@ -227,7 +227,7 @@ class html_renderer extends \plugin_renderer_base {
         $template->logininfo = $this->output->login_info();
         $template->standardfooterhtml = $this->standard_footer_html();
 
-        return $this->render_from_template('theme_cooperkap/footer', $template);
+        return $this->render_from_template('theme_alpha/footer', $template);
     }
 
     /**

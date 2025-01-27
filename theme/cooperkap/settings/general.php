@@ -28,7 +28,7 @@ $page = new admin_settingpage('theme_cooperkap_general', get_string('generalsett
 
 $name = 'theme_cooperkap/hintro';
 $heading = get_string('hintro', 'theme_cooperkap', $a);
-$setting = new cooperkap_setting_specialsettingheading($name, $heading,
+$setting = new alpha_setting_specialsettingheading($name, $heading,
     format_text(get_string('hintro_desc', 'theme_cooperkap', $a), FORMAT_MARKDOWN));
 $page->add($setting);
 
@@ -70,13 +70,6 @@ $page->add($setting);
 $name = 'theme_cooperkap/backtotop';
 $title = get_string('backtotop', 'theme_cooperkap');
 $description = get_string('backtotop_desc', 'theme_cooperkap');
-$default = 1;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-$page->add($setting);
-
-$name = 'theme_cooperkap/fontawesome';
-$title = get_string('fontawesome', 'theme_cooperkap');
-$description = get_string('fontawesome_desc', 'theme_cooperkap');
 $default = 1;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $page->add($setting);

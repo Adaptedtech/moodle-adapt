@@ -91,7 +91,7 @@ $default = '<div class="row">
           </div>
           <!-- End item -->
       </div>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block12footercontent';

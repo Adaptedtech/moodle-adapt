@@ -44,7 +44,7 @@
         "hasregionmainsettingsmenu": false
     }
 }}
-{{> theme_alpha/head }}
+{{> theme_cooperkap/head }}
 
 <body {{{ bodyattributes }}}>
     {{> core/local/toast/wrapper}}
@@ -75,7 +75,7 @@
 
                     <div id="region-main-box" class="region-main-wrapper--fp">
                         <section id="region-main" class="region-main-content {{#hasblocks}}has-blocks{{/hasblocks}}" aria-label="{{#str}}content{{/str}}">
-                            <div {{#hasblocks}}class="blocks-wrapper d-inline-flex justify-content-between w-100" {{/hasblocks}}>
+
                                 <div {{#hasblocks}}class="wrapper-blocks"{{/hasblocks}}>
                                     {{#hasregionmainsettingsmenu}}
                                         <div class="region_main_settings_menu_proxy"></div>
@@ -98,7 +98,7 @@
                                     {{{ output.course_content_footer }}}
                                 </div>
                                 {{> theme_alpha/hasblocks-tmpl }}
-                            </div>
+
                         </section>
                     </div>
                     

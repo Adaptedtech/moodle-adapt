@@ -28,6 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 // Advanced settings.
 $page = new admin_settingpage('theme_cooperkap_advanced', get_string('advancedsettings', 'theme_cooperkap'));
 
+$setting = new admin_setting_configtextarea('theme_cooperkap/additionalheadscripts',
+    get_string('additionalheadscripts', 'theme_cooperkap'), get_string('empty_desc', 'theme_cooperkap'), '');
+$page->add($setting);
+
 // H5P custom CSS.
 $setting = new admin_setting_configtextarea('theme_cooperkap/hvpcss',
     get_string('hvpcss', 'theme_cooperkap'), get_string('hvpcss_desc', 'theme_cooperkap'), '');

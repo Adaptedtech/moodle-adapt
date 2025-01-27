@@ -14,14 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+defined('MOODLE_INTERNAL') || die();
+
 /**
  * @package   theme_cooperkap
  * @copyright 2022 - 2023 Marcin Czaja (https://rosea.io)
  * @license   Commercial https://themeforest.net/licenses
  */
 
-defined('MOODLE_INTERNAL') || die();
-require_once(__DIR__.'/libs/admin_confightmleditor.php');
+require_once(__DIR__ . '/libs/admin_confightmleditor.php');
 
 $siteurl = $CFG->wwwroot;
 $a = new stdClass;

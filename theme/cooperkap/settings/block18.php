@@ -72,7 +72,7 @@ $default = '<!-- Start - Block - Team #3 -->
 <div class="row">
 <!-- Start item -->
 <div class="rui-block-team-item text-left col-md-4">
-<img src="https://assets.rosea.io/cooperkap/demo/team.jpg" alt="Team #1" width="300" height="300" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/team.jpg" alt="Team #1" width="300" height="300" class="img-fluid">
 <h4 class="lead-4 mt-3 mb-0">Christa McAuliffe</h4>
 <div class="rui-block-text--3 rui-block-text--light">CEO</div>
 <div class="rui-block-text--2 mt-2">Multidisciplinary. Drinks too much coffee. Likes sentence fragments.</div>
@@ -81,7 +81,7 @@ $default = '<!-- Start - Block - Team #3 -->
 
 <!-- Start item -->
 <div class="rui-block-team-item text-left col-md-4">
-<img src="https://assets.rosea.io/cooperkap/demo/team.jpg" alt="ku" width="300" height="300" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/team.jpg" alt="ku" width="300" height="300" class="img-fluid">
 <h4 class="lead-4 mt-3 mb-0">Helen Keller</h4>
 <div class="rui-block-text--3 rui-block-text--light">Senior Vice President Services</div>
 <div class="rui-block-text--2 mt-2">Multidisciplinary. Drinks too much coffee. Likes sentence fragments.</div>
@@ -90,7 +90,7 @@ $default = '<!-- Start - Block - Team #3 -->
 
 <!-- Start item -->
 <div class="rui-block-team-item text-left col-md-4">
-<img src="https://assets.rosea.io/cooperkap/demo/team.jpg" alt="team #3" width="300" height="300" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/team.jpg" alt="team #3" width="300" height="300" class="img-fluid">
 <h4 class="lead-4 mt-3 mb-0">Mark Twain</h4>
 <div class="rui-block-text--3 rui-block-text--light">Senior Vice President Machine Learning and AI Strategy</div>
 <div class="rui-block-text--2 mt-2">Multidisciplinary. Drinks too much coffee. Likes sentence fragments.</div>
@@ -99,7 +99,7 @@ $default = '<!-- Start - Block - Team #3 -->
 </div><!-- End row -->
 </div>
 <!-- End - Block - Team #3 -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block18footercontent';

@@ -32,7 +32,7 @@ $title = get_string('turnon', 'theme_cooperkap');
 $description = get_string('displayblock23_desc', 'theme_cooperkap');
 $default = 0;
 $setting = new admin_setting_configcheckbox($name, $title .
-    '<span class="badge badge-sq badge-dark ml-2">Block #23 from cooperkap 1.5</span>', $description, $default);
+    '<span class="badge badge-sq badge-dark ml-2">Block #23 from Alpha 1.5</span>', $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/displayhrblock23';

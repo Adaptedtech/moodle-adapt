@@ -79,30 +79,30 @@ Better UX. In-build dark mode. All Moodle 4.0 features! Optimized - 50% less CSS
 
 <div class="row justify-content-center align-items-center">
 <div class="col-6 col-md py-3 text-center">
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="106" height="60" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="106" height="60" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3 text-center">
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="206" height="80" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="206" height="80" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3 text-center">
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="69" height="80" class="atto_image_button_middle">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="69" height="80" class="atto_image_button_middle">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3 text-center">
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="386" height="80" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="386" height="80" class="img-fluid">
 </div>
 <!-- End Col -->
 <div class="col-6 col-md py-3 text-center">
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="96" height="80" class="img-fluid">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="96" height="80" class="img-fluid">
 </div>
 <!-- End Col -->
 </div>
 <!-- End Row -->
 
 </div><!-- end .wrapper-md -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block16footercontent';

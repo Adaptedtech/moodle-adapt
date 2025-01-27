@@ -76,16 +76,6 @@ if (isloggedin()) {
     $navdraweropen = get_user_preferences('drawer-open-nav', true);
     $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
 
-    if (theme_cooperkap_get_setting('darkmodetheme') == '1') {
-        $darkmodeon = get_user_preferences('darkmode-on');
-        if ($darkmodeon) {
-            $extraclasses[] = 'theme-dark';
-        }
-        $darkmodetheme = true;
-    } else {
-        $darkmodeon = false;
-    }
-
     $mycourseson = get_user_preferences('mycourses-on');
     if ($mycourseson) {
         $extraclasses[] = 'mycourses-on';
@@ -105,9 +95,21 @@ if (isloggedin()) {
     $navdraweropen = false;
 }
 
+if (theme_cooperkap_get_setting('darkmodetheme') == '1') {
+    $darkmodeon = get_user_preferences('darkmode-on');
+    if ($darkmodeon) {
+        $extraclasses[] = 'theme-dark';
+    }
+    $darkmodetheme = true;
+} else {
+    $darkmodeon = false;
+}
+
 if (theme_cooperkap_get_setting('darkmodefirst') == '1') {
     $extraclasses[] = 'theme-dark';
-    $darkmodetheme = false;
+    if (theme_cooperkap_get_setting('darkmodetheme') == '0') {
+        $darkmodetheme = false;
+    }
 }
 
 if ($navdraweropen && !$hiddensidebar) {
@@ -276,8 +278,8 @@ $themesettings = new \theme_cooperkap\util\theme_settings();
 $templatecontext = array_merge($templatecontext, $themesettings->global_settings());
 $templatecontext = array_merge($templatecontext, $themesettings->footer_settings());
 
-$PAGE->requires->js_call_amd('theme_cooperkap/rui', 'init');
+$PAGE->requires->js_call_amd('theme_alpha/rui', 'init');
 if (theme_cooperkap_get_setting('backtotop') == '1') {
-    $PAGE->requires->js_call_amd('theme_cooperkap/backtotop', 'init');
+    $PAGE->requires->js_call_amd('theme_alpha/backtotop', 'init');
 }
 echo $OUTPUT->render_from_template('theme_cooperkap/tmpl-course', $templatecontext);

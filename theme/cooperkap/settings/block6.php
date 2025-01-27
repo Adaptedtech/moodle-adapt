@@ -74,7 +74,7 @@ $default = '<!-- Start - Block - Testimonials #2 -->
 <div class="rui-block-testimonials--quote">"Everything you need and nothing you do not"</div>
 <span class="rui-block-testimonials--author">Ryan Cook</span>
 <span class="rui-block-testimonials--additional mb-3">CEO | SoSimple</span>
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="100" height="34" class="">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="100" height="34" class="">
 </div>
 <!-- End item -->
 <!-- Start item -->
@@ -82,7 +82,7 @@ $default = '<!-- Start - Block - Testimonials #2 -->
 <div class="rui-block-testimonials--quote">“I could not imagine using anything else!”</div>
 <span class="rui-block-testimonials--author">Tim Smith</span>
 <span class="rui-block-testimonials--additional mb-3">UX Designer | Clean Simple</span>
-<img src="hhttps://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="100" height="34" class="">
+<img src="hhttps://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="100" height="34" class="">
 </div>
 <!-- End item -->
 <!-- Start item -->
@@ -90,13 +90,13 @@ $default = '<!-- Start - Block - Testimonials #2 -->
 <div class="rui-block-testimonials--quote">"One of the best Moodle Theme I have ever used”</div>
 <span class="rui-block-testimonials--author">Anna van Diesel</span>
 <span class="rui-block-testimonials--additional mb-3">Senior Product Designer | ABC Design</span>
-<img src="https://assets.rosea.io/cooperkap/demo/logo180x90.png" alt="" width="100" height="25" class="">
+<img src="https://assets.rosea.io/alpha/demo/logo180x90.png" alt="" width="100" height="25" class="">
 </div>
 <!-- End item -->
 </div>
 </div>
 <!-- End - Block - Testimonials #2 -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block6footercontent';

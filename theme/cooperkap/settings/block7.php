@@ -148,7 +148,7 @@ stroke-linecap="round" stroke-linejoin="round"></path>
 <!-- End item -->
 </div>
 <!-- End - Block - Grid Content #2 -->';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block7footercontent';

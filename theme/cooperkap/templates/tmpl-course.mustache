@@ -44,7 +44,7 @@
         "hasregionmainsettingsmenu": false
     }
 }}
-{{> theme_alpha/head }}
+{{> theme_cooperkap/head }}
 
 <body {{{ bodyattributes }}}>
     {{> core/local/toast/wrapper}}
@@ -94,7 +94,9 @@
                                     {{/hasctopbl}}
 
                                     {{#courseimagecontent}}
+                                    {{#output.course_hero}}
                                         <div class="rui-course-cover my-4" style="background-image: url('{{{ output.course_hero }}}');"></div>
+                                    {{/output.course_hero}}
                                     {{/courseimagecontent}}
 
                                     {{#hasregionmainsettingsmenu}}
@@ -138,6 +140,50 @@
 
     </div>
 
+    <script>
+        // Get all elements with class "rui-modprogress"
+        var progressDivs = document.querySelectorAll('.rui-modprogress');
+
+        // Iterate over each div element
+        progressDivs.forEach(function(div) {
+            // Extract the text content from the div
+            var textContent = div.textContent.trim();
+
+            // Extract only numbers using regular expression
+            var numbers = textContent.match(/\d+/g);
+
+            // Check if numbers are extracted successfully
+            if (numbers && numbers.length === 2) {
+                // Split the value before and after the "/" character
+                var beforeSlash = numbers[0];
+                var afterSlash = numbers[1];
+
+                // Update count-completed-value and count-total-value
+                var parentDiv = div.closest('.section-summary-activities');
+                var completedSpan = parentDiv.querySelector('.count-completed-value');
+                var totalSpan = parentDiv.querySelector('.count-total-value');
+
+                // Calculate the percentage of completion
+                var percentage = (beforeSlash / afterSlash) * 100;
+
+                // Update aria-valuenow attribute
+                var progressBar = parentDiv.querySelector('.rui-progress-bar');
+                if (progressBar) {
+                    progressBar.setAttribute('aria-valuenow', percentage);
+                    progressBar.style.width = percentage + "%";
+                }
+
+                if (completedSpan && totalSpan) {
+                    completedSpan.textContent = beforeSlash;
+                    totalSpan.textContent = afterSlash;
+                }
+                
+            } else {
+                console.error("Error: Failed to extract numbers from the div with ID:", div.id);
+            }
+        });
+    </script>
+    
 </body>
 
 </html>

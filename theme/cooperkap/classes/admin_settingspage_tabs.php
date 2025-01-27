@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   theme_cooperkap
+ * @package   th
  * @copyright 2016 Ryan Wyllie
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -91,6 +91,6 @@ class theme_cooperkap_admin_settingspage_tabs extends admin_settingpage {
             return '';
         }
 
-        return $OUTPUT->render_from_template('theme_cooperkap/admin_setting_tabs', $context);
+        return $OUTPUT->render_from_template('theme_alpha/admin_setting_tabs', $context);
     }
 }

@@ -38,6 +38,6 @@ $themesettings = new \theme_cooperkap\util\theme_settings();
 $templatecontext = array_merge($templatecontext, $themesettings->global_settings());
 $templatecontext = array_merge($templatecontext, $themesettings->footer_settings());
 
-$PAGE->requires->js_call_amd('theme_cooperkap/rui', 'init');
+$PAGE->requires->js_call_amd('theme_alpha/rui', 'init');
 
 echo $OUTPUT->render_from_template('theme_cooperkap/tmpl-maintenance', $templatecontext);

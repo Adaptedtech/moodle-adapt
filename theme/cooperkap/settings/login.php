@@ -114,42 +114,42 @@ $name = 'theme_cooperkap/loginintrotext';
 $title = get_string('loginintrotext', 'theme_cooperkap');
 $description = get_string('loginintrotext_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/loginhtmlcontent1';
 $title = get_string('loginhtmlcontent1', 'theme_cooperkap');
 $description = get_string('loginhtmlcontent1_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/loginhtmlcontent2';
 $title = get_string('loginhtmlcontent2', 'theme_cooperkap');
 $description = get_string('loginhtmlcontent2_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/loginhtmlblockbottom';
 $title = get_string('loginhtmlblockbottom', 'theme_cooperkap');
 $description = get_string('loginhtmlblockbottom_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/loginhtmlcontent3';
 $title = get_string('loginhtmlcontent3', 'theme_cooperkap');
 $description = get_string('loginhtmlcontent3_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/loginfootercontent';
 $title = get_string('loginfootercontent', 'theme_cooperkap');
 $description = get_string('loginfootercontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/logincustomfooterhtml';
@@ -182,14 +182,14 @@ $name = 'theme_cooperkap/signupintrotext';
 $title = get_string('signupintrotext', 'theme_cooperkap');
 $description = get_string('signupintrotext_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/signuptext';
 $title = get_string('signuptext', 'theme_cooperkap');
 $description = get_string('signuptext_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $settings->add($page);

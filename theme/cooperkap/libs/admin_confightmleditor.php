@@ -17,7 +17,7 @@
 /**
  *
  * @package   theme_cooperkap
- * @copyright 2022 - 2023 Marcin Czaja (https://rosea.io)
+ * @copyright 2022 Marcin Czaja (https://rosea.io)
  * @license   Commercial https://themeforest.net/licenses
  *
  */
@@ -68,7 +68,7 @@ class cooperkap_setting_confightmleditor extends admin_setting_configtext {
         $paramtype = PARAM_RAW,
         $cols = '60',
         $rows = '8',
-        $filearea = 'cooperkapsettingsimgs'
+        $filearea = 'spacesettingsimgs'
     ) {
         $this->rows = $rows;
         $this->cols = $cols;

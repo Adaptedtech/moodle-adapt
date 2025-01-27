@@ -81,7 +81,7 @@ $name = 'theme_cooperkap/block4htmlcontent';
 $title = get_string('blockhtmlcontent', 'theme_cooperkap');
 $description = get_string('blockhtmlcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/hblock4_2';
@@ -121,7 +121,7 @@ for ($block4index = 1; $block4index <= $block4count; $block4index++) {
     $title = get_string('block4answer', 'theme_cooperkap');
     $description = get_string('block4answer_desc', 'theme_cooperkap');
     $default = '';
-    $setting = new cooperkap_setting_confightmleditor($name, '<span class="rui-admin-no">' .
+    $setting = new alpha_setting_confightmleditor($name, '<span class="rui-admin-no">' .
         $block4index . '</span>' . $title, $description, $default);
 
     $page->add($setting);

@@ -157,7 +157,7 @@ function theme_cooperkap_get_extra_scss($theme) {
         }
     }
 
-    $forcefwvideo = theme_cooperkap_get_setting('forcefwvideo');
+    $forcefwvideo = theme_alpha_get_setting('forcefwvideo');
     if ($forcefwvideo == 1) {
         $content .= '.mediaplugin.mediaplugin_videojs div[style*="max-width"] {margin-left:auto;margin-right:auto;
             width: 100%; max-width: 100% !important;}';
@@ -210,8 +210,8 @@ function theme_cooperkap_pluginfile($course, $cm, $context, $filearea, $args, $f
             return $theme->setting_file_serve('customsidebardmlogo', $args, $forcedownload, $options);
         } else if ($filearea === 'fontfiles') {
             return $theme->setting_file_serve('fontfiles', $args, $forcedownload, $options);
-        } else if ($filearea === 'cooperkapsettingsimgs') {
-            return $theme->setting_file_serve('cooperkapsettingsimgs', $args, $forcedownload, $options);
+        } else if ($filearea === 'alphasettingsimgs') {
+            return $theme->setting_file_serve('alphasettingsimgs', $args, $forcedownload, $options);
         } else if (preg_match("/^block1slideimg[1-9][0-9]?$/", $filearea) !== false) {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (preg_match("/^block5itemimg[1-9][0-9]?$/", $filearea) !== false) {
@@ -278,14 +278,14 @@ function theme_cooperkap_get_main_scss_content($theme) {
 
     $context = context_system::instance();
     if ($filename == 'default.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/cooperkap/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/alpha/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/cooperkap/scss/preset/plain.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/alpha/scss/preset/plain.scss');
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_cooperkap', 'preset', 0, '/', $filename))) {
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/cooperkap/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/alpha/scss/preset/default.scss');
     }
 
     return $scss;
@@ -298,7 +298,7 @@ function theme_cooperkap_get_main_scss_content($theme) {
  */
 function theme_cooperkap_get_precompiled_css() {
     global $CFG;
-    return file_get_contents($CFG->dirroot . '/theme/cooperkap/style/moodle.css');
+    return file_get_contents($CFG->dirroot . '/theme/space/style/moodle.css');
 }
 
 /**
@@ -560,7 +560,7 @@ function theme_cooperkap_get_course_information_banners() {
 
     // If the setting showhintcourseselfenrol is set, a hint for users is shown that the course allows unrestricted self
     // enrolment. This hint is only shown if the course is visible, the self enrolment is visible and if the user has the
-    // capability "theme/cooperkap:viewhintcourseselfenrol".
+    // capability "theme/space:viewhintcourseselfenrol".
     if (get_config('theme_cooperkap', 'showhintcourseselfenrol') == 1
             && $allowtoshowhint == true
             && $PAGE->has_set_url()

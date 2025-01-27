@@ -40,7 +40,7 @@ class theme_cooperkap_mod_hvp_renderer extends \mod_hvp_renderer {
      * @param string $embedtype Possible values: div, iframe, external, editor
      */
     public function hvp_alter_styles(&$styles, $libraries, $embedtype) {
-        $theme = theme_config::load('cooperkap');
+        $theme = theme_config::load('alpha');
 
         $content = $theme->settings->hvpcss;
 

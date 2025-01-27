@@ -18,7 +18,7 @@
  * User class utility class
  *
  * @package   theme_cooperkap
- * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
+ * @copyright 2022 - 2023 Marcin Czaja (https://rosea.io)
  * @license   Commercial https://themeforest.net/licenses
  */
 

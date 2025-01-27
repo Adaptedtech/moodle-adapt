@@ -53,7 +53,7 @@ $page = new admin_settingpage('theme_cooperkap_customalert', get_string('alertse
     $title = get_string('customalerthtml', 'theme_cooperkap');
     $description = get_string('customalerthtml_desc', 'theme_cooperkap');
     $default = '';
-    $setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+    $setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
     $page->add($setting);
 
 $settings->add($page);

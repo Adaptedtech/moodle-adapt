@@ -70,7 +70,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">Art History</h3>
 <span class="rui-block-category-item-subtitle">3 courses</span>
@@ -81,7 +81,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">UI Design</h3>
 <span class="rui-block-category-item-subtitle">16 courses</span>
@@ -92,7 +92,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">3D Design</h3>
 <span class="rui-block-category-item-subtitle">4 courses</span>
@@ -103,7 +103,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">Media &amp; PR</h3>
 <span class="rui-block-category-item-subtitle">9 courses</span>
@@ -114,7 +114,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">Programming</h3>
 <span class="rui-block-category-item-subtitle">2 courses</span>
@@ -125,7 +125,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">Music</h3>
 <span class="rui-block-category-item-subtitle">6 courses</span>
@@ -136,7 +136,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- Start item -->
 <a href="#" class="rui-block-category-item">
 <div class="rui-block-category-item-icon">
-<img src="https://assets.rosea.io/cooperkap/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
+<img src="https://assets.rosea.io/alpha/demo/icon.svg" alt="" width="60" height="60" class="img-fluid"></div>
 <div class="ml-2 d-flex flex-wrap">
 <h3 class="rui-block-category-item-title">Language courses</h3>
 <span class="rui-block-category-item-subtitle">3 courses</span>
@@ -145,7 +145,7 @@ $default = '<div class="rui-card-cat-grid mx-0 w-100">
 <!-- End item -->
 
 </div>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block22footercontent';

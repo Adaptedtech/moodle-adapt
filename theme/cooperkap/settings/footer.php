@@ -56,7 +56,7 @@ $default = '<p>Sample paragraph lorem ipsum dolar set...</p>
             <li>Lorem ipsum</li>
             <li>Dolar set...</li>
         </ol>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/footerblock2';
@@ -98,22 +98,22 @@ $default = '<div class="rui-footer-nav row text-sm-center text-md-left my-5">
             </ul>
         </div>
     </div>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/footerblock3';
 $title = get_string('footerblock3', 'theme_cooperkap');
 $description = get_string('footerblock3_desc', 'theme_cooperkap');
 $default = 'Get this theme exclusively on the ThemeForest: More premium moodle themes: <a href="https://rosea.io">rosea.io</a>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/footercopy';
 $title = get_string('footercopy', 'theme_cooperkap');
 $description = get_string('footercopy_desc', 'theme_cooperkap');
-$default = '<p><strong>Copyright © 2023 cooperkap Moodle Theme.
-All right reserved.</strong></p>cooperkap premium moodle theme by RoseaThemes.';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$default = '<p><strong>Copyright © 2023 Alpha Moodle Theme.
+All right reserved.</strong></p>Alpha premium moodle theme by RoseaThemes.';
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/hfootercolors';

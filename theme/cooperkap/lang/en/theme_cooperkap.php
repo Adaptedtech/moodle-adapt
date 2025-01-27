@@ -26,17 +26,17 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['bootswatch'] = 'Bootswatch';
 $string['bootswatch_desc'] = 'A bootswatch is a set of Bootstrap variables and css to style Bootstrap';
-$string['choosereadme'] = '<h2 class="mt-3 mb-1 h1">Alpha 2.5.11</h2><p class="mb-5">Premium Moodle Theme designed by RoseaThemes.</p><div class="rui-block-testimonials-item mt-2 mb-4"><div class="rui-block-testimonials--quote w-100 mb-0">"Good design is as little design as possible"</div><p class="rui-block-testimonials--author ml-2">Dieter Rams</p></div>
+$string['choosereadme'] = '<h2 class="mt-3 mb-1 h1">Alpha 2.5.15</h2><p class="mb-5">Premium Moodle Theme designed by RoseaThemes.</p><div class="rui-block-testimonials-item mt-2 mb-4"><div class="rui-block-testimonials--quote w-100 mb-0">"Good design is as little design as possible"</div><p class="rui-block-testimonials--author ml-2">Dieter Rams</p></div>
 <p class="small">Premium Moodle Theme designed by RoseaThemes.</p>
 <div class="mt-4"><h4>Support</h4><p>Need help with theme customization?<br />or you want to report a bug?</p></div><a href="https://rosea.gitbook.io/alpha-moodle-theme/" target="_blank" class="btn btn-sm btn-primary ml-0 mt-2 mb-2 mr-2">Online Documentation</a><a href="https://roseathemes.ticksy.com" target="_blank" class="btn btn-sm btn-secondary m-2">Dedicated ticket system</a>';
 $string['currentinparentheses'] = '(current)';
-$string['configtitle'] = 'cooperkap';
+$string['configtitle'] = 'Cooperkap Theme';
 $string['hgeneralnav'] = 'Main navgation items';
 $string['hgeneralnav_desc'] = 'Here you can turn off elements of the main navigation.';
 $string['generalsettings'] = 'General settings';
 
 $string['nobootswatch'] = 'None';
-$string['pluginname'] = 'cooperkap (2.5.11)';
+$string['pluginname'] = 'Cooperkap Theme (2.5.15)';
 $string['privacy:metadata'] = 'The alpha theme does not store any personal data about any user.';
 $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
@@ -68,7 +68,7 @@ $string['customsmcontent_desc'] = 'Custom content between main navigation and "M
 $string['hcourseindexdrawer'] = 'Course Index Drawer';
 $string['hcourseindexdrawer_desc'] = '';
 $string['customcitcontent'] = 'Course Index Drawer (Custom HTML Area - Top)';
-$string['customcitcontent_desc'] = '<img src="{$a->siteurl}/theme/cooperkap/doc/topbar-course-index-blocks.png" class="mt-2 rounded" style="max-height: 100px; width: auto; max-width: 100%;" alt="" />';
+$string['customcitcontent_desc'] = '<img src="{$a->siteurl}/theme/alpha/doc/topbar-course-index-blocks.png" class="mt-2 rounded" style="max-height: 100px; width: auto; max-width: 100%;" alt="" />';
 $string['customcibcontent'] = 'Course Index Drawer (Custom HTML Area - Bottom)';
 $string['customcibcontent_desc'] = '';
 
@@ -94,7 +94,7 @@ $string['customsfcontent_desc'] = 'Custom content under "My Courses" section. <b
         &#x3C;/p&#x3E;
     &#x3C;/span&#x3E;
     &#x3C;div class=&#x22;ml-5&#x22;&#x3E;
-        &#x3C;p class=&#x22;rui-block-text--light rui-block-text--3&#x22;&#x3E;Alpha (2.5.11) is fully compatible with moodle 4.0 and later. Theme is not compatible with Alpha 1.x.&#x3C;/p&#x3E;&#x3C;a href=&#x22;#&#x22; class=&#x22;mt-2 rui-block-text--3&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme for just $99&#x3C;/a&#x3E;
+        &#x3C;p class=&#x22;rui-block-text--light rui-block-text--3&#x22;&#x3E;Alpha (2.5.14) is fully compatible with moodle 4.0 and later. Theme is not compatible with Alpha 1.x.&#x3C;/p&#x3E;&#x3C;a href=&#x22;#&#x22; class=&#x22;mt-2 rui-block-text--3&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme for just $99&#x3C;/a&#x3E;
     &#x3C;/div&#x3E;
 &#x3C;/div&#x3E;</pre>';
 $string['turnoffsidebarfp'] = 'Turn off the sidebar (Front Page)';
@@ -159,12 +159,12 @@ $string['region-sidebarbb'] = 'Sidebar - Bottom Blocks';
 $string['region-sidecourseblocks'] = 'Right Sidebar Blocks';
 
 $string['topbaradminbtnon'] = 'Display "Admin button" on the top bar';
-$string['topbaradminbtnon_desc'] = '<br /><img src="{$a->siteurl}/theme/cooperkap/doc/admin-btn.png" class="img-fluid rounded my-3" style="max-height: 100px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
+$string['topbaradminbtnon_desc'] = '<br /><img src="{$a->siteurl}/theme/alpha/doc/admin-btn.png" class="img-fluid rounded my-3" style="max-height: 100px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
 
 $string['topbareditmode'] = 'Edit mode button on the top bar';
-$string['topbareditmode_desc'] = '<img src="{$a->siteurl}/theme/cooperkap/doc/topbar-editmode.png" class="mt-2 rounded" style="max-height: 100px; width: auto; max-width: 100%;" alt="Edit mode" />';
+$string['topbareditmode_desc'] = '<img src="{$a->siteurl}/theme/alpha/doc/topbar-editmode.png" class="mt-2 rounded" style="max-height: 100px; width: auto; max-width: 100%;" alt="Edit mode" />';
 $string['turnoffdashboardlink'] = 'Turn off Dashboard Link (User Menu)';
-$string['turnoffdashboardlink_desc'] = '<p>You can turn off Dashboard Link inside the User menu.</p><img src="{$a->siteurl}/theme/cooperkap/doc/user-menu-dashboard.png" class="mt-2 rounded" style="max-height: 150px; width: auto; max-width: 100%;" alt="Dashboard Link" />';
+$string['turnoffdashboardlink_desc'] = '<p>You can turn off Dashboard Link inside the User menu.</p><img src="{$a->siteurl}/theme/alpha/doc/user-menu-dashboard.png" class="mt-2 rounded" style="max-height: 150px; width: auto; max-width: 100%;" alt="Dashboard Link" />';
 $string['darkmodetheme'] = 'Dark Mode Switcher';
 $string['darkmodetheme_desc'] = '';
 $string['darkmodefirst'] = 'Only Dark Mode UI';
@@ -228,7 +228,7 @@ $string['displayteachers'] = 'Display teacher avatars';
 $string['displayteachers_desc'] = 'Display teachers list on course card.';
 
 $string['cccsummary'] = 'Display Course Summary';
-$string['cccsummary_desc'] = '<img src="{$a->siteurl}/theme/cooperkap/doc/course-desc.jpg" class="img-fluid mt-2 rounded" width="100%" alt="Course Summary" />';
+$string['cccsummary_desc'] = '<img src="{$a->siteurl}/theme/alpha/doc/course-desc.jpg" class="img-fluid mt-2 rounded" width="100%" alt="Course Summary" />';
 
 $string['cccfooter'] = 'Display "Get access" buttons';
 $string['cccfooter_desc'] = '';
@@ -253,7 +253,7 @@ $string['ipcoursesummary'] = 'Display course summary (Main Course Page)';
 $string['ipcoursesummary_desc'] = '';
 
 $string['courselangbadge'] = 'Course Language Badge';
-$string['courselangbadge_desc'] = '<p>(Course - Settings - Appearance - Force Language)</p><img src="{$a->siteurl}/theme/cooperkap/doc/course-lang-badge.jpg" class="img-fluid mt-2 rounded" width="100%" alt="Course Simple List" />';
+$string['courselangbadge_desc'] = '<p>(Course - Settings - Appearance - Force Language)</p><img src="{$a->siteurl}/theme/alpha/doc/course-lang-badge.jpg" class="img-fluid mt-2 rounded" width="100%" alt="Course Simple List" />';
 
 // Headings.
 $string['hlogin'] = 'Login Page';
@@ -267,6 +267,7 @@ $string['loginidprovtop_desc'] = '';
 
 // Settings - Advanced.
 $string['advancedsettings'] = 'Advanced settings';
+$string['additionalheadscripts'] = 'Additional Head Scripts';
 $string['googleanalytics'] = 'Google Analytics V4 Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics V4 code to enable analytics on your website. The code format shold be like [G-XXXXXXXXXX]';
 $string['favicon'] = 'Custom favicon';
@@ -374,7 +375,7 @@ $string['setcourseimage'] = 'Course image (Main Course Page)';
 $string['yes'] = 'Yes';
 $string['courseimagecontent'] = 'Inside the content';
 $string['courseprogressbar'] = 'Display Course Progress Bar (Globaly)';
-$string['courseprogressbar_desc'] = 'Course progress bar displays on the course index sidebar<br /><div class="w-100 mt-2"><img src="{$a->siteurl}/theme/cooperkap/doc/course-progress.png" class="img-fluid rounded w-100" style="max-width: 500px;" alt="Alpha Moodle Theme" /></div>';
+$string['courseprogressbar_desc'] = 'Course progress bar displays on the course index sidebar<br /><div class="w-100 mt-2"><img src="{$a->siteurl}/theme/alpha/doc/course-progress.png" class="img-fluid rounded w-100" style="max-width: 500px;" alt="Alpha Moodle Theme" /></div>';
 
 // Settings - Top Bar.
 $string['settingstopbar'] = 'Top Bar';
@@ -407,7 +408,7 @@ $string['stringnocourses'] = 'You are not enrolled in any courses.';
 $string['stringnocourses_desc'] = '<ul><li><span>Displaying text in multiple languages </span><a class="underline--anim" href="https://docs.moodle.org/400/en/Multi-language_content_filter" target="_blank">Learn more</a></li></ul>';
 $string['topbarcustomhtml'] = 'Custom HTML Area';
 $string['topbarcustomhtml_desc'] = '
-<br /><img src="{$a->siteurl}/theme/cooperkap/doc/topbar-custom-html.png" class="img-fluid rounded my-3" style="max-height: 100px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />
+<br /><img src="{$a->siteurl}/theme/alpha/doc/topbar-custom-html.png" class="img-fluid rounded my-3" style="max-height: 100px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />
 <div class="mt-3 mb-2">Sample code snippet</div>
 <pre class="rui-pre">&#x3C;span class=&#x22;d-inline-flex align-items-center&#x22;&#x3E;
 &#x3C;span class=&#x22;mr-2 ml-1&#x22;&#x3E;&#x3C;svg width=&#x22;24&#x22; height=&#x22;24&#x22; viewBox=&#x22;0 0 24 24&#x22; fill=&#x22;none&#x22; xmlns=&#x22;http://www.w3.org/2000/svg&#x22;&#x3E;
@@ -416,7 +417,7 @@ $string['topbarcustomhtml_desc'] = '
 &#x3C;path d=&#x22;M6.75 11.5V16.25C6.75 16.25 8 18.25 12 18.25C16 18.25 17.25 16.25 17.25 16.25V11.5&#x22; stroke=&#x22;currentColor&#x22; stroke-width=&#x22;1.5&#x22; stroke-linecap=&#x22;round&#x22; stroke-linejoin=&#x22;round&#x22;&#x3E;&#x3C;/path&#x3E;
 &#x3C;/svg&#x3E;
 &#x3C;/span&#x3E;
-&#x3C;p&#x3E;Alpha (2.5.11) is here!&#x3C;br&#x3E;&#x3C;a href=&#x22;#&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme today!&#x3C;/a&#x3E;
+&#x3C;p&#x3E;Alpha (2.5.15) is here!&#x3C;br&#x3E;&#x3C;a href=&#x22;#&#x22; target=&#x22;_blank&#x22;&#x3E;Get this theme today!&#x3C;/a&#x3E;
 &#x3C;/p&#x3E;
 &#x3C;/span&#x3E;</pre>';
 
@@ -440,7 +441,7 @@ $string['colortopbarbtnhovertext'] = 'Button Hover Text';
 // Settings - Dashboard.
 $string['settingsdashboard'] = 'Dashboard';
 $string['setdashboardlayout'] = 'Dashboard Page Layout';
-$string['setdashboardlayout_desc'] = '<img src="{$a->siteurl}/theme/cooperkap/doc/dashboard-layout.jpg" class="img-fluid rounded my-3 w-100" alt="Alpha Moodle Theme" />';
+$string['setdashboardlayout_desc'] = '<img src="{$a->siteurl}/theme/alpha/doc/dashboard-layout.jpg" class="img-fluid rounded my-3 w-100" alt="Alpha Moodle Theme" />';
 $string['dashboardlayout1'] = 'Layout #1';
 $string['dashboardlayout2'] = 'Layout #2';
 $string['dashboardlayout3'] = 'Layout #3';
@@ -999,7 +1000,7 @@ $string['displayblock22_desc'] = '';
 $string['settingsblock23'] = 'Block #23 (Categories from Alpha 1.5)';
 $string['displayblock23_desc'] = '';
 $string['fpcustomcategoryblockhtml1'] = 'Content #1<br /><sup>(left)</sup>';
-$string['fpcustomcategoryblockhtml1_desc'] = '<strong>First switch to HTML view.</strong><img src="{$a->siteurl}/theme/cooperkap/doc/htmlview.png" class="img-fluid mt-2 mb-4" ><br /> Custom HTML for Custom Categories Block
+$string['fpcustomcategoryblockhtml1_desc'] = '<strong>First switch to HTML view.</strong><img src="{$a->siteurl}/theme/alpha/doc/htmlview.png" class="img-fluid mt-2 mb-4" ><br /> Custom HTML for Custom Categories Block
 <br /><strong>Example:</strong><pre><code>&#x3C;h4 class=&#x22;c-courses-list-heading mb-4&#x22;&#x3E;Heading&#x3C;/h4&#x3E;
 &#x3C;ul class=&#x22;c-courses-list&#x22;&#x3E;
 &#x3C;li&#x3E;&#x3C;a href=&#x22;course/view.php?id=9&#x22;&#x3E;Celebrating Cultures&#x3C;/a&#x3E;&#x3C;/li&#x3E;
@@ -1013,7 +1014,7 @@ $string['fpcustomcategoryblockhtml1_desc'] = '<strong>First switch to HTML view.
 &#x3C;/ul&#x3E;</code></pre>';
 
 $string['fpcustomcategoryblockhtml2'] = 'Content #2<br /><sup>(middle)</sup>';
-$string['fpcustomcategoryblockhtml2_desc'] = '<strong>First switch to HTML view.</strong><img src="{$a->siteurl}/theme/cooperkap/doc/htmlview.png" class="img-fluid mt-2 mb-4" ><br /> Custom HTML for Custom Categories Block
+$string['fpcustomcategoryblockhtml2_desc'] = '<strong>First switch to HTML view.</strong><img src="{$a->siteurl}/theme/alpha/doc/htmlview.png" class="img-fluid mt-2 mb-4" ><br /> Custom HTML for Custom Categories Block
 <br /><strong>Example:</strong><pre><code>&#x3C;h4 class=&#x22;c-courses-list-heading mb-4&#x22;&#x3E;Heading&#x3C;/h4&#x3E;
 &#x3C;ul class=&#x22;c-courses-list&#x22;&#x3E;
 &#x3C;li&#x3E;&#x3C;a href=&#x22;course/view.php?id=9&#x22;&#x3E;Celebrating Cultures&#x3C;/a&#x3E;&#x3C;/li&#x3E;
@@ -1027,7 +1028,7 @@ $string['fpcustomcategoryblockhtml2_desc'] = '<strong>First switch to HTML view.
 &#x3C;/ul&#x3E;</code></pre>';
 
 $string['fpcustomcategoryblockhtml3'] = 'Content #3<br /><sup>(right)</sup>';
-$string['fpcustomcategoryblockhtml3_desc'] = '<strong>First switch to HTML view.</strong><img src="{$a->siteurl}/theme/cooperkap/doc/htmlview.png" class="img-fluid mt-2 mb-4" ><br /> Custom HTML for Custom Categories Block
+$string['fpcustomcategoryblockhtml3_desc'] = '<strong>First switch to HTML view.</strong><img src="{$a->siteurl}/theme/alpha/doc/htmlview.png" class="img-fluid mt-2 mb-4" ><br /> Custom HTML for Custom Categories Block
 <br /><strong>Example:</strong><pre><code>&#x3C;h4 class=&#x22;c-courses-list-heading mb-4&#x22;&#x3E;Heading&#x3C;/h4&#x3E;
 &#x3C;ul class=&#x22;c-courses-list&#x22;&#x3E;
 &#x3C;li&#x3E;&#x3C;a href=&#x22;course/view.php?id=9&#x22;&#x3E;Celebrating Cultures&#x3C;/a&#x3E;&#x3C;/li&#x3E;
@@ -1097,7 +1098,7 @@ $string['customlogotxt'] = 'Company/Site Name';
 $string['customlogotxt_desc'] = '';
 $string['logoandname'] = 'Display Text Next to The Logo';
 $string['logoandname_desc'] = 'The company or site name must be added.
-<br /><img src="{$a->siteurl}/theme/cooperkap/doc/logo-text.png" class="img-fluid rounded my-3" style="max-height: 80px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
+<br /><img src="{$a->siteurl}/theme/alpha/doc/logo-text.png" class="img-fluid rounded my-3" style="max-height: 80px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
 
 $string['hcolorstxt'] = 'Text Colors <span class="badge badge-sm badge-light mx-2">Not recommended to change</span>';
 $string['hcolorstxt_desc'] = '<p>Compatible with WCAG Principles.</p><p>Change only when you really need to.</p>';
@@ -1205,10 +1206,10 @@ $string['dmcolor_desc'] = '';
 $string['additionalclass'] = 'Additional Class Name';
 $string['additionalclass_desc'] = '<strong class="badge badge-warning mr-2">Only for developers.</strong><span>You can add multiple class names e.g class1 class2 class3 </span>';
 
-$string['hintro'] = '<img src="{$a->siteurl}/theme/cooperkap/doc/alpha-icon.png" class="img-fluid rounded my-3" width="80" height="80" alt="Alpha Moodle Theme" /><div class="lead-3">Alpha for Moodle 4.3</div>';
+$string['hintro'] = '<img src="{$a->siteurl}/theme/alpha/doc/alpha-icon.png" class="img-fluid rounded my-3" width="80" height="80" alt="Alpha Moodle Theme" /><div class="lead-3">CooperKap for Moodle</div>';
 $string['hintro_desc'] = '
 <div class="mt-1 small">by <a href="https://rosea.io">RoseaThemes</a></div><hr class="mt-3" />
-<div class="mt-3"><span class="badge badge-light">Version: 2.5.11</span></div>
+<div class="mt-3"><span class="badge badge-light">Version: 2.5.15</span></div>
 <div class="mt-4"><h3 class="lead-4 mb-2">Need help with theme customization?<br />Or you want to report a bug?</h3>Just let me know. Open <a href="https://roseathemes.ticksy.com" target="_blank">a ticket</a> or contact me via support form on the ThemeForest item page.</div>
 <a href="https://rosea.gitbook.io/alpha-moodle-theme/" target="_blank" class="btn btn-sm btn-dark mt-3">Online documentation</a>
 ';
@@ -1217,7 +1218,7 @@ $string['hintro_desc'] = '
 // Setting: Show hint for switched role setting.
 $string['showswitchedroleincoursesetting'] = 'Show hint for switched role';
 $string['showswitchedroleincoursesetting_desc'] = 'Enabling this option shows a hint in the course header if the user switched roles in the course. It also provides a link to switch back within the course page.
-<br /><img src="{$a->siteurl}/theme/cooperkap/doc/hints.png" class="img-fluid rounded my-3" style="max-height: 200px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
+<br /><img src="{$a->siteurl}/theme/alpha/doc/hints.png" class="img-fluid rounded my-3" style="max-height: 200px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
 $string['switchedroleto'] = 'You are viewing this course currently with the role: <strong>{$a->role}</strong>';
 // Setting: Show hint for hidden course.
 $string['showhintcoursehiddensetting'] = 'Show hint in hidden courses';
@@ -1393,14 +1394,14 @@ $string['hlabelsidebar_desc'] = '';
 
 $string['labelsidebaropened'] = 'Sidebar Label (Opened)';
 $string['labelsidebaropened_desc'] = 'Learn how to add multi-language content. <a href="https://docs.moodle.org/402/en/Multi-language_content_filter"> Learn more</a>
-<br /><img src="{$a->siteurl}/theme/cooperkap/doc/sidebar-labels.png" width="w-100 rounded" style="max-height:150px;" />';
+<br /><img src="{$a->siteurl}/theme/alpha/doc/sidebar-labels.png" width="w-100 rounded" style="max-height:150px;" />';
 
 $string['labelsidebarclosed'] = 'Sidebar Label (Closed)';
 $string['labelsidebarclosed_desc'] = 'Learn how to add multi-language content. <a href="https://docs.moodle.org/402/en/Multi-language_content_filter"> Learn more</a>
-<br /><img src="{$a->siteurl}/theme/cooperkap/doc/sidebar-labels.png" width="w-100 rounded" style="max-height:150px;" />';
+<br /><img src="{$a->siteurl}/theme/alpha/doc/sidebar-labels.png" width="w-100 rounded" style="max-height:150px;" />';
 
 $string['secnavgroupitem'] = 'Include Groups Item to the Secondary Navigation';
-$string['secnavgroupitem_desc'] = 'For users who have capabilities such as moodle/course:managegroups. <br /><img src="{$a->siteurl}/theme/cooperkap/doc/secondary-nav-course-tmpl.png" width="w-100 rounded" style="max-height:150px;" />';
+$string['secnavgroupitem_desc'] = 'For users who have capabilities such as moodle/course:managegroups. <br /><img src="{$a->siteurl}/theme/alpha/doc/secondary-nav-course-tmpl.png" width="w-100 rounded" style="max-height:150px;" />';
 
 $string['settingscoursesnav'] = 'Course Page - Secondary Navigation';
 
@@ -1428,13 +1429,13 @@ $string['backtotopbutton'] = 'Go to top';
 
 $string['courselistview'] = 'Simple list (Course List)';
 $string['courselistview_desc'] = 'Display a simple list instead default course cards. Only on the /course/index.php<br />
-<div class="w-100 mt-2"><img src="{$a->siteurl}/theme/cooperkap/doc/course-simple-list.png" class="img-fluid rounded w-100" style="max-width: 500px;" alt="Alpha Moodle Theme" /></div>';
+<div class="w-100 mt-2"><img src="{$a->siteurl}/theme/alpha/doc/course-simple-list.png" class="img-fluid rounded w-100" style="max-width: 500px;" alt="Alpha Moodle Theme" /></div>';
 
 $string['displayfilterhiddenchbx'] = 'Display Hidden Courses Toggle';
 $string['displayfilterhiddenchbx_desc'] = '';
 
 $string['forcefwvideo'] = 'Force full-width video';
-$string['forcefwvideo_desc'] = 'Turn off this option to revert to the default Moodle video size settings.<br /><img src="{$a->siteurl}/theme/cooperkap/doc/video-size.jpg" class="img-fluid rounded my-3" style="max-height: 200px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
+$string['forcefwvideo_desc'] = 'Turn off this option to revert to the default Moodle video size settings.<br /><img src="{$a->siteurl}/theme/alpha/doc/video-size.jpg" class="img-fluid rounded my-3" style="max-height: 200px; width: auto; max-width: 100%;" alt="Alpha Moodle Theme" />';
 
 $string['mycoursesontop'] = 'Display "My Courses Area" before Main Navigation';
 $string['mycoursesontop_desc'] = 'Turn off this option to display the "My Courses" area after the Main Navigation.';

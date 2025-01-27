@@ -26,7 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $extraclasses = [];
 
-// Dark mode.
 if (isloggedin()) {
     $navdraweropen = get_user_preferences('drawer-open-nav', true);
     $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
@@ -36,24 +35,11 @@ if (isloggedin()) {
         if ($darkmodeon) {
             $extraclasses[] = 'theme-dark';
         }
+        $darkmodetheme = true;
     } else {
         $darkmodeon = false;
     }
-
-    $mycourseson = get_user_preferences('mycourses-on');
-    if ($mycourseson) {
-        $extraclasses[] = 'mycourses-on';
-    }
-
-    $mycourseshiddenon = get_user_preferences('mycourses-hidden-on');
-    if ($mycourseshiddenon) {
-        $extraclasses[] = 'mycourses-hidden-on';
-    }
-
-    $mycoursesinprogresson = get_user_preferences('mycourses-inprogress-on');
-    if ($mycoursesinprogresson) {
-        $extraclasses[] = 'mycourses-inprogress-on';
-    }
+    
 } else {
     $navdraweropen = false;
 }
@@ -76,9 +62,6 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'draweropenright' => $draweropenright,
     'darkmodeon' => !empty($darkmodeon),
-    'mycourseson' => !empty($mycourseson),
-    'mycourseshiddenon' => !empty($mycourseshiddenon),
-    'mycoursesinprogresson' => !empty($mycoursesinprogresson),
     'darkmodetheme' => !empty($darkmodetheme),
     'navdraweropen' => $navdraweropen,
     'siteurl' => $siteurl
@@ -89,8 +72,8 @@ $themesettings = new \theme_cooperkap\util\theme_settings();
 $templatecontext = array_merge($templatecontext, $themesettings->global_settings());
 $templatecontext = array_merge($templatecontext, $themesettings->footer_settings());
 
-$PAGE->requires->js_call_amd('theme_cooperkap/rui', 'init');
+$PAGE->requires->js_call_amd('theme_alpha/rui', 'init');
 if (theme_cooperkap_get_setting('backtotop') == '1') {
-    $PAGE->requires->js_call_amd('theme_cooperkap/backtotop', 'init');
+    $PAGE->requires->js_call_amd('theme_alpha/backtotop', 'init');
 }
 echo $OUTPUT->render_from_template('theme_cooperkap/secure', $templatecontext);

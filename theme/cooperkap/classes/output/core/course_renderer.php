@@ -353,9 +353,9 @@ class course_renderer extends \core_course_renderer {
         ];
 
         if ($theme->settings->courselistview == 1) {
-            return $this->render_from_template('theme_cooperkap/custom_courselist', $data);
+            return $this->render_from_template('theme_alpha/custom_courselist', $data);
         } else {
-            return $this->render_from_template('theme_cooperkap/custom_coursecard', $data);
+            return $this->render_from_template('theme_alpha/custom_coursecard', $data);
         }
     }
 

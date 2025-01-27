@@ -17,7 +17,7 @@
 {{!
     @template theme_alpha/tmpl-admin
 }}
-{{> theme_alpha/head }}
+{{> theme_cooperkap/head }}
 
 <body {{{ bodyattributes }}}>
     {{> core/local/toast/wrapper}}
@@ -70,16 +70,6 @@
 
     </div>
 
-    {{#js}}
-        $(document).ready(function(){
-        $("#page-admin-setting-themesettingalpha .tab-pane .rui-setting-heading-wrapper").nextUntil("#page-admin-setting-themesettingalpha .tab-pane .rui-setting-heading-wrapper").addClass("hidden");
-        });
-        $("#page-admin-setting-themesettingalpha .tab-pane .rui-setting-heading-wrapper").click(function() {
-        $(this).nextUntil("#page-admin-setting-themesettingalpha .rui-setting-heading-wrapper").toggleClass("hidden");
-        $(this).toggleClass("active");
-        });
-    {{/js}}
-
     <script>
         if (document.getElementsByTagName("body")[0].id.match(/page-admin-setting-themesettingalpha/)) {
             for (let i = 1; i <= 23; i++) {
@@ -126,6 +116,7 @@
         }
     </script>
     {{#js}}
+    require(['jquery'], function($) {
         var $wrapper = $('#theme_alpha_scb');
         $wrapper.find('.rui-settings-item').sort(function (a, b) {
         return +a.dataset.blockPosition - +b.dataset.blockPosition;
@@ -137,6 +128,15 @@
         return +a.dataset.blockPosition - +b.dataset.blockPosition;
         }).appendTo( $wrapper );
         });
+
+        $(document).ready(function(){
+            $("#page-admin-setting-themesettingalpha .tab-pane .rui-setting-heading-wrapper").nextUntil("#page-admin-setting-themesettingalpha .tab-pane .rui-setting-heading-wrapper").addClass("hidden");
+            });
+            $("#page-admin-setting-themesettingalpha .tab-pane .rui-setting-heading-wrapper").click(function() {
+            $(this).nextUntil("#page-admin-setting-themesettingalpha .rui-setting-heading-wrapper").toggleClass("hidden");
+            $(this).toggleClass("active");
+        });
+    });
     {{/js}}
 
 </body>

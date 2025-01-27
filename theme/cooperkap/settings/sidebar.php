@@ -64,21 +64,21 @@ $name = 'theme_cooperkap/customstcontent';
 $title = get_string('customstcontent', 'theme_cooperkap');
 $description = get_string('customstcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/customsmcontent';
 $title = get_string('customsmcontent', 'theme_cooperkap');
 $description = get_string('customsmcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/customsfcontent';
 $title = get_string('customsfcontent', 'theme_cooperkap');
 $description = get_string('customsfcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/hcourseindexdrawer';
@@ -91,14 +91,14 @@ $name = 'theme_cooperkap/customcitcontent';
 $title = get_string('customcitcontent', 'theme_cooperkap');
 $description = get_string('customcitcontent_desc', 'theme_cooperkap', $a);
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/customcibcontent';
 $title = get_string('customcibcontent', 'theme_cooperkap');
 $description = get_string('customcibcontent_desc', 'theme_cooperkap');
 $default = '';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 // Label.

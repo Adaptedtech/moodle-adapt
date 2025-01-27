@@ -85,7 +85,7 @@ class course {
      * @return array
      */
     public function get_course_contacts() {
-        $theme = \theme_config::load('cooperkap');
+        $theme = \theme_config::load('alpha');
 
         $contacts = [];
         if ($this->course->has_course_contacts() && $theme->settings->cccteachers == 1) {

@@ -84,7 +84,7 @@ $page->add($setting);
 $name = 'theme_cooperkap/customlogotxt';
 $title = get_string('customlogotxt', 'theme_cooperkap');
 $description = get_string('customlogotxt_desc', 'theme_cooperkap');
-$default = 'cooperkap';
+$default = 'alpha';
 $setting = new admin_setting_configtext($name, $title, $description, $default);
 $page->add($setting);
 

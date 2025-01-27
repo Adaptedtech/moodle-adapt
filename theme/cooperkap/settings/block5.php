@@ -68,7 +68,7 @@ $title = get_string('blockhtmlcontent', 'theme_cooperkap');
 $description = get_string('blockhtmlcontent_desc', 'theme_cooperkap');
 $default = '<div class="wrapper-fw rui-block-desc rui-block-desc--lg">
 Custom block no.5 allows you to display multiple logotypes.</div>';
-$setting = new cooperkap_setting_confightmleditor($name, $title, $description, $default);
+$setting = new alpha_setting_confightmleditor($name, $title, $description, $default);
 $page->add($setting);
 
 $name = 'theme_cooperkap/block5footercontent';

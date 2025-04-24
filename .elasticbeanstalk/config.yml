@@ -1,6 +1,6 @@
 branch-defaults:
   KavaEdu:
-    environment: null
+    environment: kavaedu-lms
 global:
   application_name: KavaEdu
   branch: null

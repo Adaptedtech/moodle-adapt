@@ -16,8 +16,8 @@
 
 /**
  *
- * @package   theme_alpha
- * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
+ * @package   theme_space
+ * @copyright Copyright © 2022 onwards, Marcin Czaja (https://rosea.io)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__ . '/renderers/renderer-lesson.php');
 require_once(__DIR__ . '/renderers/renderer-badges.php');
 require_once(__DIR__ . '/renderers/renderer-blog.php');
-require_once(__DIR__ . '/renderers/renderer-forum.php');
+
 require_once(__DIR__ . '/renderers/renderer-quiz.php');
 require_once(__DIR__ . '/renderers/renderer-workshop.php');
 require_once(__DIR__ . '/renderers/renderer-tags.php');

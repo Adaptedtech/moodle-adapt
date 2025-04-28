@@ -254,8 +254,8 @@ $THEME->activityheaderconfig = [
     'notitle' => true
 ];
 
-if ($THEME->settings->hidecourseindexnav == 0) {
-    $THEME->usescourseindex = true;
-} else {
-    $THEME->usescourseindex = false;
+// Set course index navigation visibility based on theme settings
+if (!isset($THEME->settings->hidecourseindexnav)) {
+    throw new \coding_exception('Theme setting hidecourseindexnav is not defined');
 }
+$THEME->usescourseindex = ($THEME->settings->hidecourseindexnav == 0);

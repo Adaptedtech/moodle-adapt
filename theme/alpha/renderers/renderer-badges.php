@@ -14,31 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- *
- * @package   theme_alpha
- * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- */
-
 defined('MOODLE_INTERNAL') || die();
 
+// Badges.
 require_once($CFG->dirroot . "/badges/renderer.php");
-
-/**
- * Customization - Badge Renderer
- * @package   theme_alpha
- * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- */
 class theme_alpha_core_badges_renderer extends core_badges_renderer {
 
-    /**
-     * Print Badges List
-     *
-     */
+    // Outputs badges list.
     public function print_badges_list($badges, $userid, $profile = false, $external = false) {
         global $USER, $CFG;
         foreach ($badges as $badge) {
@@ -79,26 +61,26 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                 }
             }
 
-            $name = html_writer::tag('span', $bname, ['class' => 'badge-name']);
+            $name = html_writer::tag('span', $bname, array('class' => 'badge-name'));
 
-            $image = html_writer::empty_tag('img', ['src' => $imageurl, 'class' => 'badge-image']);
+            $image = html_writer::empty_tag('img', array('src' => $imageurl, 'class' => 'badge-image'));
             if (!empty($badge->dateexpire) && $badge->dateexpire < time()) {
                 $image .= $this->output->pix_icon(
                     'i/expired',
                     get_string('expireddate', 'badges', userdate($badge->dateexpire)),
                     'moodle',
-                    ['class' => 'expireimage']
+                    array('class' => 'expireimage')
                 );
                 $name .= '(' . get_string('expired', 'badges') . ')';
             }
 
             $download = $status = $push = '';
             if (($userid == $USER->id) && !$profile) {
-                $params = [
+                $params = array(
                     'download' => $badge->id,
                     'hash' => $badge->uniquehash,
-                    'sesskey' => sesskey(),
-                ];
+                    'sesskey' => sesskey()
+                );
                 $url = new moodle_url(
                     'mybadges.php',
                     $params
@@ -106,13 +88,13 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                 $notexpiredbadge = (empty($badge->dateexpire) || $badge->dateexpire > time());
                 $userbackpack = badges_get_user_backpack();
                 if (!empty($CFG->badges_allowexternalbackpack) && $notexpiredbadge && $userbackpack) {
-                    $assertion = new moodle_url('/badges/assertion.php', ['b' => $badge->uniquehash]);
+                    $assertion = new moodle_url('/badges/assertion.php', array('b' => $badge->uniquehash));
                     $icon = new pix_icon('t/backpack', get_string('addtobackpack', 'badges'));
                     if (badges_open_badges_backpack_api($userbackpack->id) == OPEN_BADGES_V2) {
-                        $addurl = new moodle_url('/badges/backpack-add.php', ['hash' => $badge->uniquehash]);
+                        $addurl = new moodle_url('/badges/backpack-add.php', array('hash' => $badge->uniquehash));
                         $push = $this->output->action_icon($addurl, $icon);
                     } else if (badges_open_badges_backpack_api($userbackpack->id) == OPEN_BADGES_V2P1) {
-                        $addurl = new moodle_url('/badges/backpack-export.php', ['hash' => $badge->uniquehash]);
+                        $addurl = new moodle_url('/badges/backpack-export.php', array('hash' => $badge->uniquehash));
                         $push = $this->output->action_icon($addurl, $icon);
                     }
                 }
@@ -138,7 +120,7 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                 </svg>';
                 $download = '<a class="btn btn-icon btn-secondary" href="' . $url . '">' . $downloadicon . '</a>';
                 if ($badge->visible) {
-                    $url = new moodle_url('mybadges.php', ['hide' => $badge->issuedid, 'sesskey' => sesskey()]);
+                    $url = new moodle_url('mybadges.php', array('hide' => $badge->issuedid, 'sesskey' => sesskey()));
                     $hideicon = '<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor"
                         stroke-linecap="round"
@@ -164,7 +146,7 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                         $hideicon .
                         '</a>';
                 } else {
-                    $url = new moodle_url('mybadges.php', ['show' => $badge->issuedid, 'sesskey' => sesskey()]);
+                    $url = new moodle_url('mybadges.php', array('show' => $badge->issuedid, 'sesskey' => sesskey()));
                     $showicon = '<svg width="24" height="24"
                         fill="none"
                         viewBox="0 0 24 24"><path stroke="currentColor"
@@ -187,205 +169,20 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
             }
 
             if (!$profile) {
-                $url = new moodle_url('badge.php', ['hash' => $badge->uniquehash]);
+                $url = new moodle_url('badge.php', array('hash' => $badge->uniquehash));
             } else {
                 if (!$external) {
-                    $url = new moodle_url('/badges/badge.php', ['hash' => $badge->uniquehash]);
+                    $url = new moodle_url('/badges/badge.php', array('hash' => $badge->uniquehash));
                 } else {
                     $hash = hash('md5', $badge->hostedUrl);
-                    $url = new moodle_url('/badges/external.php', ['hash' => $hash, 'user' => $userid]);
+                    $url = new moodle_url('/badges/external.php', array('hash' => $hash, 'user' => $userid));
                 }
             }
-            $actions = html_writer::tag('div', $push . $download . $status, ['class' => 'rui-badge-actions']);
-            $items[] = html_writer::link($url, $image . $name . $actions, ['title' => $bname]);
+            $actions = html_writer::tag('div', $push . $download . $status, array('class' => 'rui-badge-actions'));
+            $items[] = html_writer::link($url, $image . $name . $actions, array('title' => $bname));
         }
 
-        return html_writer::alist($items, ['class' => 'badges rui-list-group']);
-    }
-
-    /**
-     * Prints action icons for the badge.
-     *
-     */
-    public function print_badge_table_actions($badge, $context) {
-        $actions = "";
-
-        if (has_capability('moodle/badges:configuredetails', $context) && $badge->has_criteria()) {
-            // Activate/deactivate badge.
-            if ($badge->status == BADGE_STATUS_INACTIVE || $badge->status == BADGE_STATUS_INACTIVE_LOCKED) {
-                // Activate will go to another page and ask for confirmation.
-                $url = new moodle_url('/badges/action.php');
-                $url->param('id', $badge->id);
-                $url->param('activate', true);
-                $url->param('sesskey', sesskey());
-                $return = new moodle_url(qualified_me());
-                $url->param('return', $return->out_as_local_url(false));
-                $actions .= '<a class="btn btn-icon btn-outline-secondary mr-1" href="' .
-                    $url .
-                    '" title="' .
-                    get_string('activate', 'badges') .
-                    '">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M19.25 12C19.25 13 17.5 18.25 12 18.25C6.5 18.25 4.75
-                    13 4.75 12C4.75 11 6.5 5.75 12 5.75C17.5 5.75 19.25 11
-                    19.25 12Z"></path>
-                <circle cx="12" cy="12" r="2.25"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"></circle>
-                </svg>
-                </a>';
-            } else {
-                $url = new moodle_url(qualified_me());
-                $url->param('lock', $badge->id);
-                $url->param('sesskey', sesskey());
-                $actions .= '<a class="btn btn-icon btn-outline-secondary mr-1" href="' .
-                    $url .
-                    '" title="' .
-                    get_string('deactivate', 'badges') .
-                    '">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M18.6247 10C19.0646 10.8986 19.25 11.6745 19.25 12C19.25
-                    13 17.5 18.25 12 18.25C11.2686 18.25 10.6035 18.1572 10
-                    17.9938M7 16.2686C5.36209 14.6693 4.75
-                    12.5914 4.75 12C4.75 11 6.5 5.75 12 5.75C13.7947 5.75
-                    15.1901 6.30902 16.2558 7.09698"></path>
-                <path stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M19.25 4.75L4.75 19.25"></path>
-                <path stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M10.409 13.591C9.53033 12.7123 9.53033 11.2877 10.409
-                    10.409C11.2877 9.5303 12.7123 9.5303 13.591 10.409"></path>
-                </svg>
-                </a>';
-            }
-        }
-
-        // Award badge manually.
-        if (
-            $badge->has_manual_award_criteria() &&
-            has_capability('moodle/badges:awardbadge', $context) &&
-            $badge->is_active()
-        ) {
-            $url = new moodle_url('/badges/award.php', ['id' => $badge->id]);
-            $actions .= '<a class="btn btn-icon btn-outline-secondary mr-1" href="' .
-                $url .
-                '" title="' .
-                get_string('award', 'badges') .
-                '">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.25 10C17.25 12.8995 14.8995 15.25 12 15.25C9.10051
-            15.25 6.75 12.8995 6.75 10C6.75 7.10051 9.10051
-            4.75 12 4.75C14.8995 4.75 17.25 7.10051 17.25 10Z"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            <path d="M8.75 14.75L7.75 19.25L12 17.75L16.25 19.25L15.25 14.75"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            </a>';
-        }
-
-        // Edit badge.
-        if (has_capability('moodle/badges:configuredetails', $context)) {
-            $url = new moodle_url('/badges/edit.php', ['id' => $badge->id, 'action' => 'badge']);
-            $actions .= '<a class="btn btn-icon btn-outline-secondary mr-1" href="' .
-                $url .
-                '" title="' .
-                get_string('edit') .
-                '">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M4.75 19.25L9 18.25L18.2929 8.95711C18.6834 8.56658 18.6834
-                7.93342 18.2929 7.54289L16.4571
-                5.70711C16.0666 5.31658 15.4334 5.31658 15.0429 5.70711L5.75
-                15L4.75 19.25Z"></path>
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M19.25 19.25H13.75"></path>
-            </svg>
-            </a>';
-        }
-
-        // Duplicate badge.
-        if (has_capability('moodle/badges:createbadge', $context)) {
-            $url = new moodle_url(
-                '/badges/action.php',
-                ['copy' => '1', 'id' => $badge->id, 'sesskey' => sesskey()]
-            );
-            $actions .= '<a class="btn btn-icon btn-outline-secondary mr-1" href="' .
-                $url .
-                '" title="' . get_string('copy') . '">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M6.5 15.25V15.25C5.5335 15.25 4.75 14.4665 4.75 13.5V6.75C4.75 5.64543 5.64543 4.75
-                6.75 4.75H13.5C14.4665 4.75 15.25 5.5335 15.25 6.5V6.5"></path>
-            <rect width="10.5"
-                height="10.5"
-                x="8.75"
-                y="8.75"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                rx="1.5"></rect>
-            </svg>
-            </a>';
-        }
-
-        // Delete badge.
-        if (has_capability('moodle/badges:deletebadge', $context)) {
-            $url = new moodle_url(qualified_me());
-            $url->param('delete', $badge->id);
-            $actions .= '<a class="btn btn-icon btn-outline-danger mr-1" href="' . $url . '"
-            title="' . get_string('delete') . '">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M6.75 7.75L7.59115 17.4233C7.68102 18.4568 8.54622 19.25 9.58363
-                19.25H14.4164C15.4538 19.25 16.319 18.4568 16.4088 17.4233L17.25 7.75"></path>
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M9.75 7.5V6.75C9.75 5.64543 10.6454 4.75 11.75 4.75H12.25C13.3546
-                4.75 14.25 5.64543 14.25 6.75V7.5"></path>
-            <path stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M5 7.75H19"></path>
-            </svg></a>';
-        }
-
-        return $actions;
+        return html_writer::alist($items, array('class' => 'badges rui-list-group'));
     }
 
     /**
@@ -412,25 +209,23 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
 
         // Download all button.
         $actionhtml = $this->output->single_button(
-            new moodle_url('/badges/mybadges.php', ['downloadall' => true, 'sesskey' => sesskey()]),
+            new moodle_url('/badges/mybadges.php', array('downloadall' => true, 'sesskey' => sesskey())),
             get_string('downloadall'),
             'POST',
-            ['class' => 'activatebadge ml-auto']
+            array('class' => 'activatebadge ml-auto')
         );
 
         $downloadall = $this->output->container($actionhtml, 'rui-downloadall text-right');
         $downloadall = $this->output->container($downloadall, 'rui-downloadall-wrapper mt-3');
 
         // Local badges.
-        $localhtml = html_writer::start_tag(
-            'div',
-            ['id' => 'issued-badge-table', 'class' => 'wrapper-fw mb-5']
-        );
-        $sitename = format_string($SITE->fullname, true, ['context' => context_system::instance()]);
+        $localhtml = html_writer::start_tag('div',
+            array('id' => 'issued-badge-table', 'class' => 'wrapper-fw mb-5'));
+        $sitename = format_string($SITE->fullname, true, array('context' => context_system::instance()));
         $heading = get_string('localbadges', 'badges', $sitename);
         $localhtml .= $this->output->heading_with_help($heading, 'localbadgesh', 'badges', '', '', 2, $classnames = 'mb-3');
         if ($badges->badges) {
-            $countmessage = '<hr /><svg class="mr-2"
+            $countmessage = '<hr /><svg class="me-2"
                 width="24"
                 height="24"
                 fill="none"
@@ -444,7 +239,7 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"></circle></svg>' .
-                get_string('badgesearned', 'badges', $badges->totalcount) . '<hr />';
+                    get_string('badgesearned', 'badges', $badges->totalcount) . '<hr />';
 
             $htmllist = $this->print_badges_list($badges->badges, $USER->id);
             $localhtml .= $backpackconnect . $countmessage . $searchform;
@@ -457,16 +252,9 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         // External badges.
         $externalhtml = "";
         if (!empty($CFG->badges_allowexternalbackpack)) {
-            $externalhtml .= html_writer::start_tag('div', ['class' => 'wrapper-fw mt-4']);
-            $externalhtml .= $this->output->heading_with_help(
-                get_string('externalbadges', 'badges'),
-                'externalbadges',
-                'badges',
-                '',
-                '',
-                5,
-                'mb-3'
-            );
+            $externalhtml .= html_writer::start_tag('div', array('class' => 'wrapper-fw mt-4'));
+            $externalhtml .= $this->output->heading_with_help(get_string('externalbadges', 'badges'),
+                'externalbadges', 'badges', '', '', 5, 'mb-3');
             if (!is_null($backpack)) {
                 if ($backpack->totalcollections == 0) {
                     $externalhtml .= get_string('nobackpackcollectionssummary', 'badges', $backpack);
@@ -475,12 +263,8 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                         $externalhtml .= get_string('nobackpackbadgessummary', 'badges', $backpack);
                     } else {
                         $externalhtml .= get_string('backpackbadgessummary', 'badges', $backpack);
-                        $externalhtml .= '<br/><br/>' . $this->print_badges_list(
-                            $backpack->badges,
-                            $USER->id,
-                            true,
-                            true
-                        );
+                        $externalhtml .= '<br/><br/>' . $this->print_badges_list($backpack->badges,
+                            $USER->id, true, true);
                     }
                 }
             } else {
@@ -513,7 +297,7 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
             $description = $badge->description;
             $criteria = self::print_badge_criteria($badge);
             if ($badge->dateissued) {
-                $iconcheck = '<svg class="mr-2"
+                $iconcheck = '<svg class="me-2"
                     width="24"
                     height="24"
                     fill="none"
@@ -532,11 +316,9 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                         stroke-width="2"
                         d="M9.75 12.75L10.1837 13.6744C10.5275 14.407 11.5536
                         14.4492 11.9564 13.7473L14.25 9.75"></path></svg>';
-                $criteriatxt = $iconcheck . get_string('dateearned', 'badges', userdate(
-                    $badge->dateissued,
-                    get_string('strftimedatefullshort', 'core_langconfig')
-                ));
-                $badgeurl = new moodle_url('/badges/badge.php', ['hash' => $badge->uniquehash]);
+                $criteriatxt = $iconcheck . get_string('dateearned', 'badges', userdate($badge->dateissued,
+                    get_string('strftimedatefullshort', 'core_langconfig')));
+                $badgeurl = new moodle_url('/badges/badge.php', array('hash' => $badge->uniquehash));
                 $awarded = '<a class="d-inline-flex align-items-center" href="' . $badgeurl . '">' . $criteriatxt . '</a>';
             } else {
                 $awarded = "";
@@ -545,28 +327,22 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
             $output .= '<div class="m-0">';
             $output .= '<div class="rui-badge-overview-wrapper
                 border rounded w-100 p-4 mt-2 mb-2 d-inline-flex align-items-start">';
-            $output .= '<div class="border rounded p-4 mr-6">' . $badgeimage . '</div>';
-            $output .= html_writer::start_tag('div', ['class' => 'rui-badge-overview']);
-            $output .= html_writer::start_tag('h4', ['class' => 'rui-badge-name mt-2']);
+            $output .= '<div class="border rounded p-4 me-6">' . $badgeimage . '</div>';
+            $output .= html_writer::start_tag('div', array('class' => 'rui-badge-overview'));
+            $output .= html_writer::start_tag('h4', array('class' => 'rui-badge-name mt-2'));
             $output .= $name;
             $output .= html_writer::end_tag('h4');
-            $output .= html_writer::start_tag(
-                'div',
-                ['class' => 'rui-badge-desc mt-3']
-            );
-            $output .= html_writer::start_tag(
-                'h5',
-                ['class' => 'd-inline-flex align-items-center w-100']
-            );
+            $output .= html_writer::start_tag('div',
+                array('class' => 'rui-badge-desc mt-3'));
+            $output .= html_writer::start_tag('h5',
+                array('class' => 'd-inline-flex align-items-center w-100'));
             $output .= get_string('description', 'badges');
             $output .= html_writer::end_tag('h5');
             $output .= $description;
 
-            $output .= html_writer::start_tag(
-                'h5',
-                ['class' => 'd-inline-flex align-items-center w-100 mt-4']
-            );
-            $output .= '<svg class="mr-2" width="24"
+            $output .= html_writer::start_tag('h5',
+                array('class' => 'd-inline-flex align-items-center w-100 mt-4'));
+            $output .= '<svg class="me-2" width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -577,11 +353,11 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                     stroke-linecap="round" stroke-linejoin="round"></path></svg>' .
                 get_string('bcriteria', 'badges');
             $output .= html_writer::end_tag('h5');
-            $output .= '<div class="ml-4">' . $criteria . '</div>';
+            $output .= '<div class="ms-4">' . $criteria . '</div>';
 
             if (!empty($awarded)) {
-                $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100 mt-4']);
-                $output .= '<svg class="mr-2"
+                $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100 mt-4'));
+                $output .= '<svg class="me-2"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -599,7 +375,7 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                         stroke-linecap="round" stroke-linejoin="round"></path></svg>' .
                     get_string('awardedtoyou', 'badges');
                 $output .= html_writer::end_tag('h5');
-                $output .= '<div class="ml-4">' . $awarded . '</div>';
+                $output .= '<div class="ms-4">' . $awarded . '</div>';
             }
 
             $output .= html_writer::end_tag('div');
@@ -611,122 +387,6 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         return $output;
     }
 
-    /**
-     * Render a table of badges.
-     *
-     * @param \core_badges\output\badge_management $badges
-     * @return string
-     */
-    protected function render_badge_management(\core_badges\output\badge_management $badges) {
-        // New badge button.
-        $htmlnew = '';
-        if (has_capability('moodle/badges:createbadge', $this->page->context)) {
-            $n['type'] = $this->page->url->get_param('type');
-            $n['id'] = $this->page->url->get_param('id');
-            $btn = $this->output->single_button(new moodle_url('newbadge.php', $n), get_string('newbadge', 'badges'));
-            $htmlnew = $this->output->box($btn);
-        }
-
-        $output = '';
-
-        $output .= '<div class="rui-badge-wrapper">';
-        foreach ($badges->badges as $b) {
-            $style = !$b->is_active() ? 'rui-badge-not-available' : '';
-            $badgeimage = print_badge_image($b, $this->page->context, 'large');
-            $forlink = html_writer::start_tag('span') . $b->name . html_writer::end_tag('span');
-            $name = html_writer::link(new moodle_url('/badges/overview.php', ['id' => $b->id]), $forlink);
-
-            if (!$b->is_active()) {
-                $status = '<span class="badge badge-danger">' . $b->statstring . '</span>';
-            } else {
-                $status = '<span class="badge badge-success">' . $b->statstring . '</span>';
-            }
-
-            $criteria = self::print_badge_criteria($b, 'short');
-
-            $output .= '<div class="rui-badge-box w-100 ' . $style . '">';
-            $output .= '<div class="rui-badge-overview-actions d-flex justify-content-between"><div>' .
-                self::print_badge_table_actions($b, $this->page->context) . '</div>' .
-                $status .
-                '</div>';
-
-            $output .= '<div class="d-inline-flex align-items-start w-100">';
-            $output .= '<div class="border rounded p-5 mr-6">' . $badgeimage . '</div>';
-            $output .= html_writer::start_tag('div', ['class' => 'rui-badge-overview']);
-
-            $output .= html_writer::start_tag('h4', ['class' => 'rui-badge-name mt-2']);
-            $output .= $name;
-            $output .= html_writer::end_tag('h4');
-            $output .= html_writer::start_tag('div', ['class' => 'rui-badge-desc']);
-
-            $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100 mt-2']);
-            $output .= '<svg class="mr-2"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.75 13.25H6.75L13.25 4.75V10.75H17.25L10.75 19.25V13.25Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path></svg>' . get_string('bcriteria', 'badges');
-            $output .= html_writer::end_tag('h5');
-            $output .= '<div class="ml-4">' . $criteria . '</div>';
-
-            if (has_capability('moodle/badges:viewawarded', $this->page->context)) {
-                $awards = html_writer::link(new moodle_url('/badges/recipients.php', ['id' => $b->id]), $b->awards);
-                $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100 mt-4']);
-                $output .= '<svg class="mr-2"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.25 10C17.25 12.8995 14.8995 15.25 12 15.25C9.10051 15.25 6.75
-                    12.8995 6.75 10C6.75 7.10051 9.10051 4.75 12 4.75C14.8995 4.75 17.25
-                    7.10051 17.25 10Z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                    <path d="M8.75 14.75L7.75 19.25L12 17.75L16.25 19.25L15.25 14.75"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path></svg>' . get_string('awards', 'badges');
-                $output .= html_writer::end_tag('h5');
-                $output .= '<div class="ml-4">' . $awards . '</div>';
-            } else {
-                $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100 mt-4']);
-                $output .= '<svg class="mr-2"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.25 10C17.25 12.8995 14.8995 15.25 12 15.25C9.10051 15.25 6.75 12.8995 6.75
-                    10C6.75 7.10051 9.10051 4.75 12 4.75C14.8995 4.75 17.25 7.10051 17.25 10Z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                    <path d="M8.75 14.75L7.75 19.25L12 17.75L16.25 19.25L15.25 14.75"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path></svg>' .
-                    get_string('awards', 'badges');
-                $output .= html_writer::end_tag('h5');
-                $output .= '<div class="ml-4">' . $b->awards . '</div>';
-            }
-
-            $output .= html_writer::end_tag('div'); // End .rui-badge-desc.
-            $output .= html_writer::end_tag('div'); // End .rui-badge-overview.
-            $output .= '</div>';
-            $output .= '</div>';
-        }
-        $output .= '</div>';
-        return $output;
-    }
 
     /**
      * Prints badge status box.
@@ -738,14 +398,14 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         if (has_capability('moodle/badges:configurecriteria', $badge->get_context())) {
 
             if (!$badge->has_criteria()) {
-                $criteriaurl = new moodle_url('/badges/criteria.php', ['id' => $badge->id]);
+                $criteriaurl = new moodle_url('/badges/criteria.php', array('id' => $badge->id));
                 $status = get_string('nocriteria', 'badges');
                 if ($this->page->url != $criteriaurl) {
                     $action = $this->output->single_button(
                         $criteriaurl,
                         get_string('addcriteria', 'badges'),
                         'POST',
-                        ['class' => 'activatebadge ml-auto']
+                        array('class' => 'activatebadge ml-auto')
                     );
                 } else {
                     $action = '';
@@ -758,31 +418,31 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                     $action = $this->output->single_button(
                         new moodle_url(
                             '/badges/action.php',
-                            [
+                            array(
                                 'id' => $badge->id,
                                 'lock' => 1,
                                 'sesskey' => sesskey(),
-                                'return' => $this->page->url->out_as_local_url(false),
-                            ]
+                                'return' => $this->page->url->out_as_local_url(false)
+                            )
                         ),
                         get_string('deactivate', 'badges'),
                         'POST',
-                        ['class' => 'activatebadge ml-auto']
+                        array('class' => 'activatebadge ml-auto')
                     );
                 } else {
                     $action = $this->output->single_button(
                         new moodle_url(
                             '/badges/action.php',
-                            [
+                            array(
                                 'id' => $badge->id,
                                 'activate' => 1,
                                 'sesskey' => sesskey(),
-                                'return' => $this->page->url->out_as_local_url(false),
-                            ]
+                                'return' => $this->page->url->out_as_local_url(false)
+                            )
                         ),
                         get_string('activate', 'badges'),
                         'POST',
-                        ['class' => 'activatebadge ml-auto']
+                        array('class' => 'activatebadge ml-auto')
                     );
                 }
 
@@ -791,9 +451,9 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
 
             $style = $badge->is_active() ?
                 'wrapper-fw d-flex align-items-center justify-content-between
-                alert alert-info rui-statusbox active pr-2' :
+                alert alert-info rui-statusbox active pe-2' :
                 'wrapper-fw d-flex align-items-center justify-content-between
-                alert alert-warning rui-statusbox inactive pr-2';
+                alert alert-warning rui-statusbox inactive pe-2';
             return $this->output->container($message, $style);
         }
 
@@ -809,10 +469,10 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
     protected function print_badge_endorsement(badge $badge) {
         $output = '';
         $endorsement = $badge->get_endorsement();
-        $dl = [];
+        $dl = array();
 
-        $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100']);
-        $output .= '<svg class="mr-2"
+        $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100'));
+        $output .= '<svg class="me-2"
             width="24"
             height="24"
             fill="none"
@@ -833,51 +493,42 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         $output .= html_writer::end_tag('h5');
 
         if (!empty($endorsement)) {
-            $output .= html_writer::start_tag('div', ['class' => 'ml-4']);
+            $output .= html_writer::start_tag('div', array('class' => 'ms-4'));
 
             if (!empty(userdate($endorsement->dateissued))) {
-                $output .= html_writer::start_tag('span', ['class' => 'badge badge-light']);
-                $output .= '<span class="mr-1 font-weight-bold">' .
+                $output .= html_writer::start_tag('span', array('class' => 'badge badge-light'));
+                $output .= '<span class="me-1 font-weight-bold">' .
                     get_string('dateawarded', 'badges') .
                     ': </span>' .
                     userdate($endorsement->dateissued);
                 $output .= html_writer::end_tag('span');
             }
 
-            $output .= html_writer::start_tag(
-                'div',
-                ['class' => 'rui-badge-comment w-100 rounded p-4 my-2']
-            );
+            $output .= html_writer::start_tag('div',
+                array('class' => 'rui-badge-comment w-100 rounded p-4 my-2'));
             $output .= '<label>' . get_string('claimcomment', 'badges') . '</label>';
-            $output .= html_writer::start_tag(
-                'p',
-                ['class' => 'd-inline-flex align-items-center w-100 mb-0']
-            );
+            $output .= html_writer::start_tag('p',
+                array('class' => 'd-inline-flex align-items-center w-100 mb-0'));
             $output .= $endorsement->claimcomment;
             $output .= html_writer::end_tag('p');
             $output .= html_writer::end_tag('div');
 
             if (!empty($endorsement->issuername) || !empty($endorsement->issueremail)) {
-                $output .= html_writer::start_tag('span', ['class' => 'alert alert-secondary d-block']);
+                $output .= html_writer::start_tag('span', array('class' => 'alert alert-secondary d-block'));
                 $output .= $endorsement->issuername .
-                    html_writer::tag(
-                        'a',
-                        $endorsement->issueremail,
-                        ['class' => 'ml-3'],
-                        ['href' => "mailto:{$endorsement->issueremail}"]
-                    )
-                    . html_writer::link(
+                    html_writer::tag('a', $endorsement->issueremail,
+                        array('class' => 'ms-3'),
+                        array('href' => 'mailto:' . $endorsement->issueremail))
+                    . html_writer::link($endorsement->issuerurl,
                         $endorsement->issuerurl,
-                        $endorsement->issuerurl,
-                        ['class' => 'ml-3'],
-                        ['target' => '_blank']
-                    );
+                            array('class' => 'ms-3'),
+                            array('target' => '_blank'));
                 $output .= html_writer::end_tag('span');
             }
 
             $output .= html_writer::end_tag('div');
         } else {
-            $output .= html_writer::start_tag('div', ['class' => 'ml-4']);
+            $output .= html_writer::start_tag('div', array('class' => 'ms-4'));
             $output .= get_string('noendorsement', 'badges');
             $output .= html_writer::end_tag('div');
         }
@@ -893,8 +544,8 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
     protected function print_badge_related(badge $badge) {
         $output = '';
         $relatedbadges = $badge->get_related_badges();
-        $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100']);
-        $output .= '<svg class="mr-2"
+        $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100'));
+        $output .= '<svg class="me-2"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -913,14 +564,14 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
             stroke-linejoin="round"></path></svg>' . get_string('relatedbages', 'badges');
         $output .= html_writer::end_tag('h5');
         if (!empty($relatedbadges)) {
-            $items = [];
+            $items = array();
             foreach ($relatedbadges as $related) {
-                $relatedurl = new moodle_url('/badges/overview.php', ['id' => $related->id]);
-                $items[] = html_writer::link($relatedurl->out(), $related->name, ['target' => '_blank']);
+                $relatedurl = new moodle_url('/badges/overview.php', array('id' => $related->id));
+                $items[] = html_writer::link($relatedurl->out(), $related->name, array('target' => '_blank'));
             }
-            $output .= html_writer::alist($items, [], 'ul');
+            $output .= html_writer::alist($items, array(), 'ul');
         } else {
-            $output .= html_writer::start_tag('div', ['class' => 'ml-4']);
+            $output .= html_writer::start_tag('div', array('class' => 'ms-4'));
             $output .= get_string('norelated', 'badges');
             $output .= html_writer::end_tag('div');
         }
@@ -936,8 +587,8 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
     protected function print_badge_alignments(badge $badge) {
         $output = '';
 
-        $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100']);
-        $output .= '<svg class="mr-2"
+        $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100'));
+        $output .= '<svg class="me-2"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -960,50 +611,43 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
 
         $alignments = $badge->get_alignments();
         if (!empty($alignments)) {
-            $items = [];
+            $items = array();
             foreach ($alignments as $alignment) {
                 $urlaligment = new moodle_url(
                     'alignment.php',
-                    ['id' => $badge->id, 'alignmentid' => $alignment->id]
+                    array('id' => $badge->id, 'alignmentid' => $alignment->id)
                 );
-                $items[] = html_writer::link($urlaligment, $alignment->targetname, ['target' => '_blank']);
+                $items[] = html_writer::link($urlaligment, $alignment->targetname, array('target' => '_blank'));
             }
-            $output .= html_writer::alist($items, ['class' => 'ml-4'], 'ul');
+            $output .= html_writer::alist($items, array('class' => 'ms-4'), 'ul');
         } else {
-            $output .= html_writer::start_tag('div', ['class' => 'ml-4']);
+            $output .= html_writer::start_tag('div', array('class' => 'ms-4'));
             $output .= get_string('noalignment', 'badges');
             $output .= html_writer::end_tag('div');
         }
         return $output;
     }
 
-    /**
-     * Prints a badge overview infomation.
-     *
-     */
+    // Prints a badge overview infomation.
     public function print_badge_overview($badge, $context) {
         $languages = get_string_manager()->get_list_of_languages();
 
         $output = '';
-        $output .= html_writer::start_tag('div', ['class' => 'mt-4']);
+        $output .= html_writer::start_tag('div', array('class' => 'mt-4'));
 
-        $output .= html_writer::start_tag(
-            'div',
-            [
-                'class' => 'rui-badge-overview-wrapper
-                border rounded p-4 mt-0 mb-2 d-inline-flex flex-wrap align-items-start w-100',
-            ]
-        );
+        $output .= html_writer::start_tag('div',
+            array('class' => 'rui-badge-overview-wrapper
+                border rounded p-4 mt-0 mb-2 d-inline-flex flex-wrap align-items-start w-100'));
         $output .= '<div class="border rounded p-3 mr-md-6 w-100 w-md-auto">' .
             print_badge_image($badge, $context, 'large') .
             '</div>';
 
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-overview']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-overview'));
         // Badge details.
 
         if (!empty($badge->version)) {
-            $output .= html_writer::start_tag('div', ['class' => 'pb-2 small']);
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= html_writer::start_tag('div', array('class' => 'pb-2 small'));
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('version', 'badges') .
                 ': </span>' .
                 $badge->version;
@@ -1011,8 +655,8 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         }
 
         if (!empty($languages[$badge->language])) {
-            $output .= html_writer::start_tag('div', ['class' => 'pb-2 small']);
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= html_writer::start_tag('div', array('class' => 'pb-2 small'));
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('language') .
                 ': </span>' .
                 $languages[$badge->language];
@@ -1020,23 +664,23 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         }
 
         if (!empty(userdate($badge->timecreated))) {
-            $output .= html_writer::start_tag('div', ['class' => 'pb-2 small']);
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= html_writer::start_tag('div', array('class' => 'pb-2 small'));
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('createdon', 'search') .
                 ': </span>' .
                 userdate($badge->timecreated);
             $output .= html_writer::end_tag('div');
         }
 
-        $output .= html_writer::start_tag('h4', ['class' => 'rui-badge-name']);
+        $output .= html_writer::start_tag('h4', array('class' => 'rui-badge-name'));
         $output .= $badge->name;
         $output .= html_writer::end_tag('h4');
 
         // Issuance details if any.
         if ($badge->can_expire()) {
             if ($badge->expiredate) {
-                $output .= html_writer::start_tag('span', ['class' => 'rui-badge-expires-info']);
-                $output .= '<svg class="mr-2
+                $output .= html_writer::start_tag('span', array('class' => 'rui-badge-expires-info'));
+                $output .= '<svg class="me-2
                     width="24
                     height="24
                     fill="none
@@ -1058,66 +702,67 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                 $output .= html_writer::end_tag('span');
             } else if ($badge->expireperiod) {
                 if ($badge->expireperiod < 60) {
-                    $output .= html_writer::start_tag('span', ['class' => 'rui-badge-expires-info']);
+                    $output .= html_writer::start_tag('span', array('class' => 'rui-badge-expires-info'));
                     $output .= get_string('expireperiods', 'badges', round($badge->expireperiod, 2));
                     $output .= html_writer::end_tag('span');
                 } else if ($badge->expireperiod < 60 * 60) {
-                    $output .= html_writer::start_tag('span', ['class' => 'rui-badge-expires-info']);
+                    $output .= html_writer::start_tag('span', array('class' => 'rui-badge-expires-info'));
                     $output .= get_string('expireperiodm', 'badges', round($badge->expireperiod / 60, 2));
                     $output .= html_writer::end_tag('span');
                 } else if ($badge->expireperiod < 60 * 60 * 24) {
-                    $output .= html_writer::start_tag('span', ['class' => 'rui-badge-expires-info']);
+                    $output .= html_writer::start_tag('span', array('class' => 'rui-badge-expires-info'));
                     $output .= get_string('expireperiodh', 'badges', round($badge->expireperiod / 60 / 60, 2));
                     $output .= html_writer::end_tag('span');
                 } else {
-                    $output .= html_writer::start_tag('span', ['class' => 'badge badge-danger']);
+                    $output .= html_writer::start_tag('span', array('class' => 'badge badge-danger'));
                     $output .= get_string('expireperiod', 'badges', round($badge->expireperiod / 60 / 60 * 0.54, 2));
                     $output .= html_writer::end_tag('span');
                 }
             }
         } else {
-            $output .= html_writer::start_tag('span', ['class' => 'badge badge-success']);
-            $output .= '<span class="mr-1 font-weight-bold">' . get_string('noexpiry', 'badges') . '</span>';
+            $output .= html_writer::start_tag('span', array('class' => 'badge badge-success'));
+            $output .= '<span class="me-1 font-weight-bold">' . get_string('noexpiry', 'badges') . '</span>';
             $output .= html_writer::end_tag('span');
         }
 
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-desc mt-3']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-desc mt-3'));
 
-        $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100']);
+        $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100'));
         $output .= get_string('description', 'badges');
         $output .= html_writer::end_tag('h5');
 
         $output .= $badge->description;
 
-        $output .= html_writer::start_tag('ul', ['class' => 'rui-badge-desc-list mt-3 ml-3']);
+        $output .= html_writer::start_tag('ul', array('class' => 'rui-badge-desc-list mt-3 ms-3'));
 
         if (!empty(userdate($badge->imageauthorname))) {
             $output .= html_writer::start_tag('li');
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('imageauthorname', 'badges') . ': </span>' . $badge->imageauthorname;
             $output .= html_writer::end_tag('li');
         }
 
         if (!empty(userdate($badge->imageauthoremail))) {
             $output .= html_writer::start_tag('li');
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('imageauthoremail', 'badges') .
                 ': </span>' .
-                html_writer::tag('a', $badge->imageauthoremail, ['href' => "mailto:{$badge->imageauthoremail}"]);
+                html_writer::tag('a', $badge->imageauthoremail, array('href' => 'mailto:' .
+                $badge->imageauthoremail));
             $output .= html_writer::end_tag('li');
         }
         if (!empty(userdate($badge->imageauthorurl))) {
             $output .= html_writer::start_tag('li');
-            $output .= '<span class="mr-1 font-weight-bold">' . get_string('imageauthorurl', 'badges') .
-                ': </span>' . html_writer::link($badge->imageauthorurl, $badge->imageauthorurl, ['target' => '_blank']);
+            $output .= '<span class="me-1 font-weight-bold">' . get_string('imageauthorurl', 'badges') .
+                ': </span>' . html_writer::link($badge->imageauthorurl, $badge->imageauthorurl, array('target' => '_blank'));
             $output .= html_writer::end_tag('li');
         }
         if (!empty($badge->imagecaption)) {
             $output .= html_writer::start_tag('li');
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('imagecaption', 'badges') .
-                ': </span>' .
-                $badge->imagecaption;
+                    ': </span>' .
+                    $badge->imagecaption;
             $output .= html_writer::end_tag('li');
         }
         $output .= html_writer::end_tag('div');
@@ -1126,30 +771,27 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         $output .= html_writer::end_tag('div'); // End rui-badge-overview.
 
         if (!empty($badge->issuername) || !empty($badge->issuercontact)) {
-            $output .= html_writer::start_tag('span', ['class' => 'alert alert-secondary d-block']);
-            $output .= '<span class="mr-1 font-weight-bold">' .
+            $output .= html_writer::start_tag('span', array('class' => 'alert alert-secondary d-block'));
+            $output .= '<span class="me-1 font-weight-bold">' .
                 get_string('issuername', 'badges') .
                 ': </span>' .
                 $badge->issuername;
 
             if (!empty($badge->issuername) || !empty($badge->issuercontact)) {
-                $output .= html_writer::tag(
-                    'a',
-                    $badge->issuercontact,
-                    ['href' => "mailto:{$badge->issuercontact}"]
-                );
+                $output .= html_writer::tag('a', $badge->issuercontact,
+                    array('href' => 'mailto:' . $badge->issuercontact));
             }
 
             $output .= html_writer::end_tag('span');
         }
 
-        $output .= html_writer::start_tag('div', ['class' => 'wrapper-fw']);
+        $output .= html_writer::start_tag('div', array('class' => 'wrapper-fw'));
 
         // Criteria details if any.
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-criteria my-4']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-criteria my-4'));
 
-        $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100']);
-        $output .= '<svg class="mr-2"
+        $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100'));
+        $output .= '<svg class="me-2"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -1165,25 +807,25 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
         $output .= html_writer::end_tag('h5');
 
         if ($badge->has_criteria()) {
-            $output .= '<div class="ml-4">' . self::print_badge_criteria($badge) . '</div>';
+            $output .= '<div class="ms-4">' . self::print_badge_criteria($badge) . '</div>';
         } else {
-            $output .= '<p class="ml-4">' . get_string('nocriteria', 'badges') . '</p>';
+            $output .= '<p class="ms-4">' . get_string('nocriteria', 'badges') . '</p>';
             if (has_capability('moodle/badges:configurecriteria', $context)) {
                 $output .= $this->output->single_button(
-                    new moodle_url('/badges/criteria.php', ['id' => $badge->id]),
+                    new moodle_url('/badges/criteria.php', array('id' => $badge->id)),
                     get_string('addcriteria', 'badges'),
                     'POST',
-                    ['class' => 'activatebadge ml-4']
+                    array('class' => 'activatebadge ms-4')
                 );
             }
         }
         $output .= html_writer::end_tag('div');
 
         // Awards details if any.
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-awards my-4']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-awards my-4'));
         if (has_capability('moodle/badges:viewawarded', $context)) {
-            $output .= html_writer::start_tag('h5', ['class' => 'd-inline-flex align-items-center w-100']);
-            $output .= '<svg class="mr-2"
+            $output .= html_writer::start_tag('h5', array('class' => 'd-inline-flex align-items-center w-100'));
+            $output .= '<svg class="me-2"
                 width="24"
                 height="24"
                 fill="none"
@@ -1217,17 +859,17 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                             d="M14.75 10.25C16.2688 10.25 17.25 9.01878 17.25
                             7.5C17.25 5.98122 16.2688 4.75 14.75 4.75"></path>
                             </svg>' .
-                get_string('awards', 'badges');
+                        get_string('awards', 'badges');
             $output .= html_writer::end_tag('h5');
 
             if ($badge->has_awards()) {
-                $url = new moodle_url('/badges/recipients.php', ['id' => $badge->id]);
+                $url = new moodle_url('/badges/recipients.php', array('id' => $badge->id));
                 $a = new stdClass();
                 $a->link = $url->out();
                 $a->count = count($badge->get_awards());
                 $output .= get_string('numawards', 'badges', $a);
             } else {
-                $output .= html_writer::start_tag('div', ['class' => 'ml-4']);
+                $output .= html_writer::start_tag('div', array('class' => 'ms-4'));
                 $output .= get_string('noawards', 'badges');
                 $output .= html_writer::end_tag('div');
             }
@@ -1237,27 +879,27 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
                 $badge->has_manual_award_criteria() &&
                 $badge->is_active()
             ) {
-                $output .= html_writer::start_tag('div', ['class' => 'mt-3 ml-4']);
+                $output .= html_writer::start_tag('div', array('class' => 'mt-3 ms-4'));
                 $output .= $this->output->single_button(
-                    new moodle_url('/badges/award.php', ['id' => $badge->id]),
+                    new moodle_url('/badges/award.php', array('id' => $badge->id)),
                     get_string('award', 'badges'),
                     'POST',
-                    ['class' => 'activatebadge ml-auto']
+                    array('class' => 'activatebadge ml-auto')
                 );
                 $output .= html_writer::end_tag('div');
             }
         }
         $output .= html_writer::end_tag('div');
 
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-endorsement my-4']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-endorsement my-4'));
         $output .= self::print_badge_endorsement($badge);
         $output .= html_writer::end_tag('div');
 
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-related my-4']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-related my-4'));
         $output .= self::print_badge_related($badge);
         $output .= html_writer::end_tag('div');
 
-        $output .= html_writer::start_tag('div', ['class' => 'rui-badge-alignments my-4']);
+        $output .= html_writer::start_tag('div', array('class' => 'rui-badge-alignments my-4'));
         $output .= self::print_badge_alignments($badge);
         $output .= html_writer::end_tag('div');
 
@@ -1281,7 +923,7 @@ class theme_alpha_core_badges_renderer extends core_badges_renderer {
 
         $mform->addElement('hidden', 'sesskey', sesskey());
 
-        $el[] = $mform->createElement('text', 'search', get_string('search'), ['size' => 30]);
+        $el[] = $mform->createElement('text', 'search', get_string('search'), array('size' => 30));
         $mform->setDefault('search', $search);
         $el[] = $mform->createElement('submit', 'submitsearch', get_string('search'));
         $el[] = $mform->createElement('submit', 'clearsearch', get_string('clear'));

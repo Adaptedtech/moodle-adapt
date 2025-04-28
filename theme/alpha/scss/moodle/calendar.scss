@@ -640,7 +640,7 @@ td.day.bg-primary {
 
 
 td.day {
-  [data-toggle=popover] {
+  [data-bs-toggle=popover] {
     font-weight: $font-weight-bold;
     color: $body-color;
   }

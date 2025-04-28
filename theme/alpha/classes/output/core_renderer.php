@@ -387,7 +387,7 @@ class core_renderer extends \core_renderer {
                 $content .= "<div class='course-contact-title-item'><a href='{$url}'
                     'title='{$name}' class='course-contact rui-user-{$roleshortname}'>";
                 $content .= "<img src='{$picture}' class='course-teacher-avatar'
-                    alt='{$name}' title='{$name} - {$role}' data-toggle='tooltip'/>";
+                    alt='{$name}' title='{$name} - {$role}' data-bs-toggle='tooltip'/>";
                 $content .= "</a></div>";
             }
 
@@ -1667,7 +1667,7 @@ class core_renderer extends \core_renderer {
                     case $timelineclassification == 'future':
                         $startdate = date("Y-m-d H:i:s", $course->startdate);
                         $icon = '<div class="rui-sidebar-nav-icon rui-sidebar-nav-icon--future"
-                        data-toggle="tooltip" data-placement="top"
+                        data-bs-toggle="tooltip" data-bs-placement="top"
                         aria-label="' . get_string('filterdatefuture', 'reportbuilder') .'"
                         title="' . $startdate .'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">

@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 20250411005.01; // Y M D V.
+$plugin->version = 20250424006.02; // Y M D V.
 $plugin->maturity = MATURITY_STABLE;
-$plugin->requires = 2024100100; // Moodle 4.5.
+$plugin->requires = 2025040800.00; // Moodle 5.0.
 $plugin->component = 'theme_alpha';
-$plugin->release = '2.5.19 (Build: 20250411005.01)';
+$plugin->release = '2.5.19 (Build: 20250424006.02)';

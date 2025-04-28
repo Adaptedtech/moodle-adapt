@@ -1035,7 +1035,7 @@ textarea[data-auto-rows] {
 .ftoggler {
   position: relative;
 
-  [data-toggle="popover"] {
+  [data-bs-toggle="popover"] {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -1454,7 +1454,7 @@ a[id*="_calendar"] {
 
 
 // Label + info icon
-label+.btn[data-toggle="popover"] {
+label+.btn[data-bs-toggle="popover"] {
   margin: 0 .35rem;
 }
 

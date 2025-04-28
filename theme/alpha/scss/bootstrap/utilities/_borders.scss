@@ -83,3 +83,10 @@
 .rounded-0 {
   border-radius: 0 !important;
 }
+
+.border-secondary {
+  border-color: $border-color!important; 
+  .theme-dark & {
+    border-color: $dm-border-color!important;
+  }
+}

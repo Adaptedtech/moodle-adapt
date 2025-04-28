@@ -34,7 +34,7 @@
     <li data-key="{{key}}" class="dropdown-item-wrapper" role="none" data-forceintomoremenu="{{#forceintomoremenu}}true{{/forceintomoremenu}}{{^forceintomoremenu}}false{{/forceintomoremenu}}">
         {{#istablist}}
             {{#is_action_link}}
-                <a role="tab" class="dropdown-item {{#classes}}{{.}} {{/classes}}" href="{{tab}}" data-toggle="tab" data-text="{{{text}}}" data-disableactive="true" tabindex="-1">
+                <a role="tab" class="dropdown-item {{#classes}}{{.}} {{/classes}}" href="{{tab}}" data-bs-toggle="tab" data-text="{{{text}}}" data-disableactive="true" tabindex="-1">
                     <span class="dropdown-item-text">{{{text}}}</span>
                 </a>
                 {{#action_link_actions}}
@@ -43,7 +43,7 @@
             {{/is_action_link}}
             {{^is_action_link}}
                 <a role="tab" class="nav-link {{#isactive}}active{{/isactive}} {{#classes}}{{.}} {{/classes}}"
-                    href="{{tab}}" data-toggle="tab" data-text="{{{text}}}"
+                    href="{{tab}}" data-bs-toggle="tab" data-text="{{{text}}}"
                     {{#isactive}}aria-selected="true"{{/isactive}}
                     {{^isactive}}tabindex="-1"{{/isactive}}
                 >

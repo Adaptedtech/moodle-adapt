@@ -5444,7 +5444,7 @@ input[type=button].btn-block {
 .rui-form-element-group a .icon {
   opacity: 0.7;
 }
-.rui-form-element-group a[data-toggle=popover] {
+.rui-form-element-group a[data-bs-toggle=popover] {
   margin-right: 0.5rem;
 }
 
@@ -24845,7 +24845,7 @@ td.day.bg-primary {
   filter: invert(0.9);
 }
 
-td.day [data-toggle=popover] {
+td.day [data-bs-toggle=popover] {
   font-weight: 700;
   color: #07011b;
 }
@@ -37502,7 +37502,7 @@ textarea[data-auto-rows] {
 .ftoggler {
   position: relative;
 }
-.ftoggler [data-toggle=popover] {
+.ftoggler [data-bs-toggle=popover] {
   width: 30px;
   height: 25px;
   position: absolute;
@@ -37911,7 +37911,7 @@ a[id*=_calendar] .icon {
   color: #d0d3e3;
 }
 
-label + .btn[data-toggle=popover] {
+label + .btn[data-bs-toggle=popover] {
   margin: 0 0.35rem;
 }
 
@@ -55879,13 +55879,13 @@ button.swiper-pagination-bullet {
 .moremenu .nav-link.focus, .moremenu .nav-link:focus {
   position: relative;
 }
-.moremenu .nav-link[data-toggle=tab] {
+.moremenu .nav-link[data-bs-toggle=tab] {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.moremenu .nav-link[data-toggle=tab]::after {
+.moremenu .nav-link[data-bs-toggle=tab]::after {
   content: attr(data-text)/"";
   height: 0;
   visibility: hidden;

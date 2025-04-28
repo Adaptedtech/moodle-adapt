@@ -23,7 +23,7 @@
     {}
 }}
 <div data-region="view-selector">
-    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle rui-icon-no-margin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle rui-icon-no-margin" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             aria-label="{{#str}} ariaviewselector, block_timeline{{/str}}" aria-controls="menusortby" title="{{#str}} ariaviewselector, block_timeline{{/str}}" aria-describedby="timeline-view-selector-current-selection">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.25 14L4.75 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -41,7 +41,7 @@
         <a
             class="dropdown-item"
             href="#view_dates_{{uniqid}}"
-            data-toggle="tab"
+            data-bs-toggle="tab"
             data-filtername="sortbydates"
             {{#sorttimelinedates}}aria-current="true"{{/sorttimelinedates}}
             aria-label="{{#str}} ariaviewselectoroption, block_timeline, {{#str}} sortbydates, block_timeline {{/str}}{{/str}}"
@@ -52,7 +52,7 @@
         <a
             class="dropdown-item"
             href="#view_courses_{{uniqid}}"
-            data-toggle="tab"
+            data-bs-toggle="tab"
             data-filtername="sortbycourses"
             {{#sorttimelinecourses}}aria-current="true"{{/sorttimelinecourses}}
             aria-label="{{#str}} ariaviewselectoroption, block_timeline, {{#str}} sortbycourses, block_timeline {{/str}}{{/str}}"

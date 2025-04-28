@@ -59,7 +59,7 @@ for ($i = 1; $i <= $block4count; $i++) {
 
     echo '<div class="accordion-item">';
     echo '<h3 class="accordion-header" id="heading' . $i . '">';
-    echo '<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse' .
+    echo '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-target="#collapse' .
         $i .
         '" aria-expanded="false" aria-controls="collapse' . $i . '">';
     echo $q;

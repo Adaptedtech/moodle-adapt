@@ -14,21 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- *
- * @package   theme_alpha
- * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- */
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . "/mod/lesson/renderer.php");
 
-/**
- * Lesson.
- *
- */
+// Lesson.
+require_once($CFG->dirroot . "/mod/lesson/renderer.php");
 class theme_alpha_mod_lesson_renderer extends mod_lesson_renderer {
 
     /**
@@ -101,20 +91,18 @@ class theme_alpha_mod_lesson_renderer extends mod_lesson_renderer {
         global $CFG;
         $output = $this->output->box(get_string('youhaveseen', 'lesson'), 'generalbox boxaligncenter m-0 p-0 w-100');
 
-        $yeslink = html_writer::link(new moodle_url('/mod/lesson/view.php', [
+        $yeslink = html_writer::link(new moodle_url('/mod/lesson/view.php', array(
             'id' => $this->page->cm->id,
-            'pageid' => $lastpageseenid,
-            'startlastseen' => 'yes',
-        ]), get_string('yes'), ['class' => 'btn btn-sm btn-primary']);
-        $output .= html_writer::tag('span', $yeslink, ['class' => 'lessonbutton']);
+            'pageid' => $lastpageseenid, 'startlastseen' => 'yes'
+        )), get_string('yes'), array('class' => 'btn btn-sm btn-primary'));
+        $output .= html_writer::tag('span', $yeslink, array('class' => 'lessonbutton'));
         $output .= '&nbsp;';
 
-        $nolink = html_writer::link(new moodle_url('/mod/lesson/view.php', [
+        $nolink = html_writer::link(new moodle_url('/mod/lesson/view.php', array(
             'id' => $this->page->cm->id,
-            'pageid' => $lesson->firstpageid,
-            'startlastseen' => 'no',
-        ]), get_string('no'), ['class' => 'btn btn-sm btn-secondary']);
-        $output .= html_writer::tag('span', $nolink, ['class' => 'lessonbutton']);
+            'pageid' => $lesson->firstpageid, 'startlastseen' => 'no'
+        )), get_string('no'), array('class' => 'btn btn-sm btn-secondary'));
+        $output .= html_writer::tag('span', $nolink, array('class' => 'lessonbutton'));
 
         return $output;
     }
@@ -218,7 +206,7 @@ class theme_alpha_mod_lesson_renderer extends mod_lesson_renderer {
             $output .= '<div class="my-2 w-100">' . html_writer::link(
                 $data->reviewlesson,
                 get_string('reviewlesson', 'lesson'),
-                ['class' => 'btn btn-sm btn-primary']
+                array('class' => 'btn btn-sm btn-primary')
             ) . '</div>';
         }
         if ($data->modattemptsnoteacher !== false) {
@@ -229,21 +217,21 @@ class theme_alpha_mod_lesson_renderer extends mod_lesson_renderer {
             $output .= $data->activitylink;
         }
 
-        $url = new moodle_url('/course/view.php', ['id' => $course->id]);
+        $url = new moodle_url('/course/view.php', array('id' => $course->id));
         $output .= html_writer::link(
             $url,
             get_string('returnto', 'lesson', format_string($course->fullname, true)),
-            ['class' => 'btn btn-sm btn-secondary']);
+            array('class' => 'btn btn-sm btn-secondary'));
 
         if (
             has_capability('gradereport/user:view', context_course::instance($course->id))
             && $course->showgrades && $lesson->grade != 0 && !$lesson->practice
         ) {
-            $url = new moodle_url('/grade/index.php', ['id' => $course->id]);
+            $url = new moodle_url('/grade/index.php', array('id' => $course->id));
             $output .= '<div class="wrapper-fw mt-2">' . html_writer::link(
                 $url,
                 get_string('viewgrades', 'lesson'),
-                ['class' => 'btn btn-sm btn-outline-primary']
+                array('class' => 'btn btn-sm btn-outline-primary')
             ) . '</div>';
         }
         return $output;

@@ -36,7 +36,7 @@ $string['hgeneralnav_desc'] = 'Here you can turn off elements of the main naviga
 $string['generalsettings'] = 'General settings';
 
 $string['nobootswatch'] = 'None';
-$string['pluginname'] = 'alpha (2.5.19)';
+$string['pluginname'] = 'alpha (2.5.19 - Legacy)';
 $string['privacy:metadata'] = 'The alpha theme does not store any personal data about any user.';
 $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
@@ -1206,7 +1206,7 @@ $string['dmcolor_desc'] = '';
 $string['additionalclass'] = 'Additional Class Name';
 $string['additionalclass_desc'] = '<strong class="badge badge-warning mr-2">Only for developers.</strong><span>You can add multiple class names e.g class1 class2 class3 </span>';
 
-$string['hintro'] = '<img src="{$a->siteurl}/theme/alpha/doc/alpha-icon.png" class="img-fluid rounded my-3" width="80" height="80" alt="Alpha Moodle Theme" /><div class="lead-3">Alpha for Moodle 4.5 LTS</div>';
+$string['hintro'] = '<img src="{$a->siteurl}/theme/alpha/doc/alpha-icon.png" class="img-fluid rounded my-3" width="80" height="80" alt="Alpha Moodle Theme" /><div class="lead-3">Alpha (Legacy) for Moodle 5.0</div>';
 $string['hintro_desc'] = '
 <div class="mt-1 small">by <a href="https://rosea.io">RoseaThemes</a></div><hr class="mt-3" />
 <div class="mt-3"><span class="badge badge-light">Version: 2.5.19</span></div>

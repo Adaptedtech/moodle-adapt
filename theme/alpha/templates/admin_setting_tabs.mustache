@@ -41,7 +41,9 @@
         <ul class="rui-nav--admin nav nav-column flex-lg-column" role="tablist">
             {{#tabs}}
                 <li class="nav-item" data-settings-name="{{name}}">
-                    <a href="#{{name}}" class="nav-link {{#active}}active{{/active}}" data-toggle="tab" role="tab">{{displayname}}</a>
+                    <a href="#{{name}}" class="nav-link {{#active}}active{{/active}}" data-bs-toggle="tab" role="tab"
+                        {{#active}}aria-selected="true"{{/active}}
+                        {{^active}}aria-selected="false" tabindex="-1"{{/active}}>{{displayname}}</a>
                 </li>
             {{/tabs}}
         </ul>

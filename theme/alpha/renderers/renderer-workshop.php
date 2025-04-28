@@ -14,21 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- *
- * @package   theme_alpha
- * @copyright 2022 - 2024 Marcin Czaja (https://rosea.io)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- */
 defined('MOODLE_INTERNAL') || die();
 
+// Workshop.
 require_once($CFG->dirroot . "/mod/workshop/renderer.php");
-
-/**
- * Workshop.
- *
- */
 class theme_alpha_mod_workshop_renderer extends mod_workshop_renderer {
     /**
      * Renders the user plannner tool
@@ -41,30 +30,30 @@ class theme_alpha_mod_workshop_renderer extends mod_workshop_renderer {
         $numberofphases = count($plan->phases);
         $o .= html_writer::start_tag(
             'div',
-            [
+            array(
                 'class' => 'userplan',
                 'aria-labelledby' => 'mod_workshop-userplanheading',
                 'aria-describedby' => 'mod_workshop-userplanaccessibilitytitle',
-            ]
+            )
         );
         $o .= html_writer::start_tag(
             'div',
-            [
-                'class' => 'rui-userplan-container',
-            ]
+            array(
+                'class' => 'rui-userplan-container'
+            )
         );
         $o .= html_writer::span(
             get_string('userplanaccessibilitytitle', 'workshop', $numberofphases),
             'accesshide',
-            ['id' => 'mod_workshop-userplanaccessibilitytitle']
+            array('id' => 'mod_workshop-userplanaccessibilitytitle')
         );
         $o .= html_writer::link(
             '#mod_workshop-userplancurrenttasks',
             get_string('userplanaccessibilityskip', 'workshop'),
-            ['class' => 'accesshide']
+            array('class' => 'accesshide')
         );
         foreach ($plan->phases as $phasecode => $phase) {
-            $o .= html_writer::start_tag('dl', ['class' => 'phase']);
+            $o .= html_writer::start_tag('dl', array('class' => 'phase'));
             $actions = '';
 
             if ($phase->active) {
@@ -99,9 +88,9 @@ class theme_alpha_mod_workshop_renderer extends mod_workshop_renderer {
                 $title = html_writer::span($phase->title, 'phasetitle');
                 $classes .= ' nonactive';
             }
-            $o .= html_writer::start_tag('dt', ['class' => $classes]);
+            $o .= html_writer::start_tag('dt', array('class' => $classes));
             $o .= $this->output->container($title . $actions);
-            $o .= html_writer::start_tag('dd', ['class' => "$classes phasetasks"]);
+            $o .= html_writer::start_tag('dd', array('class' => $classes . ' phasetasks'));
             $o .= $this->helper_user_plan_tasks($phase->tasks);
             $o .= html_writer::end_tag('dd');
             $o .= html_writer::end_tag('dl');

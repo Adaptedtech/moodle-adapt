@@ -90,8 +90,10 @@
                         </h4>
                     </div>
                     <div class="rui-course-card-text">
-                        <span class="sr-only">{{#str}}aria:coursesummary, block_myoverview{{/str}}</span>
-                        {{#shortentext}}200, {{{summary}}}{{/shortentext}}
+                        <a href="{{viewurl}}" class="aalink coursename">
+                            <span class="sr-only">{{#str}}aria:coursesummary, block_myoverview{{/str}}</span>
+                            {{#shortentext}}200, {{{summary}}}{{/shortentext}}
+                        </a>
                     </div>
 
                     {{$coursecategory}}
